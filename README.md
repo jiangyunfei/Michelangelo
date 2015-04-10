@@ -11,7 +11,7 @@ get the text!
 You need install:
 
 libtesseract
-libtesseract3
+libtesseract-dev
 leptonica
 
 run the main/miangui
