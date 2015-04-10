@@ -1,0 +1,7 @@
+chop_enable                         T
+use_new_state_cost                  F
+segment_segcost_rating              F
+enable_new_segsearch            0
+language_model_ngram_on         0
+textord_force_make_prop_words       F
+edges_max_children_per_outline		40
