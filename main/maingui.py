@@ -6,7 +6,7 @@ THis is the Main Window file
 '''
 
 __author__ = 'Jiang Yunfei'
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 __date__ = '2015.04'
 
 import sys
@@ -81,6 +81,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.actionExit.triggered.connect(self.exit)
         
         self.connect(self.param, QtCore.SIGNAL('SaveClicked'),self.save)
+        '''
+        请使用修正后的ViewBox.py文件
+        '''
+        self.connect(self.param, QtCore.SIGNAL('ROIHighlight'),self.roiview.highlightROI)
     
     
     def wirteLog(self,str):
@@ -251,8 +255,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 % (__version__, __date__, __author__,platform.python_version(),
                 QtCore.PYQT_VERSION_STR, platform.system())
                 
-        QtGui.QMessageBox.about(self,'About',info)
-
+        #QtGui.QMessageBox.about(self,'About',info)
+        tag = '#02'
+        self.roiview.highlightROI(tag)
 
     
     def exit(self):

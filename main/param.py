@@ -98,7 +98,10 @@ class Param(QtCore.QObject):
                     if ops in self.ocrIndex:
                         idx = self.ocrIndex.index(ops)
                         self.textList[idx]=data
-                        print('%s -> %s'%(self.textList[idx], data))
+                        #print('%s -> %s'%(self.textList[idx], data))
+                        
+                        self.emit(QtCore.SIGNAL('ROIHighlight'),ops)
+                        print(ops+' -> Emit highlight signal')
                     else:
                         print('Nothing changed!')
                 else:
@@ -108,7 +111,6 @@ class Param(QtCore.QObject):
                         pass
                         
                     if ops == 'Save':
-                        print('Emit save signal!')
                         self.emit(QtCore.SIGNAL('SaveClicked'))
                     print('%s changed!.'%ops)
                     

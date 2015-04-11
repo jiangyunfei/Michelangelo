@@ -137,6 +137,19 @@ class ROIView:
         if self.posDict.has_key(tag):
             self.posDict[tag]=[posx,posy,w,h]
             
+    
+    
+    def highlightROI(self,TAG):
+        if TAG in self.ROIs.keys():
+            item = self.ROIs[TAG]
+        else:
+            print('Not Found!')
+            return
+        
+        print('Highlight->'+TAG)
+        
+        self.vb.locate(item, timeout=2.0)
+    
            
     def removeROI(self,roi):
         tag = roi.getTAG()
