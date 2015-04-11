@@ -98,10 +98,9 @@ class Param(QtCore.QObject):
                     if ops in self.ocrIndex:
                         idx = self.ocrIndex.index(ops)
                         self.textList[idx]=data
-                        #print('%s -> %s'%(self.textList[idx], data))
+                        print('%s -> %s'%(self.textList[idx], data))
                         
                         self.emit(QtCore.SIGNAL('ROIHighlight'),ops)
-                        print(ops+' -> Emit highlight signal')
                     else:
                         print('Nothing changed!')
                 else:

@@ -48,8 +48,6 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         
         self.rectDataList = None
 
-        
-        
     #initialize
     def initUi(self):
         self.roiview = ROIView()

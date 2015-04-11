@@ -8,7 +8,6 @@ import os
 import locale
 import ctypes
 from libs import tesstool
-from chardet.universaldetector import UniversalDetector
 
 
 class TessMgr:

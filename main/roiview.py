@@ -145,9 +145,7 @@ class ROIView:
         else:
             print('Not Found!')
             return
-        
-        print('Highlight->'+TAG)
-        
+                
         self.vb.locate(item, timeout=2.0)
     
            
