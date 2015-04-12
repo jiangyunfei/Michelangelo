@@ -17,32 +17,31 @@ class FileMgr:
         initialize
         '''
         self.leptonica = lepttool.get_leptonica()
-        self.__isLoad = False
         self.parent = parent
         self.image_dir = None
-        self.__isLoad = False
+        
+        self.file_dir = QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.PicturesLocation)
         
     def openFile(self,type):
         if type == 'image':
             """Load Image
             """
-            
-            #input_dir = sett.readSetting('images/input_dir')
-            input_dir = QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.PicturesLocation)
-            
-            image_dir = QtGui.QFileDialog.getOpenFileName(self.parent,'Open Image file',input_dir,
+            image_dir = QtGui.QFileDialog.getOpenFileName(self.parent,'Open Image file',self.file_dir,
                         'Images (*.jpg *.jpeg *.bmp *.png *.tiff *.tif *.gif);;All files (*.*)')
             if image_dir:
                 self.image_dir = image_dir
-                self.__isLoad = False
                 return image_dir
-            else:
-                return
             
+        elif type == 'json':
+            filePath = QtGui.QFileDialog.getOpenFileName(self.parent, 'Save file',self.file_dir,
+                                                     'JSON (*.json);;All files (*.*)')
+            if filePath:
+                return filePath
+                        
     def getImage(self,image_dir,type):
         
-        if not self.__isLoad:
-            self.loadIamge(image_dir)
+
+        self.loadIamge(image_dir)
         
         if type == 'PIX':
             return self.pix_image
@@ -53,7 +52,13 @@ class FileMgr:
         else:
             print('Type Wrong!')
             return
-        
+    
+    def parseJson(self,filePath):
+        with open(filePath) as data_file:    
+            data = json.load(data_file)
+        if data:
+            return data   
+    
         
     def loadIamge(self,filename):
         self.image_name = str(filename)  # filename must be c-string
@@ -79,24 +84,29 @@ class FileMgr:
         if data is None:
             return
         
-        output_dir = QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.DocumentsLocation)
-        filePath = QtGui.QFileDialog.getSaveFileName(self.parent, 'Save file',output_dir,
-                                                     'FILE (*.json,*.txt);')
+        filePath = QtGui.QFileDialog.getSaveFileName(self.parent, 'Save file',self.file_dir,
+                                                     'FILE (*.json,*.txt);;All files (*.*)')
         if filePath:
             outfile_dir = filePath+format
             outfile = open(outfile_dir, "w")
             if format =='.json':
                 json.dump(data, outfile)
             elif format == '.txt':
-                for key in data.keys():
+                keys = sorted(data.keys())
+                for key in keys:
+                    if key == 'IMG':
+                        continue
                     val = data[key]
-                    outfile.write('%s : %s'%(key,val['text']))
-                    print('%s : %s' % (key,val['text']))
+                    text = val['text']
+                    outfile.write('\n%s : \n%s\n'%(key,text.encode('utf-8')))
+
+                
             else:
                 print('FORMAT WRONG')
                 
             outfile.close()        
             print('Saved to ' + outfile_dir)
+            
         
     def boxa2rect(self,boxa):
         
@@ -110,7 +120,7 @@ class FileMgr:
         self.leptonica.boxaGetBox.argtypes = []
         
         # Display items and print its info
-        for item in range(0, n_items):
+        for item in range(n_items):
             lept_box = self.leptonica.boxaGetBox(boxa, item, lepttool.L_CLONE)
             box = lept_box.contents
             #print('Box[%d]: x=%d, y=%d, w=%d, h=%d, '%(item, box.x, box.y, box.w, box.h))

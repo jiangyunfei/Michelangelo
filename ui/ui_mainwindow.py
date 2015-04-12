@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui/MainWindow.ui'
 #
-# Created: Sun Apr 12 20:22:23 2015
+# Created: Sun Apr 12 21:31:37 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -115,6 +115,8 @@ class Ui_MainGUI(object):
         icon10.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/clear")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionClear.setIcon(icon10)
         self.actionClear.setObjectName(_fromUtf8("actionClear"))
+        self.actionRestore = QtGui.QAction(MainGUI)
+        self.actionRestore.setObjectName(_fromUtf8("actionRestore"))
         self.toolBar.addAction(self.actionOpen)
         self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionAnalyze)
@@ -128,6 +130,7 @@ class Ui_MainGUI(object):
         self.menuAbout.addAction(self.actionLog)
         self.menuAbout.addAction(self.actionAbout)
         self.menuFile.addAction(self.actionOpen)
+        self.menuFile.addAction(self.actionRestore)
         self.menuFile.addAction(self.actionSave)
         self.menuFile.addSeparator()
         self.menuFile.addAction(self.actionExit)
@@ -173,5 +176,6 @@ class Ui_MainGUI(object):
         self.actionClear.setText(_translate("MainGUI", "&Clear", None))
         self.actionClear.setToolTip(_translate("MainGUI", "Clear", None))
         self.actionClear.setStatusTip(_translate("MainGUI", "Clear and reset", None))
+        self.actionRestore.setText(_translate("MainGUI", "&Restore", None))
 
 import resources_rc

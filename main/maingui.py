@@ -5,7 +5,7 @@ THis is the Main Window file
 @author: jiang
 '''
 __author__ = 'Jiang Yunfei'
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 __date__ = '2015.04'
 
 import sys
@@ -35,6 +35,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.__isROI = False
         self.__isOCR = False
         self.__isClear = False
+        self.outputData = {} #for final output
         
         self.resize(1000, 650)
         self.setWindowTitle('Michelangelo')
@@ -65,6 +66,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.actionSave.triggered.connect(self.save)
         self.actionExit.triggered.connect(self.exit)
         self.actionHelp.triggered.connect(self.help)
+        self.actionRestore.triggered.connect(self.restore)
         
         self.connect(self.param, QtCore.SIGNAL('SaveClicked'),self.save)
         #请使用修正后的ViewBox.py文件
@@ -106,10 +108,13 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             self.actionSave.setEnabled(True)
             
     #Actions
-    def openFile(self):
+    def openFile(self, restore=False):
         
-        
-        imgDir = self.file.openFile(type='image')
+        if not restore:
+            imgDir = self.file.openFile(type='image')
+        else:
+            imgDir = self.outputData['IMG']
+            
         if imgDir:
             self.clear()
             roi_image = self.file.getImage(imgDir,type='ROI')
@@ -120,6 +125,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             self.tess.setOCRImageSource(pix_image)
             
             self.setWindowTitle('Michelangelo - '+imgDir)
+            self.outputData['IMG'] = str(imgDir)
             self.__isOpen=True
             self.updateUi()
     
@@ -216,15 +222,14 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         if not (len(self.index) == len(text) and len(text)==len(pos)):
             print('[ERROR] The length of Index and Data is not equal')
             return
-        
-        outputData = {}
+
         for i in range(len(self.index)):
             info={}
             info['pos']=pos[self.index[i]]
             info['text']=text[i]
-            outputData[self.index[i]] = info 
+            self.outputData[self.index[i]] = info 
 
-        self.file.saveFile(outputData, self.param.getFormat())
+        self.file.saveFile(self.outputData, self.param.getFormat())
     
     def clear(self):
         '''
@@ -234,7 +239,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             self.roiview.clearROIs()
         if self.__isOCR:
             self.param.clearResult()
-
+        
         self.__isClear = True
         self.updateUi()
     
@@ -262,6 +267,39 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         '''
         if self.questionMessage('Do you want to Exit ?        '):
             self.close()
+            
+    def restore(self):
+        '''
+        Restore:
+        load json file
+        clear
+        ->load img
+        ->parse info:
+            ->reflesh index
+            ->generate pos
+            ->generate text
+        ->updateOCR
+        '''
+        path = self.file.openFile(type='json')
+        self.outputData = self.file.parseJson(path)
+        self.openFile(restore=True)
+        
+        keys = sorted(self.outputData.keys())
+        
+        self.index = []
+        text = []
+        pos = []
+        for key in keys:
+            if key == 'IMG':
+                continue
+            item = self.outputData[key]
+            text.append(item['text'])
+            pos.append(item['pos'])
+            self.index.append(key)
+        
+        self.roiview.setROIs(pos, self.index)
+        self.__isROI = True
+        self.updateOCR(text)
 
     #Dialogs:
     def showInfo(self,MESSAGE):

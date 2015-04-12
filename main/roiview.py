@@ -55,7 +55,7 @@ class ROIView:
         self.__isIm = True
     
     
-    def setROIs(self,rlist):
+    def setROIs(self,rlist,TAGs =None):
         '''
         此处需要清空原始的ROI
         '''
@@ -64,11 +64,18 @@ class ROIView:
         
         if rlist is None:
             return
-        for r in rlist:
-            self.addROI(r)
+        
+        if TAGs:
+            length = len(rlist)
+            if length == len(TAGs):
+                for i in range(length):
+                    self.addROI(rlist[i],TAGs[i])
+        else:
+            for r in rlist:
+                self.addROI(r)
             
-    
-    def addROI(self,r):
+            
+    def addROI(self,r,TAG=None):
         posx = r[0]
         posy = r[1]
         w= r[2]
@@ -79,7 +86,10 @@ class ROIView:
         else:
             numStr = str(self.index)
         
-        tag = '#'+numStr
+        if TAG:
+            tag = TAG
+        else:
+            tag = '#'+numStr
 
         roi = TagROI((posx, posy), (w,h),tag,pen=0, 
                          centered=False, 
@@ -96,7 +106,6 @@ class ROIView:
         
         roi.setTextItem(textItem)
         
-        #connection
         #roi.sigRegionChangeStarted.connect(self)
         roi.sigRegionChanged.connect(self.posChanged)
         #roi.sigHoverEvent.connect(self.showInfo)

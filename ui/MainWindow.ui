@@ -69,6 +69,7 @@
      <string>File</string>
     </property>
     <addaction name="actionOpen"/>
+    <addaction name="actionRestore"/>
     <addaction name="actionSave"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
@@ -248,6 +249,11 @@
    </property>
    <property name="statusTip">
     <string>Clear and reset</string>
+   </property>
+  </action>
+  <action name="actionRestore">
+   <property name="text">
+    <string>&amp;Restore</string>
    </property>
   </action>
  </widget>
