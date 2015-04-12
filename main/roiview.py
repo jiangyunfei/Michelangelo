@@ -138,7 +138,6 @@ class ROIView:
             self.posDict[tag]=[posx,posy,w,h]
             
     
-    
     def highlightROI(self,TAG):
         if TAG in self.ROIs.keys():
             item = self.ROIs[TAG]

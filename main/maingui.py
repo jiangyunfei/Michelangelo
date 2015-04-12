@@ -6,7 +6,7 @@ THis is the Main Window file
 '''
 
 __author__ = 'Jiang Yunfei'
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 __date__ = '2015.04'
 
 import sys
@@ -19,7 +19,7 @@ from main.file import FileMgr
 from main.log import LogMgr
 from main.roiview import ROIView
 from main.param import Param 
-from main.tesswarp import TessWarp
+
 
 class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     """Class For MainWindow
@@ -42,12 +42,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.__isOCR = False
         self.__isClear = False
         
-        
         self.resize(1000, 650)
         self.setWindowTitle('Michelangelo')
         
-        self.rectDataList = None
-
     #initialize
     def initUi(self):
         self.roiview = ROIView()
@@ -57,16 +54,13 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         paWidght = self.param.getParamTree()
         self.centerLayout.addWidget(rvWidght)
         self.centerLayout.addWidget(paWidght)
-        #self.dockLayout.addWidget(paWidght)
         self.progressBar.setVisible(False)
+        
 
-    
     def initTools(self):
         self.log = LogMgr()
         self.file = FileMgr(self)
         self.tess = TessMgr()
-        
-        self.tesswarp = TessWarp()
             
     def initConnection(self):
         self.actionOpen.triggered.connect(self.openFile)
@@ -79,10 +73,13 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.actionExit.triggered.connect(self.exit)
         
         self.connect(self.param, QtCore.SIGNAL('SaveClicked'),self.save)
-        '''
-        请使用修正后的ViewBox.py文件
-        '''
+        #请使用修正后的ViewBox.py文件
         self.connect(self.param, QtCore.SIGNAL('ROIHighlight'),self.roiview.highlightROI)
+        '''
+        MultiThread
+        '''
+        self.connect(self.tess, QtCore.SIGNAL('UpdateROI'), self.updateROI)
+        self.connect(self.tess, QtCore.SIGNAL('UpdateOCR'), self.updateOCR)
     
     
     def wirteLog(self,str):
@@ -112,7 +109,6 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.actionClear.setEnabled(True)
             self.actionSave.setEnabled(True)
             
-            
     #Actions
     def openFile(self):
         imgDir = self.file.openFile(type='image')
@@ -135,30 +131,28 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         [1] check the param to get the OCR Options
         [2] set Options to the OCR
         '''
-        #get the Options:
         ops= self.param.getParamOptions()
-        #set Options to OCR:
         self.tess.initTess(ops)
+        
     
     def analyze(self):
         '''
         分析Rectangle区域
-        '''
-        #update the Options
+        '''        
         self.setupOCR()
+        self.tess.startROIThread()
+    
+    def updateROI(self,boxa):
+        if boxa:
+            self.rect = self.file.boxa2rect(boxa)
+            self.roiview.setROIs(self.rect)
+            
+            self.__isROI = True
+            self.updateUi()
+        else:
+            print('ROI -> NULL')
         
-        #get rects
-        boxa = self.tess.getBoxa()
-        if boxa is None:
-            print('[ERROR] NULL')
-            return
-        
-        self.rect = self.file.boxa2rect(boxa)
-        self.roiview.setROIs(self.rect)
-        
-        self.__isROI = True
-        self.updateUi()
-        
+    
     def addROI(self):
         '''
         增加ROI区域
@@ -173,10 +167,6 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         '''
         文本识别并返回数据
         '''
-        self.progressBar.setVisible(True)        
-        #update the Options
-        self.setupOCR()
-        
         rdict = self.roiview.getPosDict()
         index= sorted(rdict)
 
@@ -187,16 +177,21 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             iRect = [int(float(x)+0.5) for x in value] #truncate the numbers:FLoat to Int
             rlist.append(iRect)
         
-        text= self.tess.getOCRText(rlist)
+        self.index = index
+        self.setupOCR()
+        self.tess.startOCRThread(rlist)
+        
+        #self.progressBar.setVisible(True)
+        
+    def updateOCR(self,text):
         if text:
-            self.param.setResult(text, index)
-            
-            self.index = index
+            self.param.setResult(text, self.index)
+                        
             self.__isOCR = True
             self.updateUi()
+        else:
+            print('OCR -> NULL')
             
-        self.progressBar.setVisible(False)
-    
     def save(self):
         '''
         保存导出数据
@@ -230,7 +225,6 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         self.file.saveFile(outputData, self.param.getFormat())
     
-        
     def clear(self):
         '''
         清空并重置
@@ -253,11 +247,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 % (__version__, __date__, __author__,platform.python_version(),
                 QtCore.PYQT_VERSION_STR, platform.system())
                 
-        #QtGui.QMessageBox.about(self,'About',info)
-        tag = '#02'
-        self.roiview.highlightROI(tag)
-
-    
+        QtGui.QMessageBox.about(self,'About',info)
+             
     def exit(self):
         '''
         关闭程序并保存
@@ -265,9 +256,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         if self.questionMessage('Do you want to leave?'):
             self.close()
 
-    
     #Dialogs:
-    def questionMessage(self, msg='NULL', type=None):    
+    def questionMessage(self, msg='NULL'):    
         reply = QtGui.QMessageBox.question(self, "Exit",
                 msg,
                 QtGui.QMessageBox.Yes | QtGui.QMessageBox.Cancel)
@@ -275,7 +265,6 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             return True
         else:
             return False
-
 
 
 '''
@@ -318,6 +307,8 @@ def errorMessage(self):
     self.errorLabel.setText("If the box is unchecked, the message won't "
             "appear again.")
 '''
+
+
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)

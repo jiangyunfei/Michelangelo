@@ -27,12 +27,6 @@ class Param(QtCore.QObject):
         #Lazy Mode:
         self.textList = None
         self.ocrIndex = None
-        
-        #DEBUG
-        index=['#1','#2','#3']
-        ocrText = ['text1','text2','text3']        
-        #self.setResult(ocrText, index)
-        
                 
     
     def initParam(self):
@@ -113,7 +107,7 @@ class Param(QtCore.QObject):
                         self.emit(QtCore.SIGNAL('SaveClicked'))
                     print('%s changed!.'%ops)
                     
-                
+               
     def setResult(self,textList=[],ocrIndex= []):
         if textList is []:
             return

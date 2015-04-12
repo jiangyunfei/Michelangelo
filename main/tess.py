@@ -7,11 +7,13 @@ This is the OCR Engine file
 import os
 import locale
 import ctypes
+import threading
+from PyQt4 import QtCore
 from libs import tesstool
 
-
-class TessMgr:
+class TessMgr(QtCore.QObject):
     def __init__(self):
+        QtCore.QObject.__init__(self)
         '''
         initialize
         '''
@@ -23,19 +25,6 @@ class TessMgr:
         self.api = self.tesseract.TessBaseAPICreate()
         self.tessdata_prefix = tesstool.get_tessdata_prefix()
         locale.setlocale(locale.LC_ALL, 'C')
-        
-        '''
-        此处可以让Tesseract加载优化东亚文字字符识别的config
-        ''' 
-        try:
-            opi = tesstool.turn2char('opitimize')
-            
-            #self.tesseract.TessBaseAPIReadConfigFile(self.api, opi)
-            #print('！！！未加载文件！！！->未知错误')
-        except Exception:
-            print('Load file ERROR!')
-        else:
-            print('[FALSE]Tesseract Opitimized file loaded！')
             
         print('Tesseract %s initialized!' % (tesstool.VERSION)) 
         
@@ -66,6 +55,8 @@ class TessMgr:
             return
         
         self.tesseract.TessBaseAPISetImage2(self.api, self.pixImage)
+        self.tesseract.TessBaseAPIReadConfigFile(self.api, 
+                                                 tesstool.turn2char('opitimize'))
         print('Tess Ready!')
         self.__isReady = True
         
@@ -74,27 +65,18 @@ class TessMgr:
         #Clear
         self.tesseract.TessBaseAPIClear(self.api) 
         self.tesseract.TessBaseAPIEnd(self.api)
-        print('OCR -> UNLOCKED')
-        self.__OCRLOCK = False
-
-    def checkAPI(self):
-        if not self.__isReady:
-            return False
-        
-        if self.__OCRLOCK:
-            print('ERROR->OCR is Working')
-            return False
-        return True
     
-    def getStatus(self):
-        return self.__OCRLOCK
     
-    def getBoxa(self):
-        if not self.checkAPI():
-            return
-        else:
-            self.__OCRLOCK = True
-        
+    def startROIThread(self):
+        t = threading.Thread(target=self.getBoxa)
+        t.start()
+    
+    def startOCRThread(self,rects):
+        t = threading.Thread(target=self.getOCRText, args=(rects,))
+        t.start()
+    
+    
+    def getBoxa(self):        
         self.tesseract.TessBaseAPISetPageSegMode(self.api, 
                                                  tesstool.turn2Cint(self.PSM))
         
@@ -109,16 +91,13 @@ class TessMgr:
             return
         
         self.clearAPI()
-        return boxa
+        #return boxa
+
+        self.emit(QtCore.SIGNAL('UpdateROI'),boxa)
+        print('ROI done!')
     
         
-    def getOCRText(self,rects): 
-        print(self.__OCRLOCK)
-        if not self.checkAPI():
-            return None
-        else:
-            self.__OCRLOCK = True
-        
+    def getOCRText(self,rects):         
         if rects is None:
             return
         
@@ -135,7 +114,7 @@ class TessMgr:
          
         self.tesseract.TessBaseAPISetPageSegMode(self.api, ocr_psm)
         
-        textList = []
+        data = []
         for r in rects:
                 self.tesseract.TessBaseAPISetRectangle(self.api,
                                                        tesstool.turn2Cint(r[0]),
@@ -146,10 +125,13 @@ class TessMgr:
                 ocr_result = self.tesseract.TessBaseAPIGetUTF8Text(self.api)
                 #text = ocr_result.strip().decode('utf-8')
                 result_text = ctypes.string_at(ocr_result).decode('utf-8').strip()
-                textList.append(result_text)
+                data.append(result_text)
         
         self.clearAPI()
-        return textList
+        
+        self.emit(QtCore.SIGNAL('UpdateOCR'),data)
+        print('OCR done!')
+        
     
 
         
