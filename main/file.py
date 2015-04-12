@@ -103,7 +103,7 @@ class FileMgr:
         rectList = []
         # Get info about number of items on image
         n_items = self.leptonica.boxaGetCount(boxa)
-        print('Find %s !'%n_items)
+        print('Find %s '%n_items)
         
         # Set up result type (BOX structure) for leptonica function boxaGetBox
         self.leptonica.boxaGetBox.restype = lepttool.BOX_PTR_T
@@ -113,7 +113,7 @@ class FileMgr:
         for item in range(0, n_items):
             lept_box = self.leptonica.boxaGetBox(boxa, item, lepttool.L_CLONE)
             box = lept_box.contents
-            print('Box[%d]: x=%d, y=%d, w=%d, h=%d, '%(item, box.x, box.y, box.w, box.h))
+            #print('Box[%d]: x=%d, y=%d, w=%d, h=%d, '%(item, box.x, box.y, box.w, box.h))
             rectList.append([box.x, box.y, box.w, box.h])
             
         return rectList    

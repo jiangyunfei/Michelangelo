@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>MainGUI</class>
+ <widget class="QMainWindow" name="MainGUI">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,19 +14,16 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Michelangelo</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/icons/app</normaloff>:/icons/app</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <layout class="QHBoxLayout" name="centerLayout"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QProgressBar" name="progressBar">
-      <property name="value">
-       <number>24</number>
-      </property>
-     </widget>
     </item>
    </layout>
   </widget>
@@ -45,7 +45,7 @@
    <addaction name="actionOCR"/>
    <addaction name="actionClear"/>
    <addaction name="separator"/>
-   <addaction name="actionAbout"/>
+   <addaction name="actionExit"/>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -69,7 +69,6 @@
      <string>File</string>
     </property>
     <addaction name="actionOpen"/>
-    <addaction name="actionRestroe"/>
     <addaction name="actionSave"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
@@ -103,6 +102,9 @@
    <property name="toolTip">
     <string>Open</string>
    </property>
+   <property name="statusTip">
+    <string>Open image files</string>
+   </property>
   </action>
   <action name="actionAnalyze">
    <property name="enabled">
@@ -118,6 +120,9 @@
    <property name="toolTip">
     <string>Analyze</string>
    </property>
+   <property name="statusTip">
+    <string>Find the text areas</string>
+   </property>
   </action>
   <action name="actionAddROI">
    <property name="enabled">
@@ -129,6 +134,9 @@
    </property>
    <property name="text">
     <string>AddROI</string>
+   </property>
+   <property name="statusTip">
+    <string>Add the text area</string>
    </property>
   </action>
   <action name="actionOCR">
@@ -145,13 +153,23 @@
    <property name="toolTip">
     <string>OCR</string>
    </property>
+   <property name="statusTip">
+    <string>Start OCR</string>
+   </property>
   </action>
   <action name="actionHelp">
    <property name="enabled">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/help</normaloff>:/icons/help</iconset>
+   </property>
    <property name="text">
     <string>&amp;Help</string>
+   </property>
+   <property name="statusTip">
+    <string>Get the online help</string>
    </property>
   </action>
   <action name="actionAbout">
@@ -162,6 +180,9 @@
    <property name="text">
     <string>&amp;About</string>
    </property>
+   <property name="statusTip">
+    <string>About this application</string>
+   </property>
    <property name="menuRole">
     <enum>QAction::AboutRole</enum>
    </property>
@@ -170,13 +191,27 @@
    <property name="enabled">
     <bool>false</bool>
    </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/save</normaloff>:/icons/save</iconset>
+   </property>
    <property name="text">
     <string>&amp;Save</string>
    </property>
+   <property name="statusTip">
+    <string>Save the results</string>
+   </property>
   </action>
   <action name="actionExit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/exit</normaloff>:/icons/exit</iconset>
+   </property>
    <property name="text">
     <string>&amp;Exit</string>
+   </property>
+   <property name="statusTip">
+    <string>Exit the application</string>
    </property>
    <property name="menuRole">
     <enum>QAction::QuitRole</enum>
@@ -184,18 +219,17 @@
   </action>
   <action name="actionLog">
    <property name="enabled">
-    <bool>true</bool>
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/log</normaloff>:/icons/log</iconset>
    </property>
    <property name="text">
     <string>&amp;Log</string>
    </property>
-  </action>
-  <action name="actionRestroe">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="text">
-    <string>&amp;Restroe</string>
+   <property name="statusTip">
+    <string>Check the logs</string>
    </property>
   </action>
   <action name="actionClear">
@@ -211,6 +245,9 @@
    </property>
    <property name="toolTip">
     <string>Clear</string>
+   </property>
+   <property name="statusTip">
+    <string>Clear and reset</string>
    </property>
   </action>
  </widget>

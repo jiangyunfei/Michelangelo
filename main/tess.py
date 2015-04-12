@@ -28,8 +28,6 @@ class TessMgr(QtCore.QObject):
             
         print('Tesseract %s initialized!' % (tesstool.VERSION)) 
         
-        self.__isReady = False
-        self.__OCRLOCK = False
         self.pixImage = None
         
         
@@ -57,8 +55,9 @@ class TessMgr(QtCore.QObject):
         self.tesseract.TessBaseAPISetImage2(self.api, self.pixImage)
         self.tesseract.TessBaseAPIReadConfigFile(self.api, 
                                                  tesstool.turn2char('opitimize'))
-        print('Tess Ready!')
-        self.__isReady = True
+        
+
+        #print('Tess Ready!')
         
         
     def clearAPI(self):
@@ -125,7 +124,7 @@ class TessMgr(QtCore.QObject):
                 ocr_result = self.tesseract.TessBaseAPIGetUTF8Text(self.api)
                 #text = ocr_result.strip().decode('utf-8')
                 result_text = ctypes.string_at(ocr_result).decode('utf-8').strip()
-                data.append(result_text)
+                data.append(unicode(result_text))
         
         self.clearAPI()
         

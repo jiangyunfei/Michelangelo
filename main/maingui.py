@@ -4,15 +4,14 @@ Created on Apr 4, 2015
 THis is the Main Window file
 @author: jiang
 '''
-
 __author__ = 'Jiang Yunfei'
-__version__ = '0.1.2'
+__version__ = '0.2.0'
 __date__ = '2015.04'
 
 import sys
 import platform
 from PyQt4 import QtCore,QtGui
-from ui.ui_mainwindow import Ui_MainWindow
+from ui.ui_mainwindow import Ui_MainGUI
 
 from main.tess import TessMgr
 from main.file import FileMgr
@@ -21,14 +20,9 @@ from main.roiview import ROIView
 from main.param import Param 
 
 
-class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
-    """Class For MainWindow
-    """
-    
+class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
     def __init__(self, parent=None):
-        """ Constructor
-        """
-        super(MainWindow, self).__init__(parent)
+        QtGui.QMainWindow.__init__(self, parent)
         self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         self.setupUi(self)
         self.initUi()
@@ -49,13 +43,12 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def initUi(self):
         self.roiview = ROIView()
         self.param = Param()
+        self.info = QtGui.QMessageBox(self)
         
         rvWidght = self.roiview.getROIView()
         paWidght = self.param.getParamTree()
         self.centerLayout.addWidget(rvWidght)
         self.centerLayout.addWidget(paWidght)
-        self.progressBar.setVisible(False)
-        
 
     def initTools(self):
         self.log = LogMgr()
@@ -71,6 +64,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.actionAbout.triggered.connect(self.about)
         self.actionSave.triggered.connect(self.save)
         self.actionExit.triggered.connect(self.exit)
+        self.actionHelp.triggered.connect(self.help)
         
         self.connect(self.param, QtCore.SIGNAL('SaveClicked'),self.save)
         #请使用修正后的ViewBox.py文件
@@ -79,7 +73,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         MultiThread
         '''
         self.connect(self.tess, QtCore.SIGNAL('UpdateROI'), self.updateROI)
+        
         self.connect(self.tess, QtCore.SIGNAL('UpdateOCR'), self.updateOCR)
+        self.connect(self.tess, QtCore.SIGNAL('UpdateOCR'), self.info.close)
     
     
     def wirteLog(self,str):
@@ -111,6 +107,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             
     #Actions
     def openFile(self):
+        
+        
         imgDir = self.file.openFile(type='image')
         if imgDir:
             self.clear()
@@ -141,6 +139,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         '''        
         self.setupOCR()
         self.tess.startROIThread()
+        
     
     def updateROI(self,boxa):
         if boxa:
@@ -149,6 +148,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             
             self.__isROI = True
             self.updateUi()
+            
         else:
             print('ROI -> NULL')
         
@@ -181,7 +181,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.setupOCR()
         self.tess.startOCRThread(rlist)
         
-        #self.progressBar.setVisible(True)
+        #show Dialog
+        self.showInfo('Tesseract OCR is working ...        ')
         
     def updateOCR(self,text):
         if text:
@@ -237,6 +238,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.__isClear = True
         self.updateUi()
     
+    def help(self):
+        import webbrowser
+        url = 'https://github.com/jiangyunfei/Michelangelo'
+        webbrowser.open(url)
+    
     def about(self):
         '''
         '''
@@ -248,23 +254,33 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 QtCore.PYQT_VERSION_STR, platform.system())
                 
         QtGui.QMessageBox.about(self,'About',info)
-             
+        
+               
     def exit(self):
         '''
         关闭程序并保存
         '''
-        if self.questionMessage('Do you want to leave?'):
+        if self.questionMessage('Do you want to Exit ?        '):
             self.close()
 
     #Dialogs:
-    def questionMessage(self, msg='NULL'):    
-        reply = QtGui.QMessageBox.question(self, "Exit",
-                msg,
+    def showInfo(self,MESSAGE):
+        self.info.setWindowTitle('Please wait')
+        self.info.setIcon(QtGui.QMessageBox.Information)
+        self.info.setText(MESSAGE)
+        self.info.exec_()
+        
+        
+    def questionMessage(self, MESSAGE='NULL'):     
+        reply = QtGui.QMessageBox.question(self, "Michelangelo",
+                MESSAGE,
                 QtGui.QMessageBox.Yes | QtGui.QMessageBox.Cancel)
         if reply == QtGui.QMessageBox.Yes:
             return True
         else:
             return False
+        
+        
 
 
 '''
@@ -312,10 +328,7 @@ def errorMessage(self):
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
-    QtCore.QTextCodec.setCodecForTr(QtCore.QTextCodec.codecForName("UTF-8"))
-    app.setApplicationName('Michelangelo')
-    app.setWindowIcon(QtGui.QIcon('../ui/icons/app.png'))
-    cat = MainWindow()
+    cat = Michelangelo()
     cat.show()
     sys.exit(app.exec_())
 

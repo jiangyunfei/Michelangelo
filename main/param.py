@@ -59,7 +59,7 @@ class Param(QtCore.QObject):
         self.params = [
         {'name': 'Options', 'type': 'group', 'children': [
             {'name': 'Language', 'type': 'list', 'values':LANGparam, 'value': 0},
-            {'name': 'Orientation', 'type': 'list', 'values': ORIparam, 'value': 0},
+            #{'name': 'Orientation', 'type': 'list', 'values': ORIparam, 'value': 0},
             {'name': 'PSM', 'type': 'list', 'values': PSMparam, 'value': 3},
             {'name': 'RIL', 'type': 'list', 'values': RILparam, 'value': 0}
             ]}
@@ -92,7 +92,6 @@ class Param(QtCore.QObject):
                     if ops in self.ocrIndex:
                         idx = self.ocrIndex.index(ops)
                         self.textList[idx]=data
-                        print('%s -> %s'%(self.textList[idx], data))
                         
                         self.emit(QtCore.SIGNAL('ROIHighlight'),ops)
                     else:

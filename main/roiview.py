@@ -157,7 +157,7 @@ class ROIView:
         #Remove
         if self.posDict.pop(tag):
             self.ROIs.pop(tag)
-            print(tag +'-> is removed! ')
+            #print(tag +'-> is removed! ')
         
         
        

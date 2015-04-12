@@ -6,5 +6,10 @@
     <file alias="ocr">icons/ocr.png</file>
 	<file alias="clear">icons/clear.png</file>
 	<file alias="about">icons/about.png</file>
+	<file alias="exit">icons/exit.png</file>
+	<file alias="help">icons/help.png</file>
+	<file alias="save">icons/save.png</file>
+	<file alias="log">icons/log.png</file>
+	<file alias="app">icons/app.png</file>
   </qresource>
 </RCC>
