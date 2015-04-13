@@ -170,11 +170,15 @@ class Param(QtCore.QObject):
             ops = self.parameter.child('Options')
             children = ops.children()
             for ptr in children:
-                val = data[ptr.name()]
+                val = int(data[ptr.name()])
                 ptr.setValue(val)
         
         elif action =='SAVE':
-            data = self.getParamOptions()
+            data = {}
+            ops = self.parameter.child('Options')
+            children = ops.children()
+            for ptr in children:
+                data[ptr.name()] = ptr.value()
             return data
         
         

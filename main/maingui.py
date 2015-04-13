@@ -5,7 +5,7 @@ THis is the Main Window file
 @author: jiang
 '''
 __author__ = 'Jiang Yunfei'
-__version__ = '0.3.0'
+__version__ = '0.3.1'
 __date__ = '2015.04'
 
 import sys
@@ -345,8 +345,6 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             
             self.log.writeLog(msg)
         
-        
-
     #Dialogs:
     def showInfo(self,MESSAGE):
         self.info.setWindowTitle('Please wait')
