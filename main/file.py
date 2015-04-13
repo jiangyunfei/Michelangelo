@@ -22,6 +22,8 @@ class FileMgr:
         
         self.file_dir = QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.PicturesLocation)
         
+        self.lastDir = None
+        
     def openFile(self,type):
         if type == 'image':
             """Load Image
@@ -30,12 +32,15 @@ class FileMgr:
                         'Images (*.jpg *.jpeg *.bmp *.png *.tiff *.tif *.gif);;All files (*.*)')
             if image_dir:
                 self.image_dir = image_dir
+                self.lastDir = image_dir
+                
                 return image_dir
             
         elif type == 'json':
             filePath = QtGui.QFileDialog.getOpenFileName(self.parent, 'Save file',self.file_dir,
                                                      'JSON (*.json);;All files (*.*)')
             if filePath:
+                self.lastDir = filePath
                 return filePath
                         
     def getImage(self,image_dir,type):
@@ -99,21 +104,18 @@ class FileMgr:
                     val = data[key]
                     text = val['text']
                     outfile.write('\n%s : \n%s\n'%(key,text.encode('utf-8')))
-
-                
-            else:
-                print('FORMAT WRONG')
-                
-            outfile.close()        
-            print('Saved to ' + outfile_dir)
             
-        
+            outfile.close()   
+            self.lastDir = filePath
+                 
+            return outfile_dir         
+            
     def boxa2rect(self,boxa):
         
         rectList = []
         # Get info about number of items on image
         n_items = self.leptonica.boxaGetCount(boxa)
-        print('Find %s '%n_items)
+        #print('Find %s '%n_items)
         
         # Set up result type (BOX structure) for leptonica function boxaGetBox
         self.leptonica.boxaGetBox.restype = lepttool.BOX_PTR_T
@@ -126,7 +128,28 @@ class FileMgr:
             #print('Box[%d]: x=%d, y=%d, w=%d, h=%d, '%(item, box.x, box.y, box.w, box.h))
             rectList.append([box.x, box.y, box.w, box.h])
             
-        return rectList    
+        return rectList  
+    
+    def setting(self,action,data = None):
+        import os
+        currentPath = os.path.split(os.path.realpath(__file__))[0]
+        
+        if action =='SAVE':
+            with open(currentPath+'/setting.json','w') as setting_file:
+                json.dump(data, setting_file)
+        
+        elif action =='LOAD':
+            try:
+                with open(currentPath+'/setting.json','r') as setting_file:
+                    setting = json.load(setting_file)
+                    return setting
+            except Exception:
+                print('No setting files')
+                return
+            
+                
+            
+          
         
  
             

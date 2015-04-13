@@ -5,7 +5,7 @@ THis is the Main Window file
 @author: jiang
 '''
 __author__ = 'Jiang Yunfei'
-__version__ = '0.2.1'
+__version__ = '0.3.0'
 __date__ = '2015.04'
 
 import sys
@@ -37,8 +37,22 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.__isClear = False
         self.outputData = {} #for final output
         
+        #read setting:
+        data = self.file.setting('LOAD')
+        if data:
+            lastDir = data['DIR']
+            paramState = data['STATE']
+            
+            self.file.file_dir = lastDir
+            self.param.setting('LOAD', paramState)
+        
         self.resize(1000, 650)
         self.setWindowTitle('Michelangelo')
+        
+        if self.tess.VERSION: 
+            self.LOG('Tesseract %s initialized!' % (self.tess.VERSION))
+        else:
+            self.LOG('Could not initialize tesseract.','red')
         
     #initialize
     def initUi(self):
@@ -52,7 +66,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.centerLayout.addWidget(paWidght)
 
     def initTools(self):
-        self.log = LogMgr()
+        self.log = LogMgr(self)
         self.file = FileMgr(self)
         self.tess = TessMgr()
             
@@ -67,9 +81,10 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.actionExit.triggered.connect(self.exit)
         self.actionHelp.triggered.connect(self.help)
         self.actionRestore.triggered.connect(self.restore)
+        self.actionLog.triggered.connect(self.log.showLogs)
         
         self.connect(self.param, QtCore.SIGNAL('SaveClicked'),self.save)
-        #请使用修正后的ViewBox.py文件
+        #请使用修正后的ViewBox.py, ParameterTree文件
         self.connect(self.param, QtCore.SIGNAL('ROIHighlight'),self.roiview.highlightROI)
         '''
         MultiThread
@@ -79,10 +94,6 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.connect(self.tess, QtCore.SIGNAL('UpdateOCR'), self.updateOCR)
         self.connect(self.tess, QtCore.SIGNAL('UpdateOCR'), self.info.close)
     
-    
-    def wirteLog(self,str):
-        if str:
-            self.log.writeMsg(str)
     
     def updateUi(self):
         if self.__isClear:
@@ -128,6 +139,8 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             self.outputData['IMG'] = str(imgDir)
             self.__isOpen=True
             self.updateUi()
+            
+            self.LOG('OPEN FILE -> '+imgDir)
     
     def setupOCR(self):
         '''
@@ -146,6 +159,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.setupOCR()
         self.tess.startROIThread()
         
+        self.LOG('[ROI] Searching...')
     
     def updateROI(self,boxa):
         if boxa:
@@ -154,9 +168,10 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             
             self.__isROI = True
             self.updateUi()
+            self.LOG('[ROI] Find '+str(len(self.rect)) , 'green')
             
         else:
-            print('ROI -> NULL')
+            self.log.writeLog('[ROI] No component found. Try to change PSM or RIL.', 'red')
         
     
     def addROI(self):
@@ -187,6 +202,8 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.setupOCR()
         self.tess.startOCRThread(rlist)
         
+        self.LOG('[OCR] Working...')
+        
         #show Dialog
         self.showInfo('Tesseract OCR is working ...        ')
         
@@ -196,8 +213,10 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
                         
             self.__isOCR = True
             self.updateUi()
+            
+            self.LOG('[OCR] Set Results!')
         else:
-            print('OCR -> NULL')
+            self.LOG('[OCR] ERROR ->NULL RETURN','red')
             
     def save(self):
         '''
@@ -209,9 +228,6 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
                 }
         [2] save data to file 
         '''
-        if not self.__isOCR:
-            print('SAVE ->OCR first!')
-            return
         
         #Get text data
         text = self.param.getOutputText()
@@ -220,7 +236,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         pos = self.roiview.getPosDict()
         
         if not (len(self.index) == len(text) and len(text)==len(pos)):
-            print('[ERROR] The length of Index and Data is not equal')
+            self.LOG('[ERROR] The length of Index and Data is not equal', 'red')
             return
 
         for i in range(len(self.index)):
@@ -229,7 +245,10 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             info['text']=text[i]
             self.outputData[self.index[i]] = info 
 
-        self.file.saveFile(self.outputData, self.param.getFormat())
+        msg = self.file.saveFile(self.outputData, self.param.getFormat())
+        
+        if msg:
+            self.LOG('SAVE FILE -> '+ msg)
     
     def clear(self):
         '''
@@ -242,6 +261,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         
         self.__isClear = True
         self.updateUi()
+        self.LOG('Cleared!','red')
     
     def help(self):
         import webbrowser
@@ -264,8 +284,14 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
     def exit(self):
         '''
         关闭程序并保存
-        '''
+        '''        
         if self.questionMessage('Do you want to Exit ?        '):
+            #save settings:
+            data = {}
+            data['DIR'] = str(self.file.lastDir)
+            data['STATE'] = self.param.setting('SAVE')
+            self.file.setting('SAVE', data)
+            
             self.close()
             
     def restore(self):
@@ -281,25 +307,45 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         ->updateOCR
         '''
         path = self.file.openFile(type='json')
-        self.outputData = self.file.parseJson(path)
-        self.openFile(restore=True)
         
-        keys = sorted(self.outputData.keys())
+        if path:
+            self.LOG('[RESTORE] '+path, 'green')
+            self.outputData = self.file.parseJson(path)
+            self.openFile(restore=True)
+            
+            keys = sorted(self.outputData.keys())
+            
+            self.index = []
+            text = []
+            pos = []
+            for key in keys:
+                if key == 'IMG':
+                    continue
+                item = self.outputData[key]
+                text.append(item['text'])
+                pos.append(item['pos'])
+                self.index.append(key)
+            
+            self.roiview.setROIs(pos, self.index)
+            self.__isROI = True
+            self.updateOCR(text)
+            
+            
         
-        self.index = []
-        text = []
-        pos = []
-        for key in keys:
-            if key == 'IMG':
-                continue
-            item = self.outputData[key]
-            text.append(item['text'])
-            pos.append(item['pos'])
-            self.index.append(key)
+    def LOG(self,message,color=None):
+        '''
+        write logs and update the statusBar
+        '''
+        if message:
+            self.statusBar.showMessage(message, 3000)
+            
+            msg = message
+            if color:
+                msg = '<span style="color:%s"> %s </span>'%(color, message)
+            
+            self.log.writeLog(msg)
         
-        self.roiview.setROIs(pos, self.index)
-        self.__isROI = True
-        self.updateOCR(text)
+        
 
     #Dialogs:
     def showInfo(self,MESSAGE):
@@ -318,51 +364,6 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         else:
             return False
         
-        
-
-
-'''
-def informationMessage(self):    
-    reply = QtGui.QMessageBox.information(self,
-            "QMessageBox.information()", Dialog.MESSAGE)
-    if reply == QtGui.QMessageBox.Ok:
-        self.informationLabel.setText("OK")
-    else:
-        self.informationLabel.setText("Escape")
-
-def questionMessage(self):    
-    reply = QtGui.QMessageBox.question(self, "QMessageBox.question()",
-            Dialog.MESSAGE,
-            QtGui.QMessageBox.Yes | QtGui.QMessageBox.No | QtGui.QMessageBox.Cancel)
-    if reply == QtGui.QMessageBox.Yes:
-        self.questionLabel.setText("Yes")
-    elif reply == QtGui.QMessageBox.No:
-        self.questionLabel.setText("No")
-    else:
-        self.questionLabel.setText("Cancel")
-
-def warningMessage(self):    
-    msgBox = QtGui.QMessageBox(QtGui.QMessageBox.Warning,
-            "QMessageBox.warning()", Dialog.MESSAGE,
-            QtGui.QMessageBox.NoButton, self)
-    msgBox.addButton("Save &Again", QtGui.QMessageBox.AcceptRole)
-    msgBox.addButton("&Continue", QtGui.QMessageBox.RejectRole)
-    if msgBox.exec_() == QtGui.QMessageBox.AcceptRole:
-        self.warningLabel.setText("Save Again")
-    else:
-        self.warningLabel.setText("Continue")
-
-def errorMessage(self):    
-    self.errorMessageDialog.showMessage("This dialog shows and remembers "
-            "error messages. If the checkbox is checked (as it is by "
-            "default), the shown message will be shown again, but if the "
-            "user unchecks the box the message will not appear again if "
-            "QErrorMessage.showMessage() is called with the same message.")
-    self.errorLabel.setText("If the box is unchecked, the message won't "
-            "appear again.")
-'''
-
-
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)

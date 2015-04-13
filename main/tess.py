@@ -11,6 +11,7 @@ import threading
 from PyQt4 import QtCore
 from libs import tesstool
 
+
 class TessMgr(QtCore.QObject):
     def __init__(self):
         QtCore.QObject.__init__(self)
@@ -26,9 +27,10 @@ class TessMgr(QtCore.QObject):
         self.tessdata_prefix = tesstool.get_tessdata_prefix()
         locale.setlocale(locale.LC_ALL, 'C')
             
-        print('Tesseract %s initialized!' % (tesstool.VERSION)) 
+        #print('Tesseract %s initialized!' % (tesstool.VERSION)) 
         
         self.pixImage = None
+        self.VERSION = tesstool.VERSION
         
         
     def setOCRImageSource(self, pixImage):
@@ -86,14 +88,13 @@ class TessMgr(QtCore.QObject):
         
         
         if not boxa:
-            print('No component found. Try to change PSM or RIL.')
             return
         
         self.clearAPI()
         #return boxa
 
         self.emit(QtCore.SIGNAL('UpdateROI'),boxa)
-        print('ROI done!')
+        #print('ROI done!')
     
         
     def getOCRText(self,rects):         
@@ -129,7 +130,7 @@ class TessMgr(QtCore.QObject):
         self.clearAPI()
         
         self.emit(QtCore.SIGNAL('UpdateOCR'),data)
-        print('OCR done!')
+        #print('OCR done!')
         
     
 

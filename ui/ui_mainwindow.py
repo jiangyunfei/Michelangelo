@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui/MainWindow.ui'
 #
-# Created: Sun Apr 12 21:31:37 2015
+# Created: Mon Apr 13 10:12:17 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -104,7 +104,7 @@ class Ui_MainGUI(object):
         self.actionExit.setMenuRole(QtGui.QAction.QuitRole)
         self.actionExit.setObjectName(_fromUtf8("actionExit"))
         self.actionLog = QtGui.QAction(MainGUI)
-        self.actionLog.setEnabled(False)
+        self.actionLog.setEnabled(True)
         icon9 = QtGui.QIcon()
         icon9.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/log")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionLog.setIcon(icon9)
@@ -116,8 +116,13 @@ class Ui_MainGUI(object):
         self.actionClear.setIcon(icon10)
         self.actionClear.setObjectName(_fromUtf8("actionClear"))
         self.actionRestore = QtGui.QAction(MainGUI)
+        icon11 = QtGui.QIcon()
+        icon11.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/restore")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionRestore.setIcon(icon11)
         self.actionRestore.setObjectName(_fromUtf8("actionRestore"))
         self.toolBar.addAction(self.actionOpen)
+        self.toolBar.addAction(self.actionRestore)
+        self.toolBar.addAction(self.actionSave)
         self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionAnalyze)
         self.toolBar.addAction(self.actionAddROI)
@@ -125,6 +130,7 @@ class Ui_MainGUI(object):
         self.toolBar.addAction(self.actionOCR)
         self.toolBar.addAction(self.actionClear)
         self.toolBar.addSeparator()
+        self.toolBar.addAction(self.actionLog)
         self.toolBar.addAction(self.actionExit)
         self.menuAbout.addAction(self.actionHelp)
         self.menuAbout.addAction(self.actionLog)
@@ -177,5 +183,6 @@ class Ui_MainGUI(object):
         self.actionClear.setToolTip(_translate("MainGUI", "Clear", None))
         self.actionClear.setStatusTip(_translate("MainGUI", "Clear and reset", None))
         self.actionRestore.setText(_translate("MainGUI", "&Restore", None))
+        self.actionRestore.setStatusTip(_translate("MainGUI", "Restore a json file", None))
 
 import resources_rc

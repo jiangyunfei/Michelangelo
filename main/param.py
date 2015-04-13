@@ -72,7 +72,7 @@ class Param(QtCore.QObject):
             
         self.textParams = [{'name': 'Output', 'type': 'group','children': [
                                 {'name': 'Format', 'type': 'list', 'values':FORparam , 'value': 0},
-                                {'name': 'Save', 'type': 'action'}
+                                #{'name': 'Save', 'type': 'action'}
                                 ]}]
         
         self.textList = None
@@ -94,8 +94,8 @@ class Param(QtCore.QObject):
                         self.textList[idx]=data
                         
                         self.emit(QtCore.SIGNAL('ROIHighlight'),ops)
-                    else:
-                        print('Nothing changed!')
+                        #print(ops + '->changing')
+
                 else:
                     if ops == 'TEST':
                         #TEST
@@ -104,7 +104,7 @@ class Param(QtCore.QObject):
                         
                     if ops == 'Save':
                         self.emit(QtCore.SIGNAL('SaveClicked'))
-                    print('%s changed!.'%ops)
+                    #print('%s changed!.'%ops)
                     
                
     def setResult(self,textList=[],ocrIndex= []):
@@ -164,5 +164,17 @@ class Param(QtCore.QObject):
     
     def getOutputText(self):
         return self.textList
+    
+    def setting(self,action, data = None):
+        if action == 'LOAD':
+            ops = self.parameter.child('Options')
+            children = ops.children()
+            for ptr in children:
+                val = data[ptr.name()]
+                ptr.setValue(val)
+        
+        elif action =='SAVE':
+            data = self.getParamOptions()
+            return data
         
         
