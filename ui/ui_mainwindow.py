@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui/MainWindow.ui'
 #
-# Created: Mon Apr 13 10:12:17 2015
+# Created: Tue Apr 14 16:12:48 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -68,6 +68,7 @@ class Ui_MainGUI(object):
         self.actionAnalyze.setIcon(icon2)
         self.actionAnalyze.setObjectName(_fromUtf8("actionAnalyze"))
         self.actionAddROI = QtGui.QAction(MainGUI)
+        self.actionAddROI.setCheckable(True)
         self.actionAddROI.setEnabled(False)
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/add")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -120,6 +121,11 @@ class Ui_MainGUI(object):
         icon11.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/restore")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionRestore.setIcon(icon11)
         self.actionRestore.setObjectName(_fromUtf8("actionRestore"))
+        self.actionExitAddROI = QtGui.QAction(MainGUI)
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/eixtAdd")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionExitAddROI.setIcon(icon12)
+        self.actionExitAddROI.setObjectName(_fromUtf8("actionExitAddROI"))
         self.toolBar.addAction(self.actionOpen)
         self.toolBar.addAction(self.actionRestore)
         self.toolBar.addAction(self.actionSave)
@@ -184,5 +190,7 @@ class Ui_MainGUI(object):
         self.actionClear.setStatusTip(_translate("MainGUI", "Clear and reset", None))
         self.actionRestore.setText(_translate("MainGUI", "&Restore", None))
         self.actionRestore.setStatusTip(_translate("MainGUI", "Restore a json file", None))
+        self.actionExitAddROI.setText(_translate("MainGUI", "ExitAddROI", None))
+        self.actionExitAddROI.setStatusTip(_translate("MainGUI", "Exit ADD Mode", None))
 
 import resources_rc

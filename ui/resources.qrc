@@ -12,5 +12,6 @@
 	<file alias="log">icons/log.png</file>
 	<file alias="app">icons/app.png</file>
 	<file alias="restore">icons/restore.png</file>
+	<file alias="eixtAdd">icons/eixtAdd.png</file>
   </qresource>
 </RCC>

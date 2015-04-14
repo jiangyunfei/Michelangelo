@@ -5,21 +5,28 @@ This is the main view file
 @author: jiang
 '''
 
-from PyQt4 import QtGui
-
+from PyQt4 import QtGui,QtCore
 import pyqtgraph as pg
 
 
-class ROIView:
+class ROIView(QtCore.QObject):
     def __init__(self):
-        self.pgView = pg.GraphicsView()
-        self.vb = pg.ViewBox()
+        QtCore.QObject.__init__(self)
+        #self.pgView = pg.GraphicsView()
+        self.pgView = RubberBandView()
+        self.connect(self.pgView, QtCore.SIGNAL('RubberBandFinish'), self.transformPos)
         
+        self.vb = pg.ViewBox()
+
         self.image = None
         self.lastIm = None
         self.__isIm = False
         
         self.initROIs()
+        
+        self.pgView.setBackground(QtGui.QColor(127,127,127))      # Transparent background outside of the image
+        self.pgView.setCentralWidget(self.vb)    # Autoscale the image when the window is rescaled
+
     
     def initROIs(self):
         self.index=1 #TAG标签
@@ -28,9 +35,6 @@ class ROIView:
 
     
     def getROIView(self):
-        
-        self.pgView.setBackground(QtGui.QColor(127,127,127))      # Transparent background outside of the image
-        self.pgView.setCentralWidget(self.vb)    # Autoscale the image when the window is rescaled
         return self.pgView
         
     
@@ -53,6 +57,7 @@ class ROIView:
         self.lastIm = im
         self.image = image
         self.__isIm = True
+
     
     
     def setROIs(self,rlist,TAGs =None):
@@ -176,8 +181,22 @@ class ROIView:
 
         return self.posDict 
         
+    
+    def setRubberBandMode(self, flag):
+        self.pgView.setRubberBand(flag)
+
         
+    def transformPos(self,pos):        
+        viewPolygonF = self.vb.mapSceneToView(pos)
+        viewRectF = viewPolygonF.boundingRect()
         
+        #turn to list
+        viewPos = viewRectF.getRect()
+        
+        self.emit(QtCore.SIGNAL('RubberBand'),viewPos)
+        #print(pos, viewPos)
+
+
 class TagROI(pg.ROI):
     '''
      参考RectROI的结构，编写的ROI
@@ -226,5 +245,59 @@ class TagROI(pg.ROI):
         self.TextItem = item
 
 
+class RubberBandView(pg.GraphicsView):
+    def __init__(self, parent = None):
+        pg.GraphicsView.__init__(self,parent)
+        
+        self.origin = QtCore.QPoint()
+        self.rubberBand=QtGui.QRubberBand(QtGui.QRubberBand.Rectangle, self)
+        self.__isRubberBand = False
+    
+    def setRubberBand(self, flag):
+        self.__isRubberBand = flag
+    
+    #####Mouse Event##########
+    def mousePressEvent(self, event):
+        if not self.__isRubberBand:
+            pg.GraphicsView.mousePressEvent(self, event)
+            
+        else:
+            if event.button() == QtCore.Qt.LeftButton:
+                self.origin = event.pos()
+                self.rubberBand.setGeometry(QtCore.QRect(self.origin, QtCore.QSize()))
+                self.rubberBand.show()
 
+    def mouseMoveEvent(self, event):
+        if not self.__isRubberBand:
+            pg.GraphicsView.mouseMoveEvent(self, event)
+            
+        else:
+            if (event.buttons() & QtCore.Qt.LeftButton):
+                self.rubberBand.setGeometry(QtCore.QRect(self.origin, event.pos()).normalized())
+                
+
+    def mouseReleaseEvent(self, event):
+        if not self.__isRubberBand:
+            pg.GraphicsView.mouseReleaseEvent(self, event)
+            
+        else:
+            if event.button() == QtCore.Qt.LeftButton:
+                #map to scene
+                lastPoint = self.mapToScene(event.pos())
+                originPont = self.mapToScene(self.origin)
+                
+                #calculate the correct area
+                posx = originPont.x() if originPont.x()<lastPoint.x() else lastPoint.x()
+                posy = originPont.y() if originPont.y()<lastPoint.y() else lastPoint.y()
+                w = abs(originPont.x() - lastPoint.x())
+                h = abs(originPont.y() - lastPoint.y())
+                
+                
+                
+                area = QtCore.QRectF(QtCore.QPointF(posx, posy), 
+                                     QtCore.QSizeF(w, h))
+                
+                self.emit(QtCore.SIGNAL('RubberBandFinish'),area)
+                
+                self.rubberBand.hide()
 

@@ -5,7 +5,7 @@ THis is the Main Window file
 @author: jiang
 '''
 __author__ = 'Jiang Yunfei'
-__version__ = '0.3.2'
+__version__ = '0.3.3'
 __date__ = '2015.04'
 
 import sys
@@ -73,7 +73,10 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
     def initConnection(self):
         self.actionOpen.triggered.connect(self.openFile)
         self.actionAnalyze.triggered.connect(self.analyze)
-        self.actionAddROI.triggered.connect(self.addROI)
+        #RubberBand
+        #self.actionAddROI.triggered.connect(self.roiview.startRubberBandMode)
+        self.actionAddROI.toggled.connect(self.addROIMode)
+        
         self.actionOCR.triggered.connect(self.ocr)
         self.actionClear.triggered.connect(self.reset)
         self.actionAbout.triggered.connect(self.about)
@@ -83,17 +86,22 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.actionRestore.triggered.connect(self.restore)
         self.actionLog.triggered.connect(self.log.showLogs)
         
-        self.connect(self.param, QtCore.SIGNAL('SaveClicked'),self.save)
+        #self.connect(self.param, QtCore.SIGNAL('SaveClicked'),self.save)
         #请使用修正后的ViewBox.py, ParameterTree文件
         self.connect(self.param, QtCore.SIGNAL('ROIHighlight'),self.roiview.highlightROI)
+        
         #MultiThread
         self.connect(self.tess, QtCore.SIGNAL('UpdateROI'), self.updateROI)
+        self.connect(self.tess, QtCore.SIGNAL('UpdateROI'), self.info.hide)
+        self.connect(self.tess, QtCore.SIGNAL('UpdateOCR'), self.updateOCR)
+        self.connect(self.tess, QtCore.SIGNAL('UpdateOCR'), self.info.hide)
         
         #self.connect(self.tess, QtCore.SIGNAL('OCRTEST'), self.updateOCRTEST)
-        self.connect(self.tess, QtCore.SIGNAL('UpdateOCR'), self.updateOCR)
-        self.connect(self.tess, QtCore.SIGNAL('UpdateOCR'), self.info.close)
-    
-    
+        
+        #RubberBand
+        self.connect(self.roiview, QtCore.SIGNAL('RubberBand'), self.addROI)
+
+        
     def updateUi(self):
         if self.__isClear:
             self.__isClear = False
@@ -163,6 +171,8 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.tess.startROIThread()
         
         self.LOG('[ROI] Searching...')
+        #show Dialog
+        self.showInfo('Tesseract OCR is searching ...        ')
     
     def updateROI(self,boxa):
         if boxa:
@@ -175,17 +185,26 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             
         else:
             self.log.writeLog('[ROI] No component found. Try to change PSM or RIL.', 'red')
-        
     
-    def addROI(self):
+    def addROIMode(self):
+        flag = self.actionAddROI.isChecked()
+        if flag:
+            self.roiview.setRubberBandMode(True)
+        else:
+            self.roiview.setRubberBandMode(False)
+            self.updateUi()
+        
+    def addROI(self,area = None):
         '''
         增加ROI区域
         '''
-        newArea = [40,40,100,100]
-        self.roiview.addROI(newArea)
+        if area is None:
+            area = [100,100,100,100]
+        
+        print(area)    
+        self.roiview.addROI(area)
 
         self.__isROI = True
-        self.updateUi()
         
     def ocr(self):
         '''
@@ -288,8 +307,13 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         '''
         if self.__isROI:
             self.roiview.clearROIs()
+            
         if self.__isOCR:
             self.param.clearResult()
+            
+        if self.actionAddROI.isChecked():
+            self.actionAddROI.setCheckable(False)
+            self.addROIMode()
         
         self.__isClear = True
         self.updateUi()

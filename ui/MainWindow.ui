@@ -129,6 +129,9 @@
    </property>
   </action>
   <action name="actionAddROI">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -264,6 +267,18 @@
    </property>
    <property name="statusTip">
     <string>Restore a json file</string>
+   </property>
+  </action>
+  <action name="actionExitAddROI">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/eixtAdd</normaloff>:/icons/eixtAdd</iconset>
+   </property>
+   <property name="text">
+    <string>ExitAddROI</string>
+   </property>
+   <property name="statusTip">
+    <string>Exit ADD Mode</string>
    </property>
   </action>
  </widget>
