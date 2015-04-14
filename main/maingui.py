@@ -5,7 +5,7 @@ THis is the Main Window file
 @author: jiang
 '''
 __author__ = 'Jiang Yunfei'
-__version__ = '0.3.1'
+__version__ = '0.3.2'
 __date__ = '2015.04'
 
 import sys
@@ -35,16 +35,16 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.__isROI = False
         self.__isOCR = False
         self.__isClear = False
+        self.__isSaved = False
         self.outputData = {} #for final output
         
         #read setting:
         data = self.file.setting('LOAD')
+        
         if data:
-            lastDir = data['DIR']
-            paramState = data['STATE']
+            self.file.setLastDir(data['DIR'])
+            self.param.setting('LOAD', data['STATE'])
             
-            self.file.file_dir = lastDir
-            self.param.setting('LOAD', paramState)
         
         self.resize(1000, 650)
         self.setWindowTitle('Michelangelo')
@@ -75,7 +75,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.actionAnalyze.triggered.connect(self.analyze)
         self.actionAddROI.triggered.connect(self.addROI)
         self.actionOCR.triggered.connect(self.ocr)
-        self.actionClear.triggered.connect(self.clear)
+        self.actionClear.triggered.connect(self.reset)
         self.actionAbout.triggered.connect(self.about)
         self.actionSave.triggered.connect(self.save)
         self.actionExit.triggered.connect(self.exit)
@@ -86,11 +86,10 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.connect(self.param, QtCore.SIGNAL('SaveClicked'),self.save)
         #请使用修正后的ViewBox.py, ParameterTree文件
         self.connect(self.param, QtCore.SIGNAL('ROIHighlight'),self.roiview.highlightROI)
-        '''
-        MultiThread
-        '''
+        #MultiThread
         self.connect(self.tess, QtCore.SIGNAL('UpdateROI'), self.updateROI)
         
+        #self.connect(self.tess, QtCore.SIGNAL('OCRTEST'), self.updateOCRTEST)
         self.connect(self.tess, QtCore.SIGNAL('UpdateOCR'), self.updateOCR)
         self.connect(self.tess, QtCore.SIGNAL('UpdateOCR'), self.info.close)
     
@@ -122,14 +121,14 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
     def openFile(self, restore=False):
         
         if not restore:
-            imgDir = self.file.openFile(type='image')
+            imgDir = self.file.openFile('image')
         else:
             imgDir = self.outputData['IMG']
             
         if imgDir:
             self.clear()
-            roi_image = self.file.getImage(imgDir,type='ROI')
-            pix_image = self.file.getImage(imgDir,type='PIX')
+            roi_image = self.file.getImage(imgDir,'ROI')
+            pix_image = self.file.getImage(imgDir,'PIX')
             
             #set image            
             self.roiview.setIamge(roi_image)
@@ -155,7 +154,11 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
     def analyze(self):
         '''
         分析Rectangle区域
-        '''        
+        '''
+        if self.__isROI:
+            if not self.questionMessage('Do you want to Re-ROI ?        '):
+                return 
+                
         self.setupOCR()
         self.tess.startROIThread()
         
@@ -188,6 +191,11 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         '''
         文本识别并返回数据
         '''
+        if self.__isOCR:
+            if not self.questionMessage('Do you want to Re-OCR ?        '):
+                return
+        
+        
         rdict = self.roiview.getPosDict()
         index= sorted(rdict)
 
@@ -206,7 +214,22 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         
         #show Dialog
         self.showInfo('Tesseract OCR is working ...        ')
-        
+    
+    
+    def updateOCRTEST(self,boxas):
+        if boxas:
+            tmp = boxas[0]
+            rect = self.file.boxa2rect(tmp)
+            print(rect)
+            self.roiview.setROIs(rect)
+            
+            self.__isOCR = True
+            self.updateUi()
+            
+            self.LOG('[OCR] TEST')
+        else:
+            self.LOG('[OCR] ERROR ->NULL RETURN','red')
+       
     def updateOCR(self,text):
         if text:
             self.param.setResult(text, self.index)
@@ -228,6 +251,8 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
                 }
         [2] save data to file 
         '''
+        if self.__isSaved:
+            return
         
         #Get text data
         text = self.param.getOutputText()
@@ -249,6 +274,13 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         
         if msg:
             self.LOG('SAVE FILE -> '+ msg)
+            self.__isSaved = True
+    
+    
+    def reset(self):
+        if self.warningMessage('All your results will be clean, confirm ?        '):
+            self.clear()
+    
     
     def clear(self):
         '''
@@ -269,8 +301,6 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         webbrowser.open(url)
     
     def about(self):
-        '''
-        '''
         info = '''<h1>Michelangelo&trade;</h1>
                 <h4>Version: %s (%s)</h4>
                 <p>Copyright &copy;<a href="mailto:jiangyunfei93@bupt.edu.cn">%s</a>. All rights reserved.</p>
@@ -279,16 +309,19 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
                 QtCore.PYQT_VERSION_STR, platform.system())
                 
         QtGui.QMessageBox.about(self,'About',info)
-        
                
     def exit(self):
         '''
         关闭程序并保存
         '''        
         if self.questionMessage('Do you want to Exit ?        '):
+            if self.__isOCR and not self.__isSaved:
+                if self.questionMessage('Do you want to save before exiting ?        '):
+                    self.save()
+            
             #save settings:
             data = {}
-            data['DIR'] = str(self.file.lastDir)
+            data['DIR'] = self.file.lastDir
             data['STATE'] = self.param.setting('SAVE')
             self.file.setting('SAVE', data)
             
@@ -306,7 +339,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             ->generate text
         ->updateOCR
         '''
-        path = self.file.openFile(type='json')
+        path = self.file.openFile('json')
         
         if path:
             self.LOG('[RESTORE] '+path, 'green')
@@ -351,12 +384,18 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.info.setIcon(QtGui.QMessageBox.Information)
         self.info.setText(MESSAGE)
         self.info.exec_()
-        
+    
+    def warningMessage(self, MESSAGE='NULL'):
+        reply = QtGui.QMessageBox.warning(self, 'Attention', MESSAGE,
+                QtGui.QMessageBox.Yes | QtGui.QMessageBox.Cancel)
+        if reply == QtGui.QMessageBox.Yes:
+            return True
+        else:
+            return False    
         
     def questionMessage(self, MESSAGE='NULL'):     
-        reply = QtGui.QMessageBox.question(self, "Michelangelo",
-                MESSAGE,
-                QtGui.QMessageBox.Yes | QtGui.QMessageBox.Cancel)
+        reply = QtGui.QMessageBox.question(self, "Michelangelo",MESSAGE,
+                QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
         if reply == QtGui.QMessageBox.Yes:
             return True
         else:

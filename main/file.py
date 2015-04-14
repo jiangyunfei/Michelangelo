@@ -7,7 +7,7 @@ This is the file controller
 from PIL import Image
 import numpy
 import json
-from PyQt4 import QtGui
+from PyQt4 import QtGui, QtCore
 from libs import lepttool
 
 
@@ -18,45 +18,51 @@ class FileMgr:
         '''
         self.leptonica = lepttool.get_leptonica()
         self.parent = parent
-        self.image_dir = None
+        self.imageDir = None
         
-        self.file_dir = QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.PicturesLocation)
+        self.dafultDir = {'default': QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.HomeLocation),
+                        'image': QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.PicturesLocation),
+                        'json': QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.DocumentsLocation) }
         
-        self.lastDir = None
+        self.lastDir = {'image':None,
+                        'json':None}
+    
+    def setLastDir(self,data):
+        self.lastDir = data
         
-    def openFile(self,type):
-        if type == 'image':
-            """Load Image
-            """
-            image_dir = QtGui.QFileDialog.getOpenFileName(self.parent,'Open Image file',self.file_dir,
-                        'Images (*.jpg *.jpeg *.bmp *.png *.tiff *.tif *.gif);;All files (*.*)')
-            if image_dir:
-                self.image_dir = image_dir
-                self.lastDir = image_dir
+    def openFile(self,TYPE):
+        
+        if self.lastDir[TYPE] is None:
+            self.lastDir[TYPE] = self.dafultDir[TYPE]
                 
-                return image_dir
+        if TYPE == 'image':
+            imageDir = QtGui.QFileDialog.getOpenFileName(self.parent,'Open Image file',self.lastDir[TYPE],
+                        'Images (*.jpg *.jpeg *.bmp *.png *.tiff *.tif *.gif);;All files (*.*)')
             
-        elif type == 'json':
-            filePath = QtGui.QFileDialog.getOpenFileName(self.parent, 'Save file',self.file_dir,
+            if imageDir:
+                self.imageDir = imageDir
+                
+                self.lastDir[TYPE] = str(QtCore.QFileInfo(imageDir).absolutePath()) 
+                
+                return imageDir
+            
+        elif TYPE == 'json':
+            jsonDir = QtGui.QFileDialog.getOpenFileName(self.parent, 'Load Json file',self.lastDir[TYPE],
                                                      'JSON (*.json);;All files (*.*)')
-            if filePath:
-                self.lastDir = filePath
-                return filePath
+            if jsonDir:
+                self.lastDir[TYPE] = str(QtCore.QFileInfo(jsonDir).absolutePath()) 
+                return jsonDir
                         
-    def getImage(self,image_dir,type):
+    def getImage(self,imageDir,TYPE):
         
-
-        self.loadIamge(image_dir)
+        self.loadIamge(imageDir)
         
-        if type == 'PIX':
+        if TYPE == 'PIX':
             return self.pix_image
-        elif type == 'PIL':
+        elif TYPE == 'PIL':
             return self.PILimage
-        elif type == 'ROI':
+        elif TYPE == 'ROI':
             return self.ROIimage
-        else:
-            print('Type Wrong!')
-            return
     
     def parseJson(self,filePath):
         with open(filePath) as data_file:    
@@ -85,30 +91,35 @@ class FileMgr:
         self.__isLoad = True
 
     
-    def saveFile(self,data,format):
+    def saveFile(self,data,FORMAT):
         if data is None:
             return
         
-        filePath = QtGui.QFileDialog.getSaveFileName(self.parent, 'Save file',self.file_dir,
-                                                     'FILE (*.json,*.txt);;All files (*.*)')
+        TYPE = 'json'
+        if self.lastDir[TYPE] is None:
+            self.lastDir[TYPE] = self.dafultDir[TYPE]
+        
+        filePath = QtGui.QFileDialog.getSaveFileName(self.parent, 'Save file',self.lastDir[TYPE],
+                                                     'FILE (*.json *.txt);;All files (*.*)')
         if filePath:
-            outfile_dir = filePath+format
-            outfile = open(outfile_dir, "w")
-            if format =='.json':
+            self.lastDir[TYPE] = str(QtCore.QFileInfo(filePath).absolutePath()) 
+            
+            outfileDir = filePath+FORMAT
+            outfile = open(outfileDir, "w")
+            if FORMAT =='.json':
                 json.dump(data, outfile)
-            elif format == '.txt':
+            elif FORMAT == '.txt':
                 keys = sorted(data.keys())
                 for key in keys:
                     if key == 'IMG':
                         continue
                     val = data[key]
                     text = val['text']
-                    outfile.write('\n%s : \n%s\n'%(key,text.encode('utf-8')))
+                    outfile.write(('='*10 +' %s '+'='*10)%(key))
+                    outfile.write('\n%s\n\n'%(text.encode('utf-8')))
             
             outfile.close()   
-            self.lastDir = filePath
-                 
-            return outfile_dir         
+            return outfileDir         
             
     def boxa2rect(self,boxa):
         
@@ -135,12 +146,12 @@ class FileMgr:
         currentPath = os.path.split(os.path.realpath(__file__))[0]
         
         if action =='SAVE':
-            with open(currentPath+'/setting.json','w') as setting_file:
+            with open(currentPath+'/setting.conf','w') as setting_file:
                 json.dump(data, setting_file)
         
         elif action =='LOAD':
             try:
-                with open(currentPath+'/setting.json','r') as setting_file:
+                with open(currentPath+'/setting.conf','r') as setting_file:
                     setting = json.load(setting_file)
                     return setting
             except Exception:

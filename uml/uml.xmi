@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI verified="false" xmi.version="1.2" timestamp="2015-04-09T09:41:51" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
+<XMI verified="false" xmi.version="1.2" timestamp="2015-04-13T15:09:07" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
@@ -17,422 +17,505 @@
      <UML:Namespace.ownedElement>
       <UML:Package stereotype="folder" visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Datatypes" name="Datatypes">
        <UML:Namespace.ownedElement>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="JBDdrmKxAXsS" name="int"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Hwx5pasD1p9A" name="char"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="m2Vtju603Hdv" name="bool"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="1wsBRkbjeXmS" name="float"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="5ed6TnGDnk5U" name="double"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="e9UiQ7bP1RZT" name="short"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="AACohyEmasq4" name="long"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="d5FOpKsTTM9r" name="unsigned int"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="RkHTAqwKy66e" name="unsigned short"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="2LOcDFeqKuE9" name="unsigned long"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="C6agQiVrQmIa" name="string"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="aEuXI1BKMZxZ" name="array"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="mZN6TbDefmK3" name="tuple"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="UnssYBT8NNdg" name="dict"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Mo0gMvD8VaDw" name="object"/>
-        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="9OamAspcgiVC" name="set"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="1uDjzG1E5W4n" name="int"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="qepGxV56K5wX" name="char"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="1cFxFFsE95x6" name="bool"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="LxJPTNCJz1Xx" name="float"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Uc1ohxJiXYek" name="double"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="nWzuau1vrKIK" name="short"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="fUbfT6avibiQ" name="long"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="X162YknLHmEr" name="unsigned int"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="gDkWV1oAVOpx" name="unsigned short"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="UNsDxYbUahU8" name="unsigned long"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="QHRh1fWgqEAL" name="string"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="FyWjMJerhW2e" name="array"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="5d6dIajiqANp" name="tuple"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="otTe6dyLcU4w" name="dict"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="nilSDn6GOArh" name="object"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="laNZilMWeq9k" name="set"/>
        </UML:Namespace.ownedElement>
       </UML:Package>
-      <UML:Package visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="oWDH6QEEomyx" name="QtGui">
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="T743Z6yMnjpy" name="BOX">
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="8xxvfmt8e5zi"/>
+       </UML:GeneralizableElement.generalization>
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="HActDZbM325R" comment="Get leptonica handle&#xa; @UndefinedVariable" name="get_leptonica">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="pAQI3hGvvCrC" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" ownerScope="classifier" isRoot="false" xmi.id="6OZxtrPAz13D" comment="Convert leptonica PIX to QT QImage&#xa; TODO(zdenop): 8509_001.4B.tif crash this -> implement PIX structure  Convert other depths to 32 (depth == 8)" name="pix_to_qimage">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="daxcZynAaKmC" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="acXcea3TjSjm" type="QHRh1fWgqEAL" value="" name="leptonica"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="90i4AXEGwnBp" type="QHRh1fWgqEAL" value="" name="pix_image"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="tndcDMMMK4PV" comment="Get tesseract version&#xa;" name="get_version">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="cdlWPvL2VIc5" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="GQDoixybibDw" comment="Make a simple test&#xa;" name="main">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="vYGEcdjCHSge" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Package visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="VtEr45WnduML" name="ctypes">
+       <UML:Namespace.ownedElement>
+        <UML:Class visibility="public" isSpecification="false" namespace="VtEr45WnduML" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="fgqHWz0y42zd" name="Structure"/>
+       </UML:Namespace.ownedElement>
+      </UML:Package>
+      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="T743Z6yMnjpy" xmi.id="8xxvfmt8e5zi" parent="fgqHWz0y42zd" name=""/>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="N1grHIuXg5JP" name="FileMgr">
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="2H0iqCckktyK" name="__init__">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="KEy0JFPJXOzL" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="WfVl7BPTB3KS" type="QHRh1fWgqEAL" value="" name="parent"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Yc3ITzaxe5jm" comment="Load Image&#xa;" name="openFile">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="2oJXCIsiuuyN" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="F6FQ8XqSloQ2" type="QHRh1fWgqEAL" value="" name="type"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="tYLYc2Ir6VFE" name="getImage">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="vrg2MvEOzt7p" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="25els5nur4R3" type="QHRh1fWgqEAL" value="" name="image_dir"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="MHjHBhc3Fvbr" type="QHRh1fWgqEAL" value="" name="type"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="wshnw8oINXXX" name="parseJson">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="pBio2ndwfIjb" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="E8aR19Hx0vxM" type="QHRh1fWgqEAL" value="" name="filePath"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="QVrl0PICXqeY" comment=" filename must be c-string Read image with leptonica => create PIX structure and report image size info" name="loadIamge">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="k0VPICyiiqSg" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ztTxoOHdYxPa" type="QHRh1fWgqEAL" value="" name="filename"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="DitkZXGWOiSC" name="saveFile">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="dlP1TrDXa1CF" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="6jqehFDRGipW" type="QHRh1fWgqEAL" value="" name="data"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="snFabfHoN8Wu" type="QHRh1fWgqEAL" value="" name="format"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="FNfT3SzvFCUp" comment=" Get info about number of items on imageprint('Find %s '%n_items) Set up result type (BOX structure) for leptonica function boxaGetBox Display items and print its infoprint('Box[%d]: x=%d, y=%d, w=%d, h=%d, '%(item, box.x, box.y, box.w, box.h))" name="boxa2rect">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="Lgtui57vQmOT" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="rjdDrA7UvUVM" type="QHRh1fWgqEAL" value="" name="boxa"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ENPSYtFPasaR" name="setting">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="K5KuyvLybEsj" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="0gvvAOHU4BOm" type="QHRh1fWgqEAL" value="" name="action"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="EThdG36SPTsx" type="QHRh1fWgqEAL" value="" name="data"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="c9DhIZRV398H" name="LogMgr">
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="nAHoHN5RZn1D"/>
+       </UML:GeneralizableElement.generalization>
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="RJJz4KCNpMKC" name="__init__">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="S9B0DPsfh9ej" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="PqIfugJM61Nk" type="QHRh1fWgqEAL" value="" name="parent"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Ro5GBPQaDjD5" name="writeLog">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="knmRwO8NCDbL" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="NXRTWmDyvMx9" type="QHRh1fWgqEAL" value="" name="message"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="a2unj7s6cJZ9" comment=" Scroll to end of the last message" name="showLogs">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="6m51628qpsFj" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Package visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="AChZgYWydrtb" name="QtGui">
+       <UML:Namespace.ownedElement>
+        <UML:Class visibility="public" isSpecification="false" namespace="AChZgYWydrtb" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="kCYJRQ23XEio" name="QDialog"/>
+        <UML:Class visibility="public" isSpecification="false" namespace="AChZgYWydrtb" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="mqTO90VDkbDq" name="QMainWindow"/>
+       </UML:Namespace.ownedElement>
+      </UML:Package>
+      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="c9DhIZRV398H" xmi.id="nAHoHN5RZn1D" parent="kCYJRQ23XEio" name=""/>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="GO4RbemCggzN" name="Michelangelo">
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="bJhRCw8SIBru"/>
+        <UML:Generalization xmi.idref="hv6WCVVRPiQv"/>
+       </UML:GeneralizableElement.generalization>
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Vf9vLaqOoq9U" comment="for final outputread setting:initialize" name="__init__">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="VVE0VOi11quM" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="KkaSfLMjdtab" type="QHRh1fWgqEAL" value="" name="parent"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="OiiAWreqaCGF" name="initUi">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="Vdx9WXiz2xzY" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="JgXKURes9M2f" name="initTools">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="CeVmpjzIMwPq" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="U8pU5n0MRXev" comment="请使用修正后的ViewBox.py, ParameterTree文件" name="initConnection">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="wIl5clioNBYC" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="vWTHSs8u0vP3" comment="Actions" name="updateUi">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="gNP7v30rJlvw" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="UdispH4knXzD" comment="set image            " name="openFile">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="rlbAVW6z9nrw" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="O56OzTSfqpll" type="QHRh1fWgqEAL" value="" name="restore"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="4ugpPg0nj6Ai" name="setupOCR">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="ZcOQP99GskRN" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="GVNOICKK6z9W" name="analyze">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="dAJMET5o3RER" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="aNhS86oMc9ks" name="updateROI">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="f4VgVj734nUA" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="L3DS2MwfUD1j" type="QHRh1fWgqEAL" value="" name="boxa"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="tIXTRFMkIZAI" name="addROI">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="t6xMKx5z1adV" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="HlYJY2UPIzth" comment="truncate the numbers:FLoat to Intshow Dialog" name="ocr">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="CFSVoclfhh1z" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="e4wdcZ8tKhDq" name="updateOCR">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="g5nNmnMOrG1U" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="hfG0e9fqM5J8" type="QHRh1fWgqEAL" value="" name="text"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="pAL8pWyWBEUp" comment="Get text dataGet position data" name="save">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="L8efDxnt0ZEk" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Ma8Dq8heG3m5" name="clear">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="ZkZjx2YGAAwL" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="6jF6ITpc2vqq" name="help">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="1VUHYGM6zupw" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="uLA4W6Pcocg4" name="about">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="6Th6NXwO2PgZ" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="d0dcuSWolhqF" comment="save settings:" name="exit">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="lEpZqWeuxL0K" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="qvjqKPPvN2YI" comment="Dialogs:" name="restore">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="S24CjtRV7H2x" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="GO4RbemCggzN" xmi.id="bJhRCw8SIBru" parent="mqTO90VDkbDq" name=""/>
+      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="GO4RbemCggzN" xmi.id="hv6WCVVRPiQv" parent="PcJhnBZcnd53" name=""/>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="leqixq3njkc1" name="Param">
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="Np66Zi6gh3Bh"/>
+       </UML:GeneralizableElement.generalization>
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="0w9ixINRCXQu" comment="# Create tree of Parameter objectsLazy Mode:" name="__init__">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="IdH8VQK4Gb0h" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="hFQdXG6YADE7" comment="{'name': 'Orientation', 'type': 'list', 'values': ORIparam, 'value': 0},{'name': 'Save', 'type': 'action'}" name="initParam">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="WbYi7zaPapV5" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="GpAWP8B6Laht" comment="# If anything changes in the tree, print a messageprint(ops + '->changing')TESTprint('%s changed!.'%ops)" name="changeParam">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="WTPp36irq5qp" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="qlP1zd6VCdBH" type="QHRh1fWgqEAL" value="" name="param"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="cleAbAFpxNJK" type="QHRh1fWgqEAL" value="" name="changes"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="gxItaR8ACnKl" comment="FORMAT : {'name': '#1', 'type': 'text', 'value': '#1 OCR text...'}添加信息：增加结果" name="setResult">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="gtBUy2HfxXWV" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="vXYsvsDPJcCM" type="QHRh1fWgqEAL" value="" name="textList"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="yefBPxuKSTBL" comment="初始化    " name="clearResult">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="JMicwvyco75m" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="9MP6uvbsYE1v" name="getParamTree">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="9uGcNRxengGh" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="bCHNJM9TjZXb" comment="Transfer" name="getParamOptions">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="S7TyJTuRN83i" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ZyMKcc1BoGY5" name="getFormat">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="dgWKD4vf9OcQ" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="pWrCcuuBrETR" name="getOutputText">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="qSdci9iJpEd2" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="GYgPvIqkmfvO" name="setting">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="NpD9V8V3w0Sy" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="YnXP2yqsORV6" type="QHRh1fWgqEAL" value="" name="action"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="bBOQN1Rea71T" type="QHRh1fWgqEAL" value="" name="data"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Package visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="71xU2TkSVpeD" name="QtCore">
        <UML:Namespace.ownedElement/>
       </UML:Package>
-      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="tyIEJwuektK6" xmi.id="hSwQLEU7khPp" parent="doZHU4TL0lZI" name=""/>
-      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="tyIEJwuektK6" xmi.id="KSE5qUJHApha" parent="q0yYfNLlwMdI" name=""/>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="D9OBwZfklyLi" name="BOX">
-       <UML:GeneralizableElement.generalization>
-        <UML:Generalization xmi.idref="bDOMCh5uefxS"/>
-       </UML:GeneralizableElement.generalization>
+      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="leqixq3njkc1" xmi.id="Np66Zi6gh3Bh" parent="i6gnNii8NYoK" name=""/>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="yGoMgHQHQofo" name="ROIView">
        <UML:Classifier.feature>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ewpGZliwENZf" comment="Get leptonica handle&#xa; @UndefinedVariable" name="get_leptonica">
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="o6SODTrYJ2hm" name="__init__">
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="wgMKHavTUsOQ" type="C6agQiVrQmIa"/>
+          <UML:Parameter kind="return" xmi.id="9Ap3AFz6TnQ9" type="QHRh1fWgqEAL"/>
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" ownerScope="classifier" isRoot="false" xmi.id="Qxx9sq4UlrlK" comment="Convert leptonica PIX to QT QImage&#xa; TODO(zdenop): 8509_001.4B.tif crash this -> implement PIX structure  Convert other depths to 32 (depth == 8)" name="pix_to_qimage">
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="3rQTd6HRAjnM" comment="TAG标签" name="initROIs">
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="zLnkBW3lyHYm" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="aTEmonSjRo3j" type="C6agQiVrQmIa" value="" name="leptonica"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="MwAqmYECTBJJ" type="C6agQiVrQmIa" value="" name="pix_image"/>
+          <UML:Parameter kind="return" xmi.id="BcuSfaEmk1pt" type="QHRh1fWgqEAL"/>
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="30VUmWB8QLwD" comment="Get tesseract version&#xa;" name="get_version">
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="GozjZQrcFH6q" comment=" Transparent background outside of the image Autoscale the image when the window is rescaled" name="getROIView">
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="r8NKJhdI0P1B" type="C6agQiVrQmIa"/>
+          <UML:Parameter kind="return" xmi.id="LLGU53qEgkgJ" type="QHRh1fWgqEAL"/>
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="v4vtJTeMR7pB" comment="Make a simple test&#xa;" name="main">
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Is53tsu9gtqF" comment=" No aspect distortions" name="setIamge">
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="e0H2MBDDJbWc" type="C6agQiVrQmIa"/>
+          <UML:Parameter kind="return" xmi.id="caWGJAXb2ccv" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="HhqUxwLGFbkI" type="QHRh1fWgqEAL" value="" name="image"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="UW28OtOdYC8V" name="setROIs">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="Aw4j8ACEbuZZ" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="8RkL0Uec3AtM" type="QHRh1fWgqEAL" value="" name="rlist"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="LOvN1YHT2JaQ" type="QHRh1fWgqEAL" value="" name="TAGs"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="PDBSM2mhRh2Q" comment="'+numStrset TAG Text Itemroi.sigRegionChangeStarted.connect(self)roi.sigHoverEvent.connect(self.showInfo)ADD" name="addROI">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="86VZmWxznpDO" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="DJrGbRelNgST" type="QHRh1fWgqEAL" value="" name="r"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="qdhPXHyuS8Mo" type="QHRh1fWgqEAL" value="" name="TAG"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Es8aYY3N9lkh" comment="reset           " name="clearROIs">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="0hbSnwFv0iTm" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="EQk0DxMSpU0M" comment="print(tag +'-> position changed: ',pos,size)Changed" name="posChanged">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="LQpL6G6LgqJs" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="13hAmRpk6RBt" type="QHRh1fWgqEAL" value="" name="roi"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="nfIb8Iv9JcH4" name="highlightROI">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="2Elh44ZqjpRp" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="17m6WxzpLm8S" type="QHRh1fWgqEAL" value="" name="TAG"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="7MyOwESvLD1r" comment="Removeprint(tag +'-> is removed! ')" name="removeROI">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="j0tQnIEucCGY" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="A1eUlmwm1fT3" type="QHRh1fWgqEAL" value="" name="roi"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="OhUjuTY2UCWE" name="getPosDict">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="zQ0y3R1kPvBC" type="QHRh1fWgqEAL"/>
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
        </UML:Classifier.feature>
       </UML:Class>
-      <UML:Package visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="kwc3qjZEIyvU" name="ctypes">
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="BP4oZIKyzmft" name="TagROI">
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="FWcEGG6WSyFo"/>
+       </UML:GeneralizableElement.generalization>
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="3SiTOxHl7PuD" name="getTAG">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="puaXXiSuhkOe" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="9Xm5K8HLbxox" name="getTextItemPointer">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="v3i2TdDIXlp3" type="QHRh1fWgqEAL"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="UHv9zIl9pXC7" name="setTextItem">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="VU01Eq4i5xp5" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="fRQEOECHHuHi" type="QHRh1fWgqEAL" value="" name="item"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Package visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="GCuiOOwLpuJs" name="pg">
        <UML:Namespace.ownedElement>
-        <UML:Class visibility="public" isSpecification="false" namespace="kwc3qjZEIyvU" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="DqWZDcgOj4ag" name="Structure"/>
+        <UML:Class visibility="public" isSpecification="false" namespace="GCuiOOwLpuJs" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="LJdiCmuN9wBg" name="ROI"/>
        </UML:Namespace.ownedElement>
       </UML:Package>
-      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="D9OBwZfklyLi" xmi.id="bDOMCh5uefxS" parent="DqWZDcgOj4ag" name=""/>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="G7sGWtQQvLJF" name="FileMgr">
-       <UML:Classifier.feature>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="mxbD5OMhPdjj" name="__init__">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="ROSMjkZVf9ii" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="oxu5WQhkWX02" type="C6agQiVrQmIa" value="" name="parent"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="X2Pwf7dR2YWY" comment="Load Image&#xa;input_dir = sett.readSetting('images/input_dir')" name="openFile">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="d4sJDY1ibPfE" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="wBGSjETAdvUM" type="C6agQiVrQmIa" value="" name="type"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="WIgWoC2lMID5" name="getImage">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="Yv6uDJzhyArY" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="WgD9afWDjOUu" type="C6agQiVrQmIa" value="" name="image_dir"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="uUdVtGkNWOtL" type="C6agQiVrQmIa" value="" name="type"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="qNjXjEQbi37Z" comment=" filename must be c-string Read image with leptonica => create PIX structure and report image size info" name="loadIamge">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="UbYQmNycif7R" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="HpunDn6jgCer" type="C6agQiVrQmIa" value="" name="filename"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="tX3ZY86pv0b6" name="saveFile">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="PtQIt1OdiE2a" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="lhpPsTEM5nmp" type="C6agQiVrQmIa" value="" name="data"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="8iRrNWGF4Hoc" type="C6agQiVrQmIa" value="" name="format"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="hHuk2gZAMyzk" comment=" Get info about number of items on image Set up result type (BOX structure) for leptonica function boxaGetBox Display items and print its info" name="boxa2rect">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="OlbliaVDqSkM" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="VGzXXl9veZDW" type="C6agQiVrQmIa" value="" name="boxa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ac9HoBpTQkES" type="C6agQiVrQmIa" value="" name="rectList"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-       </UML:Classifier.feature>
-      </UML:Class>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="tyIEJwuektK6" comment="Class For MainWindow&#xa;" name="MainWindow">
+      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="BP4oZIKyzmft" xmi.id="FWcEGG6WSyFo" parent="LJdiCmuN9wBg" name=""/>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="FaC47M9mnZ1B" name="TessMgr">
        <UML:GeneralizableElement.generalization>
-        <UML:Generalization xmi.idref="hSwQLEU7khPp"/>
-        <UML:Generalization xmi.idref="KSE5qUJHApha"/>
-        <UML:Generalization xmi.idref="DrHqPUMz4VEs"/>
-        <UML:Generalization xmi.idref="ZC6dhLWLNqOB"/>
+        <UML:Generalization xmi.idref="lDT35kjbDkcR"/>
        </UML:GeneralizableElement.generalization>
        <UML:Classifier.feature>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ThhcUMCOiqng" comment="Class For MainWindow&#xa;" name="__init__">
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="K6EVoowMQ10z" comment="print('Tesseract %s initialized!' % (tesstool.VERSION)) " name="__init__">
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="Z9g894YcjFED" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="04S9JlwtPSON" type="C6agQiVrQmIa" value="" name="parent"/>
+          <UML:Parameter kind="return" xmi.id="veoPVe0hfOfD" type="QHRh1fWgqEAL"/>
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ZPbHDPwDTMNk" comment="self.dockLayout.addWidget(paWidght)" name="initUi">
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="koXIOsvgx9Cl" comment=" Set PIX structure to tesseract api" name="setOCRImageSource">
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="7HbUiysH7WOG" type="C6agQiVrQmIa"/>
+          <UML:Parameter kind="return" xmi.id="lRtOnWZWI7og" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="v66L64K1i7RD" type="QHRh1fWgqEAL" value="" name="pixImage"/>
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="awrJ93UiQ6xe" name="initTools">
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="xjKsqWcjbi4h" comment="print('Tess Ready!')" name="initTess">
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="TtruECeJSDoA" type="C6agQiVrQmIa"/>
+          <UML:Parameter kind="return" xmi.id="18qJDex8LH19" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="mMiSR7eCZXYK" type="QHRh1fWgqEAL" value="" name="ops"/>
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="BePJAnXijMzq" name="initConnection">
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="mdsLJu25HiXi" comment="Clear" name="clearAPI">
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="QTYqXUU0LKuZ" type="C6agQiVrQmIa"/>
+          <UML:Parameter kind="return" xmi.id="qBtNgPhhVWyg" type="QHRh1fWgqEAL"/>
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="WWtykf6vJUCR" name="wirteLog">
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="8vpUBobvRUGk" name="startROIThread">
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="on7950jcUaYE" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Fi9x46nUZMJ7" type="C6agQiVrQmIa" value="" name="str"/>
+          <UML:Parameter kind="return" xmi.id="MInbyIIoSB98" type="QHRh1fWgqEAL"/>
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Fd8W7IvM02J3" comment="Actions" name="updateUi">
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Ypo4LkkTgXvp" name="startOCRThread">
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="87VhRooFauMf" type="C6agQiVrQmIa"/>
+          <UML:Parameter kind="return" xmi.id="YFz0O86uxsyI" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="LXkkz0ULGFxC" type="QHRh1fWgqEAL" value="" name="rects"/>
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="s3FMdobsRhMW" name="openFile">
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="dhkHCf6YCoIB" name="getBoxa">
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="zHsyJA1RHW9g" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="JvttnFYfJm2w" comment="update the Optionsset image" name="analyze">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="abnzG7TDPLBg" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="VA8kfFQy8Jpw" name="addROI">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="XLZq7ZkfAVeO" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="d7c0Rnguwmdb" comment="truncate the numbers:FLoat to Int" name="ocr">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="13X8LM4qfbgn" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="BOSLu7iVCKVb" comment="Get text dataGet position data" name="save">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="59U1w7avA53T" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="P5J5hxssKKBE" name="clear">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="PthaBC9HJdGF" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="kpBtsCKIIcLx" comment="QtGui.QMessageBox.about(self,'About',info)" name="about">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="ZDptVy5tqmR1" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="waGGCXTwKepC" name="beforeClose">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="p8U7kp2J0pBU" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="nELdzmdtKt7W" comment=" if not changed returnget the Options:set Options to OCR:" name="updateOCROptions">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="ObRiDEv2MP76" type="C6agQiVrQmIa"/>
+          <UML:Parameter kind="return" xmi.id="mlV20QEWdDU1" type="QHRh1fWgqEAL"/>
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
        </UML:Classifier.feature>
       </UML:Class>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="doZHU4TL0lZI" name="QMainWindow"/>
-      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="tyIEJwuektK6" xmi.id="DrHqPUMz4VEs" parent="doZHU4TL0lZI" name=""/>
-      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="tyIEJwuektK6" xmi.id="ZC6dhLWLNqOB" parent="q0yYfNLlwMdI" name=""/>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="nxmzuFwKgPpH" name="Param">
-       <UML:Classifier.feature>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="WCoR0KDbwdCa" comment="# Create tree of Parameter objectsLazy Mode:DEBUG1','#2','#3']" name="__init__">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="WprRbRoMOYLI" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="mHaSePhAaUaa" name="initParam">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="ol9iMLGr98Ii" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="X54wdNCPcnpH" comment="# If anything changes in the tree, print a messageTEST" name="changeParam">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="wUIYF8pQdF6c" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="AXPizzHlkOU5" type="C6agQiVrQmIa" value="" name="param"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ikwrqCXOHbIv" type="C6agQiVrQmIa" value="" name="changes"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="CNNvkp0SYuJO" comment="FORMAT : {'name': '#1', 'type': 'text', 'value': '#1 OCR text...'}添加信息：增加结果" name="setResult">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="fh8IuDs6YEzI" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="6qkOP2HLVZtk" type="C6agQiVrQmIa" value="" name="textList"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="3zkZt3wyrgME" comment="初始化    " name="clearResult">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="hdZCARuq6180" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Ez4mD45E3nov" name="getParamTree">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="pktgODt5oQFy" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="r8ov9vvLs075" comment="Transfer" name="getParamOptions">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="4AJ5y5ynppRE" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="0KHolVnadZWk" name="getFormat">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="SP5IPANRJfVF" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="iR2WHRiHkz4T" name="getOutputText">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="Up35MXppxu5K" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-       </UML:Classifier.feature>
-      </UML:Class>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="3TmM6FbogbKv" name="ROIView">
-       <UML:Classifier.feature>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="22Bk0FDS4FYO" name="__init__">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="mNBjGH2Jkmdo" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="1Ecfpvbpvkav" comment="TAG标签" name="initROIs">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="xlOz0wNnHZUX" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="qWoYIRMHdwxS" comment=" Transparent background outside of the image Autoscale the image when the window is rescaled" name="getROIView">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="rWInGqiDb4Cc" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="0ZNG8rlwMaUc" comment=" No aspect distortions" name="setIamge">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="96mjAwJ9VgPc" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="zqudnr3cLLPb" type="C6agQiVrQmIa" value="" name="image"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="VAWpk1SirMLc" name="setROIs">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="lr0EVPozZLoI" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="BOFWic5pipYr" type="C6agQiVrQmIa" value="" name="rlist"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="KG09aJmjfzDL" comment="'+numStrset TAG Text Itemconnectionroi.sigRegionChangeStarted.connect(self)roi.sigHoverEvent.connect(self.showInfo)ADD" name="addROI">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="eQKINYdyooEu" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="bGBI5h9qX932" type="C6agQiVrQmIa" value="" name="r"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Yrz5AoNU2Led" type="C6agQiVrQmIa" value="" name="TAG"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="UNi1Ul12b16l" comment="reset           " name="clearROIs">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="nTGpnuQPIlhf" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="JLb57qzbDgai" comment="print(tag +'-> position changed: ',pos,size)Changed" name="posChanged">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="ueSCP8rgTSlY" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Pci0bomOG2D3" type="C6agQiVrQmIa" value="" name="roi"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Gj8UPiAoIqpt" comment="Remove" name="removeROI">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="SU8tutSBcadz" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="fZFtZTuT5KfS" type="C6agQiVrQmIa" value="" name="roi"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="GnmZdZQG8g7h" name="getPosDict">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="71ACMnemFmg7" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-       </UML:Classifier.feature>
-      </UML:Class>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="d6GEetBuexRG" name="TagROI">
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="i6gnNii8NYoK" name="QObject"/>
+      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="FaC47M9mnZ1B" xmi.id="lDT35kjbDkcR" parent="i6gnNii8NYoK" name=""/>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="PcJhnBZcnd53" name="Ui_MainGUI">
        <UML:GeneralizableElement.generalization>
-        <UML:Generalization xmi.idref="hEwJ9OZgC2Ii"/>
+        <UML:Generalization xmi.idref="KbtFTqY4XILh"/>
        </UML:GeneralizableElement.generalization>
        <UML:Classifier.feature>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="xWU9Wnp8N8LO" name="getTAG">
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="URL1hfic2wkE" name="setupUi">
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="CUchJGNSQq5O" type="C6agQiVrQmIa"/>
+          <UML:Parameter kind="return" xmi.id="pRIc5DtZeDYJ" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="S0Bfk9stJcee" type="QHRh1fWgqEAL" value="" name="MainGUI"/>
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Ji30K0oHWHP2" name="getTextItemPointer">
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="qEvs8e6YeIDM" name="retranslateUi">
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="2EAPLTlVwMBD" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="cYg0MjPfSSdm" name="setTextItem">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="YpRUBchl9NmT" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="SQ1whOwjd66w" type="C6agQiVrQmIa" value="" name="item"/>
+          <UML:Parameter kind="return" xmi.id="n1tRCPi2bevk" type="QHRh1fWgqEAL"/>
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="P6FiiuKVJc8M" type="QHRh1fWgqEAL" value="" name="MainGUI"/>
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
        </UML:Classifier.feature>
       </UML:Class>
-      <UML:Package visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="WqUeWcJdbRnv" name="pg">
-       <UML:Namespace.ownedElement>
-        <UML:Class visibility="public" isSpecification="false" namespace="WqUeWcJdbRnv" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="CRiRBMZoSn24" name="ROI"/>
-       </UML:Namespace.ownedElement>
-      </UML:Package>
-      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="d6GEetBuexRG" xmi.id="hEwJ9OZgC2Ii" parent="CRiRBMZoSn24" name=""/>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="7B7XbiJ48Iyn" name="TessMgr">
-       <UML:Classifier.feature>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="hvWIzaEXQdzb" name="__init__">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="EhLL27m7Gter" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="cvtiCqWtl09i" comment="self.tesseract.TessBaseAPIReadConfigFile(self.api, &quot;opitimize&quot;)" name="initTess">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="bNGzyFYAutTv" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="yG2E7h4javSm" comment="set the Options:languagePSMTEST" name="setOCROptions">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="g5EZyiUxyW95" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="lyfWyoFX9TW6" type="C6agQiVrQmIa" value="" name="ops"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="BDnm9DWuBCP7" comment="Clear Set PIX structure to tesseract api" name="setOCRImage">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="6k62FD8QPtAY" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ycd639AjCOI9" type="C6agQiVrQmIa" value="" name="pix_image"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="6hQFrnKnPxrS" comment=" Get info(BOXA structure) about lines(RIL_TEXTLINE) from image in apiAPI args: (TessBaseAPI* handle, TessPageIteratorLevel level, BOOL text_only, PIXA** pixa, int** blockids)" name="getBoxa">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="5zAHOQQSBUVQ" type="C6agQiVrQmIa"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="gbo5UxdYe1nT" name="getOCRText">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="BmuMENkuyXzQ" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="p5EC36d65nNR" type="C6agQiVrQmIa" value="" name="rects"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-       </UML:Classifier.feature>
-      </UML:Class>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="q0yYfNLlwMdI" name="Ui_MainWindow">
-       <UML:GeneralizableElement.generalization>
-        <UML:Generalization xmi.idref="Uaw8cjZPmnZp"/>
-       </UML:GeneralizableElement.generalization>
-       <UML:Classifier.feature>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="cshPfGCXR6UM" name="setupUi">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="vH1dBIvlAa8n" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="NqTO7vdi7nIo" type="C6agQiVrQmIa" value="" name="MainWindow"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="oLKFRmamb3Ai" name="retranslateUi">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="6ysEY12KKKaj" type="C6agQiVrQmIa"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="wlO1XgpSyo37" type="C6agQiVrQmIa" value="" name="MainWindow"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-       </UML:Classifier.feature>
-      </UML:Class>
-      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="q0yYfNLlwMdI" xmi.id="Uaw8cjZPmnZp" parent="Mo0gMvD8VaDw" name=""/>
-      <UML:Dependency visibility="public" isSpecification="false" namespace="Logical View" supplier="3TmM6FbogbKv" xmi.id="6UIMwzuX3RLW" client="d6GEetBuexRG" name=""/>
+      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="PcJhnBZcnd53" xmi.id="KbtFTqY4XILh" parent="nilSDn6GOArh" name=""/>
+      <UML:Dependency visibility="public" isSpecification="false" namespace="Logical View" supplier="yGoMgHQHQofo" xmi.id="0YbgAOJQciJF" client="BP4oZIKyzmft" name=""/>
      </UML:Namespace.ownedElement>
      <XMI.extension xmi.extender="umbrello">
       <diagrams>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="class diagram" font="Ubuntu,11,-1,5,50,0,0,0,0,0" canvasheight="6579.136261261261" canvaswidth="7136.625" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#fffd86" zoom="65" xmi.id="QTyw9xsN9jPC" documentation="" showscope="1" snapgrid="0" showatts="1" type="1">
+       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="1" showstereotype="1" name="class diagram" font="Sans Serif,9,-1,0,50,0,0,0,0,0" canvasheight="1292.937908496732" canvaswidth="2288.02614379085" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="64" xmi.id="Br0pCxgkwf0x" documentation="" showscope="1" snapgrid="0" showatts="1" type="1">
         <widgets>
-         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-6418.138878665195" showattsigs="601" showstereotype="1" y="-3380.625076677709" showattributes="1" font="Ubuntu,11,-1,5,75,0,0,0,0,0" localid="58Vg9dM6Ok7t" width="275" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="tyIEJwuektK6" showscope="1" height="306" showopsigs="601"/>
-         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-6018.310943456391" showattsigs="601" showstereotype="1" y="-3265.057944671275" showattributes="1" font="Ubuntu,11,-1,5,75,0,0,0,0,0" localid="RxLNjOSqKK2q" width="394.9729729729725" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="nxmzuFwKgPpH" showscope="1" height="186.1081081081079" showopsigs="601"/>
-         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-6016.358463726884" showattsigs="601" showstereotype="1" y="-3626.416199481216" showattributes="1" font="Ubuntu,11,-1,5,75,0,0,0,0,0" localid="QU4nCCgd92yq" width="407" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="G7sGWtQQvLJF" showscope="1" height="127" showopsigs="601"/>
-         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-6016.000024561319" showattsigs="601" showstereotype="1" y="-3446.171178021572" showattributes="1" font="Ubuntu,11,-1,5,75,0,0,0,0,0" localid="OQghjjV0lgc6" width="319" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="7B7XbiJ48Iyn" showscope="1" height="127" showopsigs="601"/>
-         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-6484.715365520318" showattsigs="601" showstereotype="1" y="-3485.71040080328" showattributes="1" font="Ubuntu,11,-1,5,75,0,0,0,0,0" localid="NwYEkgD88HvJ" width="341" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="q0yYfNLlwMdI" showscope="1" height="59" showopsigs="601"/>
-         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-5630.096651405747" showattsigs="601" showstereotype="1" y="-2952.855062896607" showattributes="1" font="Ubuntu,11,-1,5,75,0,0,0,0,0" localid="RcwYcvPyJ5d2" width="283" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="d6GEetBuexRG" showscope="1" height="76.09921962095859" showopsigs="601"/>
-         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-6020.793332023259" showattsigs="601" showstereotype="1" y="-3015.427639860914" showattributes="1" font="Ubuntu,11,-1,5,75,0,0,0,0,0" localid="m93WpfcBZ9PH" width="327" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="3TmM6FbogbKv" showscope="1" height="195" showopsigs="601"/>
-         <floatingtext linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-6237.894736842105" showstereotype="1" y="-3212.631578947368" text="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" localid="47FcGct4BJyz" pretext="" role="700" width="8" isinstance="0" posttext="" usefillcolor="1" fillcolor="#ffff00" xmi.id="dBGWK42NHUhY" height="21"/>
+         <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-1310.528968649606" showattsigs="601" showstereotype="1" y="-102.6261770244821" showattributes="1" font="Sans Serif,9,-1,0,75,0,0,0,0,0" localid="I1IuHWGgaUMG" width="262.3823529411766" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="GO4RbemCggzN" showscope="1" height="286.1535947712418" showopsigs="601"/>
+         <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-897.7516339869281" showattsigs="601" showstereotype="1" y="-73.35620915032683" showattributes="1" font="Sans Serif,9,-1,0,75,0,0,0,0,0" localid="MhmdHuz5tqU6" width="353.5555555555555" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="N1grHIuXg5JP" showscope="1" height="141.3333333333333" showopsigs="601"/>
+         <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-898.6666666666667" showattsigs="601" showstereotype="1" y="-314.8333333333333" showattributes="1" font="Sans Serif,9,-1,0,75,0,0,0,0,0" localid="DD6or1Y71p1G" width="346.2777777777777" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="c9DhIZRV398H" showscope="1" height="71.33333333333334" showopsigs="601"/>
+         <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-897.0816993464051" showattsigs="601" showstereotype="1" y="294.7777777777778" showattributes="1" font="Sans Serif,9,-1,0,75,0,0,0,0,0" localid="JFxthJ93ytgG" width="350" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="leqixq3njkc1" showscope="1" height="161" showopsigs="601"/>
+         <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-897.434640522876" showattsigs="601" showstereotype="1" y="100.202614379085" showattributes="1" font="Sans Serif,9,-1,0,75,0,0,0,0,0" localid="ndLfRpje0pTr" width="352.1176470588235" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="yGoMgHQHQofo" showscope="1" height="176.1764705882353" showopsigs="601"/>
+         <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-898.8235294117648" showattsigs="601" showstereotype="1" y="-221.1764705882353" showattributes="1" font="Sans Serif,9,-1,0,75,0,0,0,0,0" localid="pzwomv4591wq" width="346.6666666666666" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="FaC47M9mnZ1B" showscope="1" height="121.7777777777778" showopsigs="601"/>
+         <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-476.470588235294" showattsigs="601" showstereotype="1" y="102.9411764705882" showattributes="1" font="Sans Serif,9,-1,0,75,0,0,0,0,0" localid="J6sHxYXlAqQb" width="223" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="BP4oZIKyzmft" showscope="1" height="63" showopsigs="601"/>
+         <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-1304.411764705882" showattsigs="601" showstereotype="1" y="-183.8235294117647" showattributes="1" font="Sans Serif,9,-1,0,75,0,0,0,0,0" localid="e9EewhUleOZR" width="254" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="PcJhnBZcnd53" showscope="1" height="49" showopsigs="601"/>
         </widgets>
         <messages/>
         <associations>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="tyIEJwuektK6" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="none" seqnum="" totalcounta="2" xmi.id="KSE5qUJHApha" widgetbid="q0yYfNLlwMdI" totalcountb="2" type="500" textcolor="none" usefillcolor="1" linewidth="none" font="Sans Serif,9,-1,0,50,0,0,0,0,0">
+         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="GO4RbemCggzN" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="none" seqnum="" totalcounta="2" xmi.id="hv6WCVVRPiQv" widgetbid="PcJhnBZcnd53" totalcountb="2" type="500" textcolor="none" usefillcolor="1" linewidth="none" font="Sans Serif,9,-1,0,50,0,0,0,0,0">
           <linepath layout="Polyline">
-           <startpoint startx="-6294.215433689118" starty="-3380.625076677709"/>
-           <endpoint endx="-6294.215433689118" endy="-3426.71040080328"/>
+           <startpoint startx="-1211.764705882353" starty="-102.6261770244821"/>
+           <endpoint endx="-1211.764705882353" endy="-134.8235294117647"/>
           </linepath>
          </assocwidget>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="234" widgetaid="d6GEetBuexRG" usesdiagramfillcolor="255" fillcolor="none" linecolor="none" seqnum="" totalcounta="2" xmi.id="6UIMwzuX3RLW" widgetbid="3TmM6FbogbKv" totalcountb="2" type="502" textcolor="none" usefillcolor="1" linewidth="none" font="Sans Serif,9,-1,0,50,0,0,0,0,0">
+         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="239" widgetaid="BP4oZIKyzmft" usesdiagramfillcolor="9" fillcolor="none" linecolor="none" seqnum="" totalcounta="2" xmi.id="0YbgAOJQciJF" widgetbid="yGoMgHQHQofo" totalcountb="2" type="502" textcolor="none" usefillcolor="1" linewidth="none" font="Sans Serif,9,-1,0,50,0,0,0,0,0">
           <linepath layout="Polyline">
-           <startpoint startx="-5630.096651405747" starty="-2920.263481348503"/>
-           <endpoint endx="-5693.793332023259" endy="-2920.263481348503"/>
+           <startpoint startx="-476.470588235294" starty="102.9411764705882"/>
+           <endpoint endx="-545.3169934640524" endy="102.9411764705882"/>
           </linepath>
          </assocwidget>
         </associations>
@@ -456,111 +539,128 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings viewid="QTyw9xsN9jPC" uniqueid="qB6SnOjl3TGo" documentation=""/>
+  <docsettings viewid="Br0pCxgkwf0x" uniqueid="ddGZ1R0zzcg9" documentation=""/>
   <listview>
    <listitem open="1" type="800" id="Views">
     <listitem open="1" type="821" id="Component View"/>
     <listitem open="1" type="827" id="Deployment View"/>
     <listitem open="1" type="836" id="Entity Relationship Model"/>
     <listitem open="1" type="801" id="Logical View">
-     <listitem open="0" type="813" id="D9OBwZfklyLi">
-      <listitem open="0" type="815" id="ewpGZliwENZf"/>
-      <listitem open="0" type="815" id="30VUmWB8QLwD"/>
-      <listitem open="0" type="815" id="v4vtJTeMR7pB"/>
-      <listitem open="0" type="815" id="Qxx9sq4UlrlK"/>
+     <listitem open="0" type="813" id="T743Z6yMnjpy">
+      <listitem open="0" type="815" id="HActDZbM325R"/>
+      <listitem open="0" type="815" id="tndcDMMMK4PV"/>
+      <listitem open="0" type="815" id="GQDoixybibDw"/>
+      <listitem open="0" type="815" id="6OZxtrPAz13D"/>
      </listitem>
-     <listitem open="0" type="807" id="QTyw9xsN9jPC" label="class diagram"/>
-     <listitem open="0" type="818" id="kwc3qjZEIyvU">
-      <listitem open="0" type="813" id="DqWZDcgOj4ag"/>
+     <listitem open="0" type="807" id="Br0pCxgkwf0x" label="class diagram"/>
+     <listitem open="0" type="818" id="VtEr45WnduML">
+      <listitem open="0" type="813" id="fgqHWz0y42zd"/>
      </listitem>
      <listitem open="0" type="830" id="Datatypes">
-      <listitem open="1" type="829" id="aEuXI1BKMZxZ"/>
-      <listitem open="1" type="829" id="m2Vtju603Hdv"/>
-      <listitem open="1" type="829" id="Hwx5pasD1p9A"/>
-      <listitem open="1" type="829" id="UnssYBT8NNdg"/>
-      <listitem open="1" type="829" id="5ed6TnGDnk5U"/>
-      <listitem open="1" type="829" id="1wsBRkbjeXmS"/>
-      <listitem open="1" type="829" id="JBDdrmKxAXsS"/>
-      <listitem open="1" type="829" id="AACohyEmasq4"/>
-      <listitem open="1" type="829" id="Mo0gMvD8VaDw"/>
-      <listitem open="1" type="829" id="9OamAspcgiVC"/>
-      <listitem open="1" type="829" id="e9UiQ7bP1RZT"/>
-      <listitem open="1" type="829" id="C6agQiVrQmIa"/>
-      <listitem open="1" type="829" id="mZN6TbDefmK3"/>
-      <listitem open="1" type="829" id="d5FOpKsTTM9r"/>
-      <listitem open="1" type="829" id="2LOcDFeqKuE9"/>
-      <listitem open="1" type="829" id="RkHTAqwKy66e"/>
+      <listitem open="1" type="829" id="FyWjMJerhW2e"/>
+      <listitem open="1" type="829" id="1cFxFFsE95x6"/>
+      <listitem open="1" type="829" id="qepGxV56K5wX"/>
+      <listitem open="1" type="829" id="otTe6dyLcU4w"/>
+      <listitem open="1" type="829" id="Uc1ohxJiXYek"/>
+      <listitem open="1" type="829" id="LxJPTNCJz1Xx"/>
+      <listitem open="1" type="829" id="1uDjzG1E5W4n"/>
+      <listitem open="1" type="829" id="fUbfT6avibiQ"/>
+      <listitem open="1" type="829" id="nilSDn6GOArh"/>
+      <listitem open="1" type="829" id="laNZilMWeq9k"/>
+      <listitem open="1" type="829" id="nWzuau1vrKIK"/>
+      <listitem open="1" type="829" id="QHRh1fWgqEAL"/>
+      <listitem open="1" type="829" id="5d6dIajiqANp"/>
+      <listitem open="1" type="829" id="X162YknLHmEr"/>
+      <listitem open="1" type="829" id="UNsDxYbUahU8"/>
+      <listitem open="1" type="829" id="gDkWV1oAVOpx"/>
      </listitem>
-     <listitem open="0" type="813" id="G7sGWtQQvLJF">
-      <listitem open="0" type="815" id="mxbD5OMhPdjj"/>
-      <listitem open="0" type="815" id="hHuk2gZAMyzk"/>
-      <listitem open="0" type="815" id="WIgWoC2lMID5"/>
-      <listitem open="0" type="815" id="qNjXjEQbi37Z"/>
-      <listitem open="0" type="815" id="X2Pwf7dR2YWY"/>
-      <listitem open="0" type="815" id="tX3ZY86pv0b6"/>
+     <listitem open="0" type="813" id="N1grHIuXg5JP">
+      <listitem open="0" type="815" id="2H0iqCckktyK"/>
+      <listitem open="0" type="815" id="FNfT3SzvFCUp"/>
+      <listitem open="0" type="815" id="tYLYc2Ir6VFE"/>
+      <listitem open="0" type="815" id="QVrl0PICXqeY"/>
+      <listitem open="0" type="815" id="Yc3ITzaxe5jm"/>
+      <listitem open="0" type="815" id="wshnw8oINXXX"/>
+      <listitem open="0" type="815" id="DitkZXGWOiSC"/>
+      <listitem open="0" type="815" id="ENPSYtFPasaR"/>
      </listitem>
-     <listitem open="0" type="813" id="tyIEJwuektK6">
-      <listitem open="0" type="815" id="ThhcUMCOiqng"/>
-      <listitem open="0" type="815" id="kpBtsCKIIcLx"/>
-      <listitem open="0" type="815" id="VA8kfFQy8Jpw"/>
-      <listitem open="0" type="815" id="JvttnFYfJm2w"/>
-      <listitem open="0" type="815" id="waGGCXTwKepC"/>
-      <listitem open="0" type="815" id="P5J5hxssKKBE"/>
-      <listitem open="0" type="815" id="BePJAnXijMzq"/>
-      <listitem open="0" type="815" id="awrJ93UiQ6xe"/>
-      <listitem open="0" type="815" id="ZPbHDPwDTMNk"/>
-      <listitem open="0" type="815" id="d7c0Rnguwmdb"/>
-      <listitem open="0" type="815" id="s3FMdobsRhMW"/>
-      <listitem open="0" type="815" id="BOSLu7iVCKVb"/>
-      <listitem open="0" type="815" id="nELdzmdtKt7W"/>
-      <listitem open="0" type="815" id="Fd8W7IvM02J3"/>
-      <listitem open="0" type="815" id="WWtykf6vJUCR"/>
+     <listitem open="0" type="813" id="c9DhIZRV398H">
+      <listitem open="0" type="815" id="RJJz4KCNpMKC"/>
+      <listitem open="0" type="815" id="a2unj7s6cJZ9"/>
+      <listitem open="0" type="815" id="Ro5GBPQaDjD5"/>
      </listitem>
-     <listitem open="0" type="813" id="nxmzuFwKgPpH">
-      <listitem open="0" type="815" id="WCoR0KDbwdCa"/>
-      <listitem open="0" type="815" id="X54wdNCPcnpH"/>
-      <listitem open="0" type="815" id="3zkZt3wyrgME"/>
-      <listitem open="0" type="815" id="0KHolVnadZWk"/>
-      <listitem open="0" type="815" id="iR2WHRiHkz4T"/>
-      <listitem open="0" type="815" id="r8ov9vvLs075"/>
-      <listitem open="0" type="815" id="Ez4mD45E3nov"/>
-      <listitem open="0" type="815" id="mHaSePhAaUaa"/>
-      <listitem open="0" type="815" id="CNNvkp0SYuJO"/>
+     <listitem open="0" type="813" id="GO4RbemCggzN">
+      <listitem open="0" type="815" id="Vf9vLaqOoq9U"/>
+      <listitem open="0" type="815" id="uLA4W6Pcocg4"/>
+      <listitem open="0" type="815" id="tIXTRFMkIZAI"/>
+      <listitem open="0" type="815" id="GVNOICKK6z9W"/>
+      <listitem open="0" type="815" id="Ma8Dq8heG3m5"/>
+      <listitem open="0" type="815" id="d0dcuSWolhqF"/>
+      <listitem open="0" type="815" id="6jF6ITpc2vqq"/>
+      <listitem open="0" type="815" id="U8pU5n0MRXev"/>
+      <listitem open="0" type="815" id="JgXKURes9M2f"/>
+      <listitem open="0" type="815" id="OiiAWreqaCGF"/>
+      <listitem open="0" type="815" id="HlYJY2UPIzth"/>
+      <listitem open="0" type="815" id="UdispH4knXzD"/>
+      <listitem open="0" type="815" id="qvjqKPPvN2YI"/>
+      <listitem open="0" type="815" id="pAL8pWyWBEUp"/>
+      <listitem open="0" type="815" id="4ugpPg0nj6Ai"/>
+      <listitem open="0" type="815" id="e4wdcZ8tKhDq"/>
+      <listitem open="0" type="815" id="aNhS86oMc9ks"/>
+      <listitem open="0" type="815" id="vWTHSs8u0vP3"/>
      </listitem>
-     <listitem open="0" type="818" id="WqUeWcJdbRnv">
-      <listitem open="0" type="813" id="CRiRBMZoSn24"/>
+     <listitem open="0" type="813" id="leqixq3njkc1">
+      <listitem open="0" type="815" id="0w9ixINRCXQu"/>
+      <listitem open="0" type="815" id="GpAWP8B6Laht"/>
+      <listitem open="0" type="815" id="yefBPxuKSTBL"/>
+      <listitem open="0" type="815" id="ZyMKcc1BoGY5"/>
+      <listitem open="0" type="815" id="pWrCcuuBrETR"/>
+      <listitem open="0" type="815" id="bCHNJM9TjZXb"/>
+      <listitem open="0" type="815" id="9MP6uvbsYE1v"/>
+      <listitem open="0" type="815" id="hFQdXG6YADE7"/>
+      <listitem open="0" type="815" id="gxItaR8ACnKl"/>
+      <listitem open="0" type="815" id="GYgPvIqkmfvO"/>
      </listitem>
-     <listitem open="0" type="818" id="oWDH6QEEomyx">
-      <listitem open="0" type="813" id="doZHU4TL0lZI"/>
+     <listitem open="0" type="818" id="GCuiOOwLpuJs">
+      <listitem open="0" type="813" id="LJdiCmuN9wBg"/>
      </listitem>
-     <listitem open="0" type="813" id="3TmM6FbogbKv">
-      <listitem open="0" type="815" id="22Bk0FDS4FYO"/>
-      <listitem open="0" type="815" id="KG09aJmjfzDL"/>
-      <listitem open="0" type="815" id="UNi1Ul12b16l"/>
-      <listitem open="0" type="815" id="GnmZdZQG8g7h"/>
-      <listitem open="0" type="815" id="qWoYIRMHdwxS"/>
-      <listitem open="0" type="815" id="1Ecfpvbpvkav"/>
-      <listitem open="0" type="815" id="JLb57qzbDgai"/>
-      <listitem open="0" type="815" id="Gj8UPiAoIqpt"/>
-      <listitem open="0" type="815" id="0ZNG8rlwMaUc"/>
-      <listitem open="0" type="815" id="VAWpk1SirMLc"/>
+     <listitem open="0" type="818" id="71xU2TkSVpeD">
+      <listitem open="0" type="813" id="i6gnNii8NYoK"/>
      </listitem>
-     <listitem open="0" type="813" id="d6GEetBuexRG">
-      <listitem open="0" type="815" id="xWU9Wnp8N8LO"/>
-      <listitem open="0" type="815" id="Ji30K0oHWHP2"/>
-      <listitem open="0" type="815" id="cYg0MjPfSSdm"/>
+     <listitem open="0" type="818" id="AChZgYWydrtb">
+      <listitem open="0" type="813" id="kCYJRQ23XEio"/>
+      <listitem open="0" type="813" id="mqTO90VDkbDq"/>
      </listitem>
-     <listitem open="0" type="813" id="7B7XbiJ48Iyn">
-      <listitem open="0" type="815" id="hvWIzaEXQdzb"/>
-      <listitem open="0" type="815" id="6hQFrnKnPxrS"/>
-      <listitem open="0" type="815" id="gbo5UxdYe1nT"/>
-      <listitem open="0" type="815" id="cvtiCqWtl09i"/>
-      <listitem open="0" type="815" id="BDnm9DWuBCP7"/>
-      <listitem open="0" type="815" id="yG2E7h4javSm"/>
+     <listitem open="0" type="813" id="yGoMgHQHQofo">
+      <listitem open="0" type="815" id="o6SODTrYJ2hm"/>
+      <listitem open="0" type="815" id="PDBSM2mhRh2Q"/>
+      <listitem open="0" type="815" id="Es8aYY3N9lkh"/>
+      <listitem open="0" type="815" id="OhUjuTY2UCWE"/>
+      <listitem open="0" type="815" id="GozjZQrcFH6q"/>
+      <listitem open="0" type="815" id="nfIb8Iv9JcH4"/>
+      <listitem open="0" type="815" id="3rQTd6HRAjnM"/>
+      <listitem open="0" type="815" id="EQk0DxMSpU0M"/>
+      <listitem open="0" type="815" id="7MyOwESvLD1r"/>
+      <listitem open="0" type="815" id="Is53tsu9gtqF"/>
+      <listitem open="0" type="815" id="UW28OtOdYC8V"/>
      </listitem>
-     <listitem open="0" type="813" id="q0yYfNLlwMdI">
-      <listitem open="0" type="815" id="oLKFRmamb3Ai"/>
-      <listitem open="0" type="815" id="cshPfGCXR6UM"/>
+     <listitem open="0" type="813" id="BP4oZIKyzmft">
+      <listitem open="0" type="815" id="3SiTOxHl7PuD"/>
+      <listitem open="0" type="815" id="9Xm5K8HLbxox"/>
+      <listitem open="0" type="815" id="UHv9zIl9pXC7"/>
+     </listitem>
+     <listitem open="0" type="813" id="FaC47M9mnZ1B">
+      <listitem open="0" type="815" id="K6EVoowMQ10z"/>
+      <listitem open="0" type="815" id="mdsLJu25HiXi"/>
+      <listitem open="0" type="815" id="dhkHCf6YCoIB"/>
+      <listitem open="0" type="815" id="xjKsqWcjbi4h"/>
+      <listitem open="0" type="815" id="koXIOsvgx9Cl"/>
+      <listitem open="0" type="815" id="Ypo4LkkTgXvp"/>
+      <listitem open="0" type="815" id="8vpUBobvRUGk"/>
+     </listitem>
+     <listitem open="0" type="813" id="PcJhnBZcnd53">
+      <listitem open="0" type="815" id="qEvs8e6YeIDM"/>
+      <listitem open="0" type="815" id="URL1hfic2wkE"/>
      </listitem>
     </listitem>
     <listitem open="1" type="802" id="Use Case View"/>
@@ -568,61 +668,72 @@
   </listview>
   <codegeneration>
    <codegenerator language="Python">
-    <sourcecode value="if sys.platform==&quot;win32&quot;:&#xa;  leptlib=os.path.join(LIBPATH_W,'liblept170.dll')&#xa;  leptlib_alt=&quot;liblept170.dll&quot;&#xa;  os.environ[&quot;PATH&quot;]+=os.pathsep+LIBPATH_W&#xa;&#xa;else:&#xa;  leptlib=LIBPATH+&quot;liblept.so.4.0.0&quot;&#xa;  leptlib_alt='liblept.so'&#xa;&#xa;try:&#xa;  leptonica=ctypes.cdll.LoadLibrary(leptlib)&#xa;&#xa;except OSError:&#xa;  try:&#xa;    leptonica=ctypes.cdll.LoadLibrary(leptlib_alt)&#xa;&#xa;  except WindowsError,err:&#xa;    print(&quot;Loading of '%s failed...&quot;%leptlib)&#xa;    print(&quot;Loading of '%s failed...&quot;%leptlib_alt)&#xa;    print(err)&#xa;    return None&#xa;&#xa;&#xa;return leptonica&#xa;" id="ewpGZliwENZf"/>
-    <sourcecode value="if not leptonica:&#xa;  return None&#xa;&#xa;width=leptonica.pixGetWidth(pix_image)&#xa;height=leptonica.pixGetHeight(pix_image)&#xa;depth=leptonica.pixGetDepth(pix_image)&#xa;if depth==1:&#xa;  image_format=QImage.Format_Mono&#xa;&#xa;elif depth==8:&#xa;  image_format=QImage.Format_Indexed8&#xa;&#xa;elif depth==32:&#xa;  image_format=QImage.Format_RGB32&#xa;&#xa;else:&#xa;  pix_image=leptonica.pixConvertTo32(pix_image)&#xa;  image_format=QImage.Format_RGB32&#xa;&#xa;bytes_per_line=leptonica.pixGetWpl(pix_image)*4&#xa;image_datas=leptonica.pixEndianByteSwapNew(pix_image)&#xa;datas=leptonica.pixGetData(image_datas)&#xa;result=QImage(datas,width,height,bytes_per_line,image_format)&#xa;result.setColorTable(_grayscaleCT)&#xa;if depth==1:&#xa;  result.setColorTable(_bwCT)&#xa;&#xa;if result.isNull():&#xa;  none=QImage(0,0,QImage.Format_Invalid)&#xa;  print'Invalid format!!!'&#xa;  return none&#xa;&#xa;return result.rgbSwapped()&#xa;" id="Qxx9sq4UlrlK"/>
-    <sourcecode value="leptonica=get_leptonica()&#xa;if leptonica:&#xa;  leptonica.getLeptonicaVersion.restype=ctypes.c_char_p&#xa;  leptonica.getLeptonicaVersion.argtypes=[]&#xa;  return leptonica.getLeptonicaVersion()&#xa;&#xa;return None&#xa;" id="30VUmWB8QLwD"/>
-    <sourcecode value="global LIBPATH_W&#xa;LIBPATH_W=r'..\win32'&#xa;leptonica_version=get_version()&#xa;print'Found %s'%leptonica_version&#xa;leptonica=get_leptonica()&#xa;pix_image=leptonica.pixRead(r'..\images\eurotext.tif')&#xa;if pix_image:&#xa;  print'w',leptonica.pixGetWidth(pix_image)&#xa;  print'h',leptonica.pixGetHeight(pix_image)&#xa;  print'd',leptonica.pixGetDepth(pix_image)&#xa;&#xa;else:&#xa;  print'Image can not be openned'&#xa;&#xa;qimage=QImage()&#xa;qimage=pix_to_qimage(leptonica,pix_image)&#xa;if qimage:&#xa;  qimage.save(r'..\images\test.png')&#xa;&#xa;else:&#xa;  print&quot;PIX conversion was not successful!&quot;&#xa;&#xa;" id="v4vtJTeMR7pB"/>
-    <sourcecode value="''';initialize&#xa;''';self.leptonica=lepttool.get_leptonica()&#xa;self.__isLoad=False&#xa;self.parent=parent&#xa;self.image_dir=None&#xa;self.__isLoad=False&#xa;" id="mxbD5OMhPdjj"/>
-    <sourcecode value="if type=='image':&#xa;  input_dir=QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.PicturesLocation)&#xa;  image_dir=QtGui.QFileDialog.getOpenFileName(self.parent,'Open Image file',input_dir,&#xa;  'Images (*.jpg *.jpeg *.bmp *.png *.tiff *.tif *.gif);')if image_dir is None:&#xa;    return&#xa;&#xa;  self.image_dir=image_dir&#xa;  self.__isLoad=False&#xa;  return image_dir&#xa;&#xa;" id="X2Pwf7dR2YWY"/>
-    <sourcecode value="if not self.__isLoad:&#xa;  self.loadIamge(image_dir)&#xa;&#xa;if type=='PIX':&#xa;  return self.pix_image&#xa;&#xa;elif type=='QImage':&#xa;  return self.qimage&#xa;&#xa;elif type=='PIL':&#xa;  return self.PILimage&#xa;&#xa;else:&#xa;  print('Type Wrong!')&#xa;  return&#xa;&#xa;" id="WIgWoC2lMID5"/>
-    <sourcecode value="self.image_name=str(filename)&#xa;self.pix_image=self.leptonica.pixRead(self.image_name)&#xa;self.image_width=self.leptonica.pixGetWidth(self.pix_image)&#xa;self.image_height=self.leptonica.pixGetHeight(self.pix_image)&#xa;self.qimage=lepttool.pix_to_qimage(self.leptonica,self.pix_image)&#xa;img=Image.open(self.image_name)&#xa;img=img.transpose(Image.FLIP_LEFT_RIGHT)&#xa;img=img.rotate(90)&#xa;self.PILimage=numpy.array(img)&#xa;self.__isLoad=True&#xa;print('Image Loaded!')&#xa;" id="qNjXjEQbi37Z"/>
-    <sourcecode value="if data is None:&#xa;  return&#xa;&#xa;output_dir=QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.DocumentsLocation)&#xa;filePath=QtGui.QFileDialog.getSaveFileName(self.parent,'Save file',output_dir,&#xa;'FILE (*.json,*.txt);')outfile=open(filePath,&quot;w&quot;)&#xa;if format=='.json':&#xa;  json.dump(data,outfile)&#xa;&#xa;elif format=='.txt':&#xa;  for key in data.keys():&#xa;    val=data[key]&#xa;    outfile.write('%s : %s'%(key,val['text']))&#xa;    print('%s : %s'%(key,val['text']))&#xa;&#xa;&#xa;else:&#xa;  print('FORMAT WRONG')&#xa;&#xa;outfile.close()&#xa;print('Saved to'+filePath)&#xa;" id="tX3ZY86pv0b6"/>
-    <sourcecode value="if boxa is None:&#xa;  print('[ERROR] NULL')&#xa;  return&#xa;&#xa;n_items=self.leptonica.boxaGetCount(boxa)&#xa;print('Find %s!'%n_items)&#xa;self.leptonica.boxaGetBox.restype=lepttool.BOX_PTR_T&#xa;self.leptonica.boxaGetBox.argtypes=[]&#xa;for item in range(0,n_items):&#xa;  lept_box=self.leptonica.boxaGetBox(boxa,item,lepttool.L_CLONE)&#xa;  box=lept_box.contents&#xa;  print('Box[%d]: x=%d, y=%d, w=%d, h=%d, '%(item,box.x,box.y,box.w,box.h))&#xa;  rectList.append([box.x,box.y,box.w,box.h])" id="hHuk2gZAMyzk"/>
-    <sourcecode value="super(MainWindow,self).__init__(parent)&#xa;self.setAttribute(QtCore.Qt.WA_DeleteOnClose)&#xa;self.setupUi(self)&#xa;self.initUi()&#xa;self.initTools()&#xa;self.initConnection()&#xa;self.__isOpen=False&#xa;self.__isROI=False&#xa;self.__isOCR=False&#xa;self.__isClear=False&#xa;self.resize(1000,650)&#xa;self.setWindowTitle('Michelangelo')&#xa;self.rectDataList=None&#xa;" id="ThhcUMCOiqng"/>
-    <sourcecode value="self.roiview=ROIView()&#xa;self.param=Param()&#xa;rvWidght=self.roiview.getROIView()&#xa;paWidght=self.param.getParamTree()&#xa;self.centerLayout.addWidget(rvWidght)&#xa;self.centerLayout.addWidget(paWidght)&#xa;" id="ZPbHDPwDTMNk"/>
-    <sourcecode value="self.log=LogMgr()&#xa;self.file=FileMgr(self)&#xa;self.tess=TessMgr()&#xa;" id="awrJ93UiQ6xe"/>
-    <sourcecode value="self.actionOpen.triggered.connect(self.openFile)&#xa;self.actionAnalyze.triggered.connect(self.analyze)&#xa;self.actionAddROI.triggered.connect(self.addROI)&#xa;self.actionOCR.triggered.connect(self.ocr)&#xa;self.actionClear.triggered.connect(self.clear)&#xa;self.actionAbout.triggered.connect(self.about)&#xa;" id="BePJAnXijMzq"/>
-    <sourcecode value="if str:&#xa;  self.log.writeMsg(str)&#xa;&#xa;" id="WWtykf6vJUCR"/>
-    <sourcecode value="if self.__isOpen:&#xa;  self.actionAnalyze.setEnabled(True)&#xa;&#xa;if self.__isROI:&#xa;  self.actionAddROI.setEnabled(True)&#xa;  self.actionOCR.setEnabled(True)&#xa;&#xa;if self.__isOCR:&#xa;  self.actionAnalyze.setEnabled(False)&#xa;  self.actionAddROI.setEnabled(False)&#xa;  self.actionOCR.setEnabled(False)&#xa;  self.actionClear.setEnabled(True)&#xa;&#xa;if self.__isClear:&#xa;  self.__isROI=False&#xa;  self.__isOCR=False&#xa;  self.__isClear=False&#xa;  self.actionClear.setEnabled(False)&#xa;  self.actionAnalyze.setEnabled(True)&#xa;&#xa;" id="Fd8W7IvM02J3"/>
-    <sourcecode value="dir=self.file.openFile(type='image')&#xa;if dir:&#xa;  print('OPENFILE->'+dir)&#xa;  image=self.file.getImage(dir,type='PIL')&#xa;  self.roiview.setIamge(image)&#xa;  self.pix_image=self.file.getImage(dir,type='PIX')&#xa;  self.__isOpen=True&#xa;  self.updateUi()&#xa;&#xa;" id="s3FMdobsRhMW"/>
-    <sourcecode value="''';分析Rectangle区域&#xa;''';self.updateOCROptions()&#xa;self.tess.setOCRImage(self.pix_image)&#xa;self.rectDataList=[]&#xa;dataBoxa=self.tess.getBoxa()&#xa;self.file.boxa2rect(dataBoxa,self.rectDataList)&#xa;''';draw ROI&#xa;''';self.roiview.setROIs(self.rectDataList)&#xa;self.__isROI=True&#xa;self.updateUi()&#xa;" id="JvttnFYfJm2w"/>
-    <sourcecode value="''';增加ROI区域&#xa;''';testArae=[40,40,100,100]&#xa;self.roiview.addROI(testArae)&#xa;" id="VA8kfFQy8Jpw"/>
-    <sourcecode value="''';文本识别并返回数据&#xa;''';rdict=self.roiview.getPosDict()&#xa;index=sorted(rdict)&#xa;rlist=[]&#xa;for i in range(len(index)):&#xa;  key=index[i]&#xa;  value=rdict[key]&#xa;  iRect=[int(float(x)+0.5)for x in value]&#xa;  rlist.append(iRect)&#xa;&#xa;textList=self.tess.getOCRText(rlist)&#xa;self.index=index&#xa;''';show the information in Parameter Dock!&#xa;''';self.param.setResult(textList,self.index)&#xa;self.__isOCR=True&#xa;self.updateUi()&#xa;" id="d7c0Rnguwmdb"/>
-    <sourcecode value="''';保存导出数据&#xa;[1]get the final data from Param,ROI:&#xa;  'TAG'::&#xa;&#xa;    'pos':xxx'text':xxx&#xa;&#xa;[2]save data to file&#xa;''';if not self.__isOCR:&#xa;  print('SAVE ->OCR first!')&#xa;  return&#xa;&#xa;text=self.param.getOutputText()&#xa;pos=self.roiview.getPosDict()&#xa;if not(len(self.index)==len(text)and len(text)==len(pos)):&#xa;  print('[ERROR] The length of Index and Data is not equal')&#xa;  return&#xa;&#xa;outputData=:&#xa;&#xa;&#xa;for i in range(len(self.index)):&#xa;  info=:&#xa;&#xa;&#xa;  info['pos']=pos[self.index[i]]&#xa;  info['text']=text[i]&#xa;  outputData[self.index[i]]=info&#xa;&#xa;self.file.saveFile(outputData,self.param.getFormat())&#xa;" id="BOSLu7iVCKVb"/>
-    <sourcecode value="''';清空并重置&#xa;''';self.param.clearResult()&#xa;self.__isClear=True&#xa;self.updateUi()&#xa;" id="P5J5hxssKKBE"/>
-    <sourcecode value="''';''';info='''&lt;h1>Michelangelo&amp;trade;&lt;/h1>;&lt;h4>Version:%s(%s)&lt;/h4>&lt;p>Copyright&amp;copy&#xa;&lt;a href=&quot;mailto:jiangyunfei93@bupt.edu.cn&quot;>%s&lt;/a>.All rights reserved.&lt;/p>&lt;p>Python%s-PyQt%s-on%s&lt;/p>''' \%(__version__,__date__,__author__,platform.python_version(),QtCore.PYQT_VERSION_STR,platform.system())self.param.clearResult()&#xa;" id="kpBtsCKIIcLx"/>
-    <sourcecode value="''';关闭程序并保存&#xa;'''    ;" id="waGGCXTwKepC"/>
-    <sourcecode value="''';check the parameter if it is need to reflesh the options&#xa;[1]check the param to get the OCR Options&#xa;[2]set Options to the OCR&#xa;''';if not self.param.isParamChanged:&#xa;  return&#xa;&#xa;ops=self.param.getParamOptions()&#xa;self.param.isParamChanged=False&#xa;self.tess.setOCROptions(ops)&#xa;" id="nELdzmdtKt7W"/>
-    <sourcecode value="self.initParam()&#xa;self.parameter=Parameter.create(name='OCR Parameter',type='group',children=self.params)&#xa;def turn2change(param,changes):&#xa;  self.changeParam(param,changes)&#xa;&#xa;self.parameter.sigTreeStateChanged.connect(turn2change)&#xa;self.tree=ParameterTree(None,showHeader=False)&#xa;self.tree.setParameters(self.parameter,showTop=True)&#xa;self.isParamChanged=True&#xa;self.textList=None&#xa;self.ocrIndex=None&#xa;index=[';ocrText=['text1','text2','text3']&#xa;self.setResult(ocrText,index)&#xa;" id="WCoR0KDbwdCa"/>
-    <sourcecode value="self.LANG=['eng','chi_sim','chi_tra']&#xa;LANGparam=:&#xa;&#xa;&#xa;for i in range(len(self.LANG)):&#xa;  LANGparam[self.LANG[i]]=i&#xa;&#xa;self.ORI=[&quot;Horizontal&quot;,&quot;Vertical&quot;]&#xa;ORIparam=:&#xa;&#xa;&#xa;for i in range(len(self.ORI)):&#xa;  ORIparam[self.ORI[i]]=i&#xa;&#xa;self.PSM=['PSM_OSD_ONLY','PSM_AUTO_OSD','PSM_AUTO_ONLY','PSM_AUTO',&#xa;'PSM_SINGLE_COLUMN','PSM_SINGLE_BLOCK_VERT_TEXT','PSM_SINGLE_BLOCK','PSM_SINGLE_LINE','PSM_SINGLE_WORD','PSM_CIRCLE_WORD','PSM_SINGLE_CHAR','PSM_SPARSE_TEXT','PSM_SPARSE_TEXT_OSD']PSMparam=:&#xa;&#xa;&#xa;for i in range(len(self.PSM)):&#xa;  PSMparam[self.PSM[i]]=i&#xa;&#xa;self.RIL=['RIL_BLOCK','RIL_PARA','RIL_TEXTLINE','RIL_WORD','RIL_SYMBOL']&#xa;RILparam=:&#xa;&#xa;&#xa;for i in range(len(self.RIL)):&#xa;  RILparam[self.RIL[i]]=i&#xa;&#xa;self.params=[&#xa;:&#xa;  'name':'Options','type':'group','children':[&#xa;:&#xa;    'name':'Language','type':'list','values':LANGparam,'value':0&#xa;  ,:&#xa;    'name':'Orientation','type':'list','values':ORIparam,'value':0&#xa;  ,:&#xa;    'name':'PSM','type':'list','values':PSMparam,'value':0&#xa;  ,:&#xa;    'name':'RIL','type':'list','values':RILparam,'value':0&#xa;  ,:&#xa;    'name':'TEST','type':'action'&#xa;  ]&#xa;]&#xa;self.FORMAT=[&quot;.json&quot;,&quot;.txt&quot;]&#xa;FORparam=:&#xa;&#xa;&#xa;for i in range(len(self.FORMAT)):&#xa;  FORparam[self.FORMAT[i]]=i&#xa;&#xa;self.textParams=[:&#xa;  'name':'Output','type':'group','children':[&#xa;:&#xa;    'name':'Format','type':'list','values':FORparam,'value':0&#xa;  ,:&#xa;    'name':'Save','type':'action'&#xa;  ]&#xa;]self.textList=None&#xa;self.ocrIndex=None&#xa;" id="mHaSePhAaUaa"/>
-    <sourcecode value="for name,change,data in changes:&#xa;  path=self.parameter.childPath(name)&#xa;  if path==[]:&#xa;    return&#xa;&#xa;  ''';childName='.'.join(path)&#xa;  print('  parameter: %s'%childName)&#xa;  print('  change:    %s'%change)&#xa;  print('  data:      %s'%str(data))&#xa;  print('  ----------')&#xa;  ''';if path is not None:&#xa;    (item,ops)=path&#xa;    if item=='Text':&#xa;      if ops in self.ocrIndex:&#xa;        idx=self.ocrIndex.index(ops)&#xa;        self.textList[idx]=data&#xa;        print('%s -> %s'%(self.textList[idx],data))&#xa;&#xa;      else:&#xa;        print('Nothing changed!')&#xa;&#xa;&#xa;    else:&#xa;      if ops=='TEST':&#xa;        self.clearResult()&#xa;        pass&#xa;&#xa;      if ops=='Save':&#xa;        print('Emit save signal!')&#xa;&#xa;      print('%s actived!'%ops)&#xa;&#xa;    self.isParamChanged=True&#xa;&#xa;&#xa;" id="X54wdNCPcnpH"/>
-    <sourcecode value="if textList is[]:&#xa;  return&#xa;&#xa;ocrText=[]&#xa;for i in range(len(ocrIndex)):&#xa;  item=:&#xa;    'name':ocrIndex[i],'type':'text','value':textList[i]&#xa;&#xa;  ocrText.append(item)&#xa;&#xa;if self.textList:&#xa;  self.clearResult()&#xa;&#xa;self.textParams.append(:&#xa;  'name':'Text','type':'group','children':ocrText&#xa;)&#xa;self.parameter.addChildren(children=self.textParams)&#xa;self.textList=textList&#xa;self.ocrIndex=ocrIndex&#xa;" id="CNNvkp0SYuJO"/>
-    <sourcecode value="if self.textList:&#xa;  children=self.parameter.children()&#xa;  for c in children:&#xa;    if c.name()=='Options':&#xa;      continue&#xa;&#xa;    c.remove()&#xa;    print('remove'+str(c))&#xa;&#xa;  self.textParams.pop()&#xa;  self.ocrIndex=None&#xa;  self.textList=None&#xa;&#xa;" id="3zkZt3wyrgME"/>
-    <sourcecode value="return self.tree&#xa;" id="Ez4mD45E3nov"/>
-    <sourcecode value="Opstions=:&#xa;&#xa;&#xa;ops=self.parameter.child('Options')&#xa;children=ops.children()&#xa;for ptr in children:&#xa;  Opstions[ptr.name()]=ptr.value()&#xa;&#xa;Opstions['Language']=self.LANG[Opstions['Language']]&#xa;return Opstions&#xa;" id="r8ov9vvLs075"/>
-    <sourcecode value="ops=self.parameter.child('Output')&#xa;format=ops.child('Format')&#xa;return self.FORMAT[format.value()]&#xa;" id="0KHolVnadZWk"/>
-    <sourcecode value="return self.textList" id="iR2WHRiHkz4T"/>
-    <sourcecode value="self.pgView=pg.GraphicsView()&#xa;self.vb=pg.ViewBox()&#xa;self.image=None&#xa;self.lastIm=None&#xa;self.__isIm=False&#xa;self.initROIs()&#xa;" id="22Bk0FDS4FYO"/>
-    <sourcecode value="self.index=1&#xa;self.posDict=:&#xa;&#xa;&#xa;self.ROIs=:&#xa;&#xa;&#xa;" id="1Ecfpvbpvkav"/>
-    <sourcecode value="self.pgView.setBackground(QtGui.QColor(127,127,127))&#xa;self.pgView.setCentralWidget(self.vb)&#xa;return self.pgView&#xa;" id="qWoYIRMHdwxS"/>
-    <sourcecode value="if image is None:&#xa;  return&#xa;&#xa;im=pg.ImageItem()&#xa;im.setImage(image)&#xa;if self.__isIm:&#xa;  self.vb.removeItem(self.lastIm)&#xa;  self.clearROIs()&#xa;&#xa;self.vb.addItem(im)&#xa;self.vb.setAspectLocked(True)&#xa;self.vb.autoRange()&#xa;self.vb.invertY(b=True)&#xa;self.lastIm=im&#xa;self.image=image&#xa;self.__isIm=True&#xa;" id="0ZNG8rlwMaUc"/>
-    <sourcecode value="''';此处需要清空原始的ROI&#xa;''';if self.__isIm:&#xa;  self.clearROIs()&#xa;&#xa;if rlist is None:&#xa;  return&#xa;&#xa;for r in rlist:&#xa;  self.addROI(r)&#xa;&#xa;" id="VAWpk1SirMLc"/>
-    <sourcecode value="w=abs(r[0]-r[2])&#xa;h=abs(r[1]-r[3])&#xa;posx=r[0]&#xa;posy=r[1]&#xa;if self.index&lt;10:&#xa;  numStr='0'+str(self.index)&#xa;&#xa;else:&#xa;  numStr=str(self.index)&#xa;&#xa;if TAG:&#xa;  tag=TAG&#xa;&#xa;else:&#xa;  tag=';&#xa;roi=TagROI((posx,posy),(w,h),tag,pen=0,&#xa;centered=False,sideScalers=True,removable=True)textItem=QtGui.QGraphicsSimpleTextItem(tag,roi)&#xa;s=textItem.boundingRect()&#xa;textItem.setPos(posx,posy-s.height())&#xa;tagBrush=QtGui.QBrush(QtGui.QColor(255,0,0))&#xa;QtGui.QAbstractGraphicsShapeItem.setBrush(textItem,tagBrush)&#xa;roi.setTextItem(textItem)&#xa;roi.sigRegionChanged.connect(self.posChanged)&#xa;roi.sigRemoveRequested.connect(self.removeROI)&#xa;self.vb.addItem(roi)&#xa;self.vb.addItem(textItem)&#xa;self.index+=1&#xa;self.posDict[tag]=[posx,posy,w,h]&#xa;self.ROIs[tag]=roi&#xa;" id="KG09aJmjfzDL"/>
-    <sourcecode value="for key in self.ROIs.keys():&#xa;  roi=self.ROIs[key]&#xa;  self.removeROI(roi)&#xa;&#xa;self.initROIs()&#xa;" id="UNi1Ul12b16l"/>
-    <sourcecode value="tag=roi.getTAG()&#xa;posx,posy=roi.pos()&#xa;w,h=roi.size()&#xa;textItem=roi.getTextItemPointer()&#xa;if textItem is None:&#xa;  print('get NULL!')&#xa;  return&#xa;&#xa;s=textItem.boundingRect()&#xa;textItem.setPos(posx,posy-s.height())&#xa;if self.posDict.has_key(tag):&#xa;  self.posDict[tag]=[posx,posy,w,h]&#xa;&#xa;" id="JLb57qzbDgai"/>
-    <sourcecode value="tag=roi.getTAG()&#xa;textItem=roi.getTextItemPointer()&#xa;self.vb.removeItem(roi)&#xa;self.vb.removeItem(textItem)&#xa;if self.posDict.pop(tag):&#xa;  self.ROIs.pop(tag)&#xa;  print(tag+'-> is removed! ')&#xa;&#xa;" id="Gj8UPiAoIqpt"/>
-    <sourcecode value="if self.posDict is None:&#xa;  return&#xa;&#xa;return self.posDict&#xa;" id="GnmZdZQG8g7h"/>
-    <sourcecode value="return self.TAG&#xa;" id="xWU9Wnp8N8LO"/>
-    <sourcecode value="''';item:the pointer to the text item&#xa;''';if self.TextItem is None:&#xa;  return&#xa;&#xa;return self.TextItem&#xa;" id="Ji30K0oHWHP2"/>
-    <sourcecode value="self.TextItem=item" id="cYg0MjPfSSdm"/>
-    <sourcecode value="''';initialize&#xa;''';self.tesseract=tesstool.get_tesseract(os.path.dirname(__file__))&#xa;if not self.tesseract:&#xa;  print('Tesseract initialization failed...')&#xa;  return&#xa;&#xa;self.initTess()&#xa;" id="hvWIzaEXQdzb"/>
-    <sourcecode value="self.__isReady=False&#xa;self.__isOptionReady=False&#xa;self.api=self.tesseract.TessBaseAPICreate()&#xa;self.tessdata_prefix=tesstool.get_tessdata_prefix()&#xa;locale.setlocale(locale.LC_ALL,'C')&#xa;''';此处可以让Tesseract加载优化东亚文字字符识别的config&#xa;(TessBaseAPI*handle,const char*filename)&#xa;设置相关的参数&#xa;''';try:&#xa;  print('！！！未加载文件！！！->未知错误')&#xa;&#xa;except Exception:&#xa;  print('Load file ERROR!')&#xa;&#xa;else:&#xa;  print('Tesseract Opitimized file loaded！')&#xa;&#xa;" id="cvtiCqWtl09i"/>
-    <sourcecode value="''';ops,dictionary,Keys:Language,Oritention,PSM,RIL&#xa;it seems that Tesseract needn't Oritention;''';self.lang=ops['Language']&#xa;self.PSM=ops['PSM']&#xa;self.RIL=ops['RIL']&#xa;''';ARGS:(TessBaseAPI*handle,const char*datapath,const char*language)&#xa;''';self.tesseract.TessBaseAPIInitLangMod(self.api,self.tessdata_prefix,self.lang)&#xa;self.tesseract.TessBaseAPISetPageSegMode(self.api,self.PSM)&#xa;re=self.tesseract.TessBaseAPIInit3(self.api,self.tessdata_prefix,self.lang)&#xa;if re:&#xa;  self.tesseract.TessBaseAPIDelete(self.api)&#xa;  print('&lt;span style=&quot;color:red&quot;>Could not initialize tesseract.&lt;/span>')&#xa;  return&#xa;&#xa;self.__isReady=True&#xa;print('Tesseract %s initialized with language \'%s\'.'%(tesstool.VERSION,self.lang))&#xa;self.__isOptionReady=True&#xa;" id="yG2E7h4javSm"/>
-    <sourcecode value="self.tesseract.TessBaseAPIClear(self.api)&#xa;self.tesseract.TessBaseAPISetImage2(self.api,pix_image)&#xa;" id="BDnm9DWuBCP7"/>
-    <sourcecode value="if not(self.__isReady and self.__isOptionReady):&#xa;  return&#xa;&#xa;boxa=self.tesseract.TessBaseAPIGetComponentImages(self.api,&#xa;self.RIL,True,None,None)if not boxa:&#xa;  print('No component found. Try to change PSM or RIL.')&#xa;  return&#xa;&#xa;return boxa&#xa;" id="6hQFrnKnPxrS"/>
-    <sourcecode value="if not self.__isReady:&#xa;  return&#xa;&#xa;if rects is None:&#xa;  return&#xa;&#xa;print(rects)&#xa;self.textList=[]&#xa;for r in rects:&#xa;  self.tesseract.TessBaseAPISetRectangle(self.api,r[0],r[1],r[2],r[3])&#xa;  ocr_result=self.tesseract.TessBaseAPIGetUTF8Text(self.api)&#xa;  result_text=ctypes.string_at(ocr_result).decode('utf-8').strip()&#xa;  self.textList.append(result_text)&#xa;&#xa;print('OCR done!')&#xa;return self.textList" id="gbo5UxdYe1nT"/>
-    <sourcecode value="MainWindow.setObjectName(_fromUtf8(&quot;MainWindow&quot;))&#xa;MainWindow.resize(636,477)&#xa;self.centralwidget=QtGui.QWidget(MainWindow)&#xa;self.centralwidget.setObjectName(_fromUtf8(&quot;centralwidget&quot;))&#xa;self.gridLayout=QtGui.QGridLayout(self.centralwidget)&#xa;self.gridLayout.setObjectName(_fromUtf8(&quot;gridLayout&quot;))&#xa;self.centerLayout=QtGui.QHBoxLayout()&#xa;self.centerLayout.setObjectName(_fromUtf8(&quot;centerLayout&quot;))&#xa;self.gridLayout.addLayout(self.centerLayout,0,0,1,1)&#xa;MainWindow.setCentralWidget(self.centralwidget)&#xa;self.toolBar=QtGui.QToolBar(MainWindow)&#xa;self.toolBar.setObjectName(_fromUtf8(&quot;toolBar&quot;))&#xa;MainWindow.addToolBar(QtCore.Qt.TopToolBarArea,self.toolBar)&#xa;self.menuBar=QtGui.QMenuBar(MainWindow)&#xa;self.menuBar.setGeometry(QtCore.QRect(0,0,636,25))&#xa;self.menuBar.setObjectName(_fromUtf8(&quot;menuBar&quot;))&#xa;self.menuAbout=QtGui.QMenu(self.menuBar)&#xa;self.menuAbout.setObjectName(_fromUtf8(&quot;menuAbout&quot;))&#xa;self.menuFile=QtGui.QMenu(self.menuBar)&#xa;self.menuFile.setObjectName(_fromUtf8(&quot;menuFile&quot;))&#xa;self.menuTask=QtGui.QMenu(self.menuBar)&#xa;self.menuTask.setObjectName(_fromUtf8(&quot;menuTask&quot;))&#xa;MainWindow.setMenuBar(self.menuBar)&#xa;self.statusBar=QtGui.QStatusBar(MainWindow)&#xa;self.statusBar.setObjectName(_fromUtf8(&quot;statusBar&quot;))&#xa;MainWindow.setStatusBar(self.statusBar)&#xa;self.actionOpen=QtGui.QAction(MainWindow)&#xa;self.actionOpen.setEnabled(True)&#xa;icon=QtGui.QIcon()&#xa;icon.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/open&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionOpen.setIcon(icon)&#xa;self.actionOpen.setObjectName(_fromUtf8(&quot;actionOpen&quot;))&#xa;self.actionAnalyze=QtGui.QAction(MainWindow)&#xa;self.actionAnalyze.setEnabled(False)&#xa;icon1=QtGui.QIcon()&#xa;icon1.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/analyze&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionAnalyze.setIcon(icon1)&#xa;self.actionAnalyze.setObjectName(_fromUtf8(&quot;actionAnalyze&quot;))&#xa;self.actionAddROI=QtGui.QAction(MainWindow)&#xa;self.actionAddROI.setEnabled(False)&#xa;icon2=QtGui.QIcon()&#xa;icon2.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/add&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionAddROI.setIcon(icon2)&#xa;self.actionAddROI.setObjectName(_fromUtf8(&quot;actionAddROI&quot;))&#xa;self.actionOCR=QtGui.QAction(MainWindow)&#xa;self.actionOCR.setEnabled(False)&#xa;icon3=QtGui.QIcon()&#xa;icon3.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/ocr&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionOCR.setIcon(icon3)&#xa;self.actionOCR.setObjectName(_fromUtf8(&quot;actionOCR&quot;))&#xa;self.actionHelp=QtGui.QAction(MainWindow)&#xa;self.actionHelp.setObjectName(_fromUtf8(&quot;actionHelp&quot;))&#xa;self.actionAbout=QtGui.QAction(MainWindow)&#xa;icon4=QtGui.QIcon()&#xa;icon4.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/about&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionAbout.setIcon(icon4)&#xa;self.actionAbout.setMenuRole(QtGui.QAction.AboutRole)&#xa;self.actionAbout.setObjectName(_fromUtf8(&quot;actionAbout&quot;))&#xa;self.actionSave=QtGui.QAction(MainWindow)&#xa;self.actionSave.setObjectName(_fromUtf8(&quot;actionSave&quot;))&#xa;self.actionExit=QtGui.QAction(MainWindow)&#xa;self.actionExit.setMenuRole(QtGui.QAction.QuitRole)&#xa;self.actionExit.setObjectName(_fromUtf8(&quot;actionExit&quot;))&#xa;self.actionLog=QtGui.QAction(MainWindow)&#xa;self.actionLog.setObjectName(_fromUtf8(&quot;actionLog&quot;))&#xa;self.actionRestroe=QtGui.QAction(MainWindow)&#xa;self.actionRestroe.setObjectName(_fromUtf8(&quot;actionRestroe&quot;))&#xa;self.actionClear=QtGui.QAction(MainWindow)&#xa;self.actionClear.setEnabled(False)&#xa;icon5=QtGui.QIcon()&#xa;icon5.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/clear&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionClear.setIcon(icon5)&#xa;self.actionClear.setObjectName(_fromUtf8(&quot;actionClear&quot;))&#xa;self.toolBar.addAction(self.actionOpen)&#xa;self.toolBar.addSeparator()&#xa;self.toolBar.addAction(self.actionAnalyze)&#xa;self.toolBar.addAction(self.actionAddROI)&#xa;self.toolBar.addSeparator()&#xa;self.toolBar.addAction(self.actionOCR)&#xa;self.toolBar.addAction(self.actionClear)&#xa;self.toolBar.addSeparator()&#xa;self.toolBar.addAction(self.actionAbout)&#xa;self.menuAbout.addAction(self.actionHelp)&#xa;self.menuAbout.addAction(self.actionLog)&#xa;self.menuAbout.addAction(self.actionAbout)&#xa;self.menuFile.addAction(self.actionOpen)&#xa;self.menuFile.addAction(self.actionRestroe)&#xa;self.menuFile.addAction(self.actionSave)&#xa;self.menuFile.addSeparator()&#xa;self.menuFile.addAction(self.actionExit)&#xa;self.menuTask.addAction(self.actionAnalyze)&#xa;self.menuTask.addAction(self.actionAddROI)&#xa;self.menuTask.addSeparator()&#xa;self.menuTask.addAction(self.actionOCR)&#xa;self.menuTask.addAction(self.actionClear)&#xa;self.menuBar.addAction(self.menuFile.menuAction())&#xa;self.menuBar.addAction(self.menuTask.menuAction())&#xa;self.menuBar.addAction(self.menuAbout.menuAction())&#xa;self.retranslateUi(MainWindow)&#xa;QtCore.QMetaObject.connectSlotsByName(MainWindow)&#xa;" id="cshPfGCXR6UM"/>
-    <sourcecode value="MainWindow.setWindowTitle(_translate(&quot;MainWindow&quot;,&quot;MainWindow&quot;,None))&#xa;self.toolBar.setWindowTitle(_translate(&quot;MainWindow&quot;,&quot;zoomBar&quot;,None))&#xa;self.menuAbout.setTitle(_translate(&quot;MainWindow&quot;,&quot;Help&quot;,None))&#xa;self.menuFile.setTitle(_translate(&quot;MainWindow&quot;,&quot;File&quot;,None))&#xa;self.menuTask.setTitle(_translate(&quot;MainWindow&quot;,&quot;Task&quot;,None))&#xa;self.actionOpen.setText(_translate(&quot;MainWindow&quot;,&quot;Open...&quot;,None))&#xa;self.actionOpen.setToolTip(_translate(&quot;MainWindow&quot;,&quot;Open&quot;,None))&#xa;self.actionAnalyze.setText(_translate(&quot;MainWindow&quot;,&quot;Analyze&quot;,None))&#xa;self.actionAnalyze.setToolTip(_translate(&quot;MainWindow&quot;,&quot;Analyze&quot;,None))&#xa;self.actionAddROI.setText(_translate(&quot;MainWindow&quot;,&quot;AddROI&quot;,None))&#xa;self.actionOCR.setText(_translate(&quot;MainWindow&quot;,&quot;OCR&quot;,None))&#xa;self.actionOCR.setToolTip(_translate(&quot;MainWindow&quot;,&quot;OCR&quot;,None))&#xa;self.actionHelp.setText(_translate(&quot;MainWindow&quot;,&quot;&amp;Help&quot;,None))&#xa;self.actionAbout.setText(_translate(&quot;MainWindow&quot;,&quot;&amp;About&quot;,None))&#xa;self.actionSave.setText(_translate(&quot;MainWindow&quot;,&quot;&amp;Save&quot;,None))&#xa;self.actionExit.setText(_translate(&quot;MainWindow&quot;,&quot;&amp;Exit&quot;,None))&#xa;self.actionLog.setText(_translate(&quot;MainWindow&quot;,&quot;&amp;Log&quot;,None))&#xa;self.actionRestroe.setText(_translate(&quot;MainWindow&quot;,&quot;&amp;Restroe&quot;,None))&#xa;self.actionClear.setText(_translate(&quot;MainWindow&quot;,&quot;&amp;Clear&quot;,None))&#xa;self.actionClear.setToolTip(_translate(&quot;MainWindow&quot;,&quot;Clear&quot;,None))&#xa;" id="oLKFRmamb3Ai"/>
+    <sourcecode value="if sys.platform==&quot;win32&quot;:&#xa;  leptlib=os.path.join(LIBPATH_W,'liblept170.dll')&#xa;  leptlib_alt=&quot;liblept170.dll&quot;&#xa;  os.environ[&quot;PATH&quot;]+=os.pathsep+LIBPATH_W&#xa;&#xa;else:&#xa;  leptlib=LIBPATH+&quot;liblept.so.4.0.0&quot;&#xa;  leptlib_alt='liblept.so'&#xa;&#xa;try:&#xa;  leptonica=ctypes.cdll.LoadLibrary(leptlib)&#xa;&#xa;except OSError:&#xa;  try:&#xa;    leptonica=ctypes.cdll.LoadLibrary(leptlib_alt)&#xa;&#xa;  except WindowsError,err:&#xa;    print(&quot;Loading of '%s failed...&quot;%leptlib)&#xa;    print(&quot;Loading of '%s failed...&quot;%leptlib_alt)&#xa;    print(err)&#xa;    return None&#xa;&#xa;&#xa;return leptonica&#xa;" id="HActDZbM325R"/>
+    <sourcecode value="if not leptonica:&#xa;  return None&#xa;&#xa;width=leptonica.pixGetWidth(pix_image)&#xa;height=leptonica.pixGetHeight(pix_image)&#xa;depth=leptonica.pixGetDepth(pix_image)&#xa;if depth==1:&#xa;  image_format=QImage.Format_Mono&#xa;&#xa;elif depth==8:&#xa;  image_format=QImage.Format_Indexed8&#xa;&#xa;elif depth==32:&#xa;  image_format=QImage.Format_RGB32&#xa;&#xa;else:&#xa;  pix_image=leptonica.pixConvertTo32(pix_image)&#xa;  image_format=QImage.Format_RGB32&#xa;&#xa;bytes_per_line=leptonica.pixGetWpl(pix_image)*4&#xa;image_datas=leptonica.pixEndianByteSwapNew(pix_image)&#xa;datas=leptonica.pixGetData(image_datas)&#xa;result=QImage(datas,width,height,bytes_per_line,image_format)&#xa;result.setColorTable(_grayscaleCT)&#xa;if depth==1:&#xa;  result.setColorTable(_bwCT)&#xa;&#xa;if result.isNull():&#xa;  none=QImage(0,0,QImage.Format_Invalid)&#xa;  print'Invalid format!!!'&#xa;  return none&#xa;&#xa;return result.rgbSwapped()&#xa;" id="6OZxtrPAz13D"/>
+    <sourcecode value="leptonica=get_leptonica()&#xa;if leptonica:&#xa;  leptonica.getLeptonicaVersion.restype=ctypes.c_char_p&#xa;  leptonica.getLeptonicaVersion.argtypes=[]&#xa;  return leptonica.getLeptonicaVersion()&#xa;&#xa;return None&#xa;" id="tndcDMMMK4PV"/>
+    <sourcecode value="global LIBPATH_W&#xa;LIBPATH_W=r'..\win32'&#xa;leptonica_version=get_version()&#xa;print'Found %s'%leptonica_version&#xa;leptonica=get_leptonica()&#xa;pix_image=leptonica.pixRead(r'..\images\eurotext.tif')&#xa;if pix_image:&#xa;  print'w',leptonica.pixGetWidth(pix_image)&#xa;  print'h',leptonica.pixGetHeight(pix_image)&#xa;  print'd',leptonica.pixGetDepth(pix_image)&#xa;&#xa;else:&#xa;  print'Image can not be openned'&#xa;&#xa;qimage=QImage()&#xa;qimage=pix_to_qimage(leptonica,pix_image)&#xa;if qimage:&#xa;  qimage.save(r'..\images\test.png')&#xa;&#xa;else:&#xa;  print&quot;PIX conversion was not successful!&quot;&#xa;&#xa;" id="GQDoixybibDw"/>
+    <sourcecode value="''';initialize&#xa;''';self.leptonica=lepttool.get_leptonica()&#xa;self.parent=parent&#xa;self.image_dir=None&#xa;self.file_dir=QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.PicturesLocation)&#xa;self.lastDir=None&#xa;" id="2H0iqCckktyK"/>
+    <sourcecode value="if type=='image':&#xa;  image_dir=QtGui.QFileDialog.getOpenFileName(self.parent,'Open Image file',self.file_dir,&#xa;  'Images (*.jpg *.jpeg *.bmp *.png *.tiff *.tif *.gif);;All files (*.*)')if image_dir:&#xa;    self.image_dir=image_dir&#xa;    self.lastDir=image_dir&#xa;    return image_dir&#xa;&#xa;&#xa;elif type=='json':&#xa;  filePath=QtGui.QFileDialog.getOpenFileName(self.parent,'Save file',self.file_dir,&#xa;  'JSON (*.json);;All files (*.*)')if filePath:&#xa;    self.lastDir=filePath&#xa;    return filePath&#xa;&#xa;&#xa;" id="Yc3ITzaxe5jm"/>
+    <sourcecode value="self.loadIamge(image_dir)&#xa;if type=='PIX':&#xa;  return self.pix_image&#xa;&#xa;elif type=='PIL':&#xa;  return self.PILimage&#xa;&#xa;elif type=='ROI':&#xa;  return self.ROIimage&#xa;&#xa;else:&#xa;  print('Type Wrong!')&#xa;  return&#xa;&#xa;" id="tYLYc2Ir6VFE"/>
+    <sourcecode value="with open(filePath)as data_file:&#xa;data=json.load(data_file)if data:&#xa;  return data&#xa;&#xa;" id="wshnw8oINXXX"/>
+    <sourcecode value="self.image_name=str(filename)&#xa;self.pix_image=self.leptonica.pixRead(self.image_name)&#xa;self.image_width=self.leptonica.pixGetWidth(self.pix_image)&#xa;self.image_height=self.leptonica.pixGetHeight(self.pix_image)&#xa;img=Image.open(self.image_name)&#xa;self.PILimage=img&#xa;img=img.transpose(Image.FLIP_LEFT_RIGHT)&#xa;img=img.rotate(90)&#xa;self.ROIimage=numpy.array(img)&#xa;self.__isLoad=True&#xa;" id="QVrl0PICXqeY"/>
+    <sourcecode value="if data is None:&#xa;  return&#xa;&#xa;filePath=QtGui.QFileDialog.getSaveFileName(self.parent,'Save file',self.file_dir,&#xa;'FILE (*.json,*.txt);;All files (*.*)')if filePath:&#xa;  outfile_dir=filePath+format&#xa;  outfile=open(outfile_dir,&quot;w&quot;)&#xa;  if format=='.json':&#xa;    json.dump(data,outfile)&#xa;&#xa;  elif format=='.txt':&#xa;    keys=sorted(data.keys())&#xa;    for key in keys:&#xa;      if key=='IMG':&#xa;        continue&#xa;&#xa;      val=data[key]&#xa;      text=val['text']&#xa;      outfile.write('\n%s : \n%s\n'%(key,text.encode('utf-8')))&#xa;&#xa;&#xa;  outfile.close()&#xa;  self.lastDir=filePath&#xa;  return outfile_dir&#xa;&#xa;" id="DitkZXGWOiSC"/>
+    <sourcecode value="rectList=[]&#xa;n_items=self.leptonica.boxaGetCount(boxa)&#xa;self.leptonica.boxaGetBox.restype=lepttool.BOX_PTR_T&#xa;self.leptonica.boxaGetBox.argtypes=[]&#xa;for item in range(n_items):&#xa;  lept_box=self.leptonica.boxaGetBox(boxa,item,lepttool.L_CLONE)&#xa;  box=lept_box.contents&#xa;  rectList.append([box.x,box.y,box.w,box.h])&#xa;&#xa;return rectList&#xa;" id="FNfT3SzvFCUp"/>
+    <sourcecode value="import os&#xa;currentPath=os.path.split(os.path.realpath(__file__))[0]&#xa;if action=='SAVE':&#xa;  with open(currentPath+'/setting.json','w')as setting_file:&#xa;    json.dump(data,setting_file)&#xa;&#xa;&#xa;elif action=='LOAD':&#xa;  try:&#xa;    with open(currentPath+'/setting.json','r')as setting_file:&#xa;      setting=json.load(setting_file)&#xa;      return setting&#xa;&#xa;&#xa;  except Exception:&#xa;    print('No setting files')&#xa;    return" id="ENPSYtFPasaR"/>
+    <sourcecode value="''';initialize&#xa;''';QtGui.QDialog.__init__(self,parent)&#xa;self.textEdit=QtGui.QTextEdit()&#xa;btn=QtGui.QPushButton('OK')&#xa;btn.clicked.connect(self.hide)&#xa;ly=QtGui.QVBoxLayout()&#xa;ly.addWidget(self.textEdit)&#xa;ly.addWidget(btn)&#xa;self.setLayout(ly)&#xa;self.resize(288,320)&#xa;self.setWindowTitle('Logs')&#xa;today=datetime.now().strftime('%Y-%m-%d')&#xa;self.textEdit.append('='*10+today+'='*10)&#xa;" id="RJJz4KCNpMKC"/>
+    <sourcecode value="time=datetime.now().strftime('[%H:%M:%S] ')&#xa;self.textEdit.append(time+message)&#xa;" id="Ro5GBPQaDjD5"/>
+    <sourcecode value="cursor=QtGui.QTextCursor(self.textEdit.textCursor())&#xa;cursor.movePosition(QtGui.QTextCursor.End)&#xa;self.textEdit.setTextCursor(cursor)&#xa;QtGui.QApplication.processEvents()&#xa;self.show()" id="a2unj7s6cJZ9"/>
+    <sourcecode value="QtGui.QMainWindow.__init__(self,parent)&#xa;self.setAttribute(QtCore.Qt.WA_DeleteOnClose)&#xa;self.setupUi(self)&#xa;self.initUi()&#xa;self.initTools()&#xa;self.initConnection()&#xa;self.__isOpen=False&#xa;self.__isROI=False&#xa;self.__isOCR=False&#xa;self.__isClear=False&#xa;self.outputData=:&#xa;&#xa;&#xa;data=self.file.setting('LOAD')&#xa;if data:&#xa;  lastDir=data['DIR']&#xa;  paramState=data['STATE']&#xa;  self.file.file_dir=lastDir&#xa;  self.param.setting('LOAD',paramState)&#xa;&#xa;self.resize(1000,650)&#xa;self.setWindowTitle('Michelangelo')&#xa;if self.tess.VERSION:&#xa;self.LOG('Tesseract %s initialized!'%(self.tess.VERSION))else:&#xa;  self.LOG('Could not initialize tesseract.','red')&#xa;&#xa;" id="Vf9vLaqOoq9U"/>
+    <sourcecode value="self.roiview=ROIView()&#xa;self.param=Param()&#xa;self.info=QtGui.QMessageBox(self)&#xa;rvWidght=self.roiview.getROIView()&#xa;paWidght=self.param.getParamTree()&#xa;self.centerLayout.addWidget(rvWidght)&#xa;self.centerLayout.addWidget(paWidght)&#xa;" id="OiiAWreqaCGF"/>
+    <sourcecode value="self.log=LogMgr(self)&#xa;self.file=FileMgr(self)&#xa;self.tess=TessMgr()&#xa;" id="JgXKURes9M2f"/>
+    <sourcecode value="self.actionOpen.triggered.connect(self.openFile)&#xa;self.actionAnalyze.triggered.connect(self.analyze)&#xa;self.actionAddROI.triggered.connect(self.addROI)&#xa;self.actionOCR.triggered.connect(self.ocr)&#xa;self.actionClear.triggered.connect(self.clear)&#xa;self.actionAbout.triggered.connect(self.about)&#xa;self.actionSave.triggered.connect(self.save)&#xa;self.actionExit.triggered.connect(self.exit)&#xa;self.actionHelp.triggered.connect(self.help)&#xa;self.actionRestore.triggered.connect(self.restore)&#xa;self.actionLog.triggered.connect(self.log.showLogs)&#xa;self.connect(self.param,QtCore.SIGNAL('SaveClicked'),self.save)&#xa;self.connect(self.param,QtCore.SIGNAL('ROIHighlight'),self.roiview.highlightROI)&#xa;''';MultiThread&#xa;''';self.connect(self.tess,QtCore.SIGNAL('UpdateROI'),self.updateROI)&#xa;self.connect(self.tess,QtCore.SIGNAL('UpdateOCR'),self.updateOCR)&#xa;self.connect(self.tess,QtCore.SIGNAL('UpdateOCR'),self.info.close)&#xa;" id="U8pU5n0MRXev"/>
+    <sourcecode value="if self.__isClear:&#xa;  self.__isClear=False&#xa;  self.__isROI=False&#xa;  self.__isOCR=False&#xa;  self.actionClear.setEnabled(False)&#xa;  self.actionOCR.setEnabled(False)&#xa;  self.actionSave.setEnabled(False)&#xa;&#xa;if self.__isOpen:&#xa;  self.actionAnalyze.setEnabled(True)&#xa;  self.actionAddROI.setEnabled(True)&#xa;&#xa;if self.__isROI:&#xa;  self.actionOCR.setEnabled(True)&#xa;  self.actionClear.setEnabled(True)&#xa;&#xa;if self.__isOCR:&#xa;  self.actionAnalyze.setEnabled(False)&#xa;  self.actionAddROI.setEnabled(False)&#xa;  self.actionClear.setEnabled(True)&#xa;  self.actionSave.setEnabled(True)&#xa;&#xa;" id="vWTHSs8u0vP3"/>
+    <sourcecode value="if not restore:&#xa;  imgDir=self.file.openFile(type='image')&#xa;&#xa;else:&#xa;  imgDir=self.outputData['IMG']&#xa;&#xa;if imgDir:&#xa;  self.clear()&#xa;  roi_image=self.file.getImage(imgDir,type='ROI')&#xa;  pix_image=self.file.getImage(imgDir,type='PIX')&#xa;  self.roiview.setIamge(roi_image)&#xa;  self.tess.setOCRImageSource(pix_image)&#xa;  self.setWindowTitle('Michelangelo - '+imgDir)&#xa;  self.outputData['IMG']=str(imgDir)&#xa;  self.__isOpen=True&#xa;  self.updateUi()&#xa;  self.LOG('OPEN FILE -> '+imgDir)&#xa;&#xa;" id="UdispH4knXzD"/>
+    <sourcecode value="''';check the parameter if it is need to reflesh the options&#xa;[1]check the param to get the OCR Options&#xa;[2]set Options to the OCR&#xa;''';ops=self.param.getParamOptions()&#xa;self.tess.initTess(ops)&#xa;" id="4ugpPg0nj6Ai"/>
+    <sourcecode value="''';分析Rectangle区域&#xa;'''        ;self.setupOCR()&#xa;self.tess.startROIThread()&#xa;self.LOG('[ROI] Searching...')&#xa;" id="GVNOICKK6z9W"/>
+    <sourcecode value="if boxa:&#xa;  self.rect=self.file.boxa2rect(boxa)&#xa;  self.roiview.setROIs(self.rect)&#xa;  self.__isROI=True&#xa;  self.updateUi()&#xa;  self.LOG('[ROI] Find '+str(len(self.rect)),'green')&#xa;&#xa;else:&#xa;  self.log.writeLog('[ROI] No component found. Try to change PSM or RIL.','red')&#xa;&#xa;" id="aNhS86oMc9ks"/>
+    <sourcecode value="''';增加ROI区域&#xa;''';newArea=[40,40,100,100]&#xa;self.roiview.addROI(newArea)&#xa;self.__isROI=True&#xa;self.updateUi()&#xa;" id="tIXTRFMkIZAI"/>
+    <sourcecode value="''';文本识别并返回数据&#xa;''';rdict=self.roiview.getPosDict()&#xa;index=sorted(rdict)&#xa;rlist=[]&#xa;for i in range(len(index)):&#xa;  key=index[i]&#xa;  value=rdict[key]&#xa;  iRect=[int(float(x)+0.5)for x in value]&#xa;  rlist.append(iRect)&#xa;&#xa;self.index=index&#xa;self.setupOCR()&#xa;self.tess.startOCRThread(rlist)&#xa;self.LOG('[OCR] Working...')&#xa;self.showInfo('Tesseract OCR is working ...        ')&#xa;" id="HlYJY2UPIzth"/>
+    <sourcecode value="if text:&#xa;  self.param.setResult(text,self.index)&#xa;  self.__isOCR=True&#xa;  self.updateUi()&#xa;  self.LOG('[OCR] Set Results!')&#xa;&#xa;else:&#xa;  self.LOG('[OCR] ERROR ->NULL RETURN','red')&#xa;&#xa;" id="e4wdcZ8tKhDq"/>
+    <sourcecode value="''';保存导出数据&#xa;[1]get the final data from Param,ROI:&#xa;  'TAG'::&#xa;&#xa;    'pos':xxx'text':xxx&#xa;&#xa;[2]save data to file&#xa;''';text=self.param.getOutputText()&#xa;pos=self.roiview.getPosDict()&#xa;if not(len(self.index)==len(text)and len(text)==len(pos)):&#xa;  self.LOG('[ERROR] The length of Index and Data is not equal','red')&#xa;  return&#xa;&#xa;for i in range(len(self.index)):&#xa;  info=:&#xa;&#xa;&#xa;  info['pos']=pos[self.index[i]]&#xa;  info['text']=text[i]&#xa;  self.outputData[self.index[i]]=info&#xa;&#xa;msg=self.file.saveFile(self.outputData,self.param.getFormat())&#xa;if msg:&#xa;  self.LOG('SAVE FILE -> '+msg)&#xa;&#xa;" id="pAL8pWyWBEUp"/>
+    <sourcecode value="''';清空并重置&#xa;''';if self.__isROI:&#xa;  self.roiview.clearROIs()&#xa;&#xa;if self.__isOCR:&#xa;  self.param.clearResult()&#xa;&#xa;self.__isClear=True&#xa;self.updateUi()&#xa;self.LOG('Cleared!','red')&#xa;" id="Ma8Dq8heG3m5"/>
+    <sourcecode value="import webbrowser&#xa;url='https://github.com/jiangyunfei/Michelangelo'&#xa;webbrowser.open(url)&#xa;" id="6jF6ITpc2vqq"/>
+    <sourcecode value="''';''';info='''&lt;h1>Michelangelo&amp;trade;&lt;/h1>;&lt;h4>Version:%s(%s)&lt;/h4>&lt;p>Copyright&amp;copy&#xa;&lt;a href=&quot;mailto:jiangyunfei93@bupt.edu.cn&quot;>%s&lt;/a>.All rights reserved.&lt;/p>&lt;p>Python%s-PyQt%s-on%s&lt;/p>''' \%(__version__,__date__,__author__,platform.python_version(),QtCore.PYQT_VERSION_STR,platform.system())QtGui.QMessageBox.about(self,'About',info)&#xa;" id="uLA4W6Pcocg4"/>
+    <sourcecode value="''';关闭程序并保存&#xa;'''        ;if self.questionMessage('Do you want to Exit ?        '):&#xa;  data=:&#xa;&#xa;&#xa;  data['DIR']=str(self.file.lastDir)&#xa;  data['STATE']=self.param.setting('SAVE')&#xa;  self.file.setting('SAVE',data)&#xa;  self.close()&#xa;&#xa;" id="d0dcuSWolhqF"/>
+    <sourcecode value="''';Restore:&#xa;  load json file&#xa;  clear&#xa;  ->load img&#xa;  ->parse info:&#xa;    ->reflesh index&#xa;    ->generate pos&#xa;    ->generate text&#xa;&#xa;  ->updateOCR&#xa;  ''';path=self.file.openFile(type='json')&#xa;  if path:&#xa;    self.LOG('[RESTORE] '+path,'green')&#xa;    self.outputData=self.file.parseJson(path)&#xa;    self.openFile(restore=True)&#xa;    keys=sorted(self.outputData.keys())&#xa;    self.index=[]&#xa;    text=[]&#xa;    pos=[]&#xa;    for key in keys:&#xa;      if key=='IMG':&#xa;        continue&#xa;&#xa;      item=self.outputData[key]&#xa;      text.append(item['text'])&#xa;      pos.append(item['pos'])&#xa;      self.index.append(key)&#xa;&#xa;    self.roiview.setROIs(pos,self.index)&#xa;    self.__isROI=True&#xa;    self.updateOCR(text)&#xa;&#xa;&#xa;def LOG(self,message,color=None):&#xa;  ''';write logs and update the statusBar&#xa;  ''';if message:&#xa;    self.statusBar.showMessage(message,3000)&#xa;    msg=message&#xa;    if color:&#xa;      msg='&lt;span style=&quot;color:%s&quot;> %s &lt;/span>'%(color,message)&#xa;&#xa;    self.log.writeLog(msg)&#xa;&#xa;&#xa;def showInfo(self,MESSAGE):&#xa;  self.info.setWindowTitle('Please wait')&#xa;  self.info.setIcon(QtGui.QMessageBox.Information)&#xa;  self.info.setText(MESSAGE)&#xa;  self.info.exec_()&#xa;&#xa;def questionMessage(self,MESSAGE='NULL'):&#xa;reply=QtGui.QMessageBox.question(self,&quot;Michelangelo&quot;,MESSAGE,QtGui.QMessageBox.Yes|QtGui.QMessageBox.Cancel)if reply==QtGui.QMessageBox.Yes:&#xa;  return True&#xa;&#xa;else:&#xa;  return False&#xa;&#xa;" id="qvjqKPPvN2YI"/>
+    <sourcecode value="QtCore.QObject.__init__(self)&#xa;self.initParam()&#xa;self.parameter=Parameter.create(name='OCR Parameter',type='group',children=self.params)&#xa;def turn2change(param,changes):&#xa;  self.changeParam(param,changes)&#xa;&#xa;self.parameter.sigTreeStateChanged.connect(turn2change)&#xa;self.tree=ParameterTree(None,showHeader=False)&#xa;self.tree.setParameters(self.parameter,showTop=True)&#xa;self.textList=None&#xa;self.ocrIndex=None&#xa;" id="0w9ixINRCXQu"/>
+    <sourcecode value="self.LANG=['eng','chi_sim','chi_tra']&#xa;LANGparam=:&#xa;&#xa;&#xa;for i in range(len(self.LANG)):&#xa;  LANGparam[self.LANG[i]]=i&#xa;&#xa;self.ORI=[&quot;Horizontal&quot;,&quot;Vertical&quot;]&#xa;ORIparam=:&#xa;&#xa;&#xa;for i in range(len(self.ORI)):&#xa;  ORIparam[self.ORI[i]]=i&#xa;&#xa;self.PSM=['PSM_OSD_ONLY','PSM_AUTO_OSD','PSM_AUTO_ONLY','PSM_AUTO',&#xa;'PSM_SINGLE_COLUMN','PSM_SINGLE_BLOCK_VERT_TEXT','PSM_SINGLE_BLOCK','PSM_SINGLE_LINE','PSM_SINGLE_WORD','PSM_CIRCLE_WORD','PSM_SINGLE_CHAR','PSM_SPARSE_TEXT','PSM_SPARSE_TEXT_OSD']PSMparam=:&#xa;&#xa;&#xa;for i in range(len(self.PSM)):&#xa;  PSMparam[self.PSM[i]]=i&#xa;&#xa;self.RIL=['RIL_BLOCK','RIL_PARA','RIL_TEXTLINE','RIL_WORD','RIL_SYMBOL']&#xa;RILparam=:&#xa;&#xa;&#xa;for i in range(len(self.RIL)):&#xa;  RILparam[self.RIL[i]]=i&#xa;&#xa;self.params=[&#xa;:&#xa;  'name':'Options','type':'group','children':[&#xa;:&#xa;    'name':'Language','type':'list','values':LANGparam,'value':0&#xa;  ,:&#xa;    'name':'PSM','type':'list','values':PSMparam,'value':3&#xa;  ,:&#xa;    'name':'RIL','type':'list','values':RILparam,'value':0&#xa;  ]&#xa;]&#xa;self.FORMAT=[&quot;.json&quot;,&quot;.txt&quot;]&#xa;FORparam=:&#xa;&#xa;&#xa;for i in range(len(self.FORMAT)):&#xa;  FORparam[self.FORMAT[i]]=i&#xa;&#xa;self.textParams=[:&#xa;  'name':'Output','type':'group','children':[&#xa;:&#xa;    'name':'Format','type':'list','values':FORparam,'value':0&#xa;  ,]&#xa;]self.textList=None&#xa;self.ocrIndex=None&#xa;" id="hFQdXG6YADE7"/>
+    <sourcecode value="for name,change,data in changes:&#xa;  path=self.parameter.childPath(name)&#xa;  if path==[]:&#xa;    return&#xa;&#xa;  if path is not None:&#xa;    (item,ops)=path&#xa;    if item=='Text':&#xa;      if ops in self.ocrIndex:&#xa;        idx=self.ocrIndex.index(ops)&#xa;        self.textList[idx]=data&#xa;        self.emit(QtCore.SIGNAL('ROIHighlight'),ops)&#xa;&#xa;&#xa;    else:&#xa;      if ops=='TEST':&#xa;        print('TEST -> Nothing!')&#xa;        pass&#xa;&#xa;      if ops=='Save':&#xa;        self.emit(QtCore.SIGNAL('SaveClicked'))&#xa;&#xa;&#xa;&#xa;&#xa;" id="GpAWP8B6Laht"/>
+    <sourcecode value="if textList is[]:&#xa;  return&#xa;&#xa;ocrText=[]&#xa;for i in range(len(ocrIndex)):&#xa;  item=:&#xa;    'name':ocrIndex[i],'type':'text','value':textList[i]&#xa;&#xa;  ocrText.append(item)&#xa;&#xa;if self.textList:&#xa;  self.clearResult()&#xa;&#xa;self.textParams.append(:&#xa;  'name':'Text','type':'group','children':ocrText&#xa;)&#xa;self.parameter.addChildren(children=self.textParams)&#xa;self.textList=textList&#xa;self.ocrIndex=ocrIndex&#xa;" id="gxItaR8ACnKl"/>
+    <sourcecode value="if self.textList:&#xa;  children=self.parameter.children()&#xa;  for c in children:&#xa;    if c.name()=='Options':&#xa;      continue&#xa;&#xa;    c.remove()&#xa;&#xa;  self.textParams.pop()&#xa;  self.ocrIndex=None&#xa;  self.textList=None&#xa;&#xa;" id="yefBPxuKSTBL"/>
+    <sourcecode value="return self.tree&#xa;" id="9MP6uvbsYE1v"/>
+    <sourcecode value="Opstions=:&#xa;&#xa;&#xa;ops=self.parameter.child('Options')&#xa;children=ops.children()&#xa;for ptr in children:&#xa;  Opstions[ptr.name()]=ptr.value()&#xa;&#xa;Opstions['Language']=self.LANG[Opstions['Language']]&#xa;return Opstions&#xa;" id="bCHNJM9TjZXb"/>
+    <sourcecode value="ops=self.parameter.child('Output')&#xa;format=ops.child('Format')&#xa;return self.FORMAT[format.value()]&#xa;" id="ZyMKcc1BoGY5"/>
+    <sourcecode value="return self.textList&#xa;" id="pWrCcuuBrETR"/>
+    <sourcecode value="if action=='LOAD':&#xa;  ops=self.parameter.child('Options')&#xa;  children=ops.children()&#xa;  for ptr in children:&#xa;    val=int(data[ptr.name()])&#xa;    ptr.setValue(val)&#xa;&#xa;&#xa;elif action=='SAVE':&#xa;  data=:&#xa;&#xa;&#xa;  ops=self.parameter.child('Options')&#xa;  children=ops.children()&#xa;  for ptr in children:&#xa;    data[ptr.name()]=ptr.value()&#xa;&#xa;  return data" id="GYgPvIqkmfvO"/>
+    <sourcecode value="self.pgView=pg.GraphicsView()&#xa;self.vb=pg.ViewBox()&#xa;self.image=None&#xa;self.lastIm=None&#xa;self.__isIm=False&#xa;self.initROIs()&#xa;" id="o6SODTrYJ2hm"/>
+    <sourcecode value="self.index=1&#xa;self.posDict=:&#xa;&#xa;&#xa;self.ROIs=:&#xa;&#xa;&#xa;" id="3rQTd6HRAjnM"/>
+    <sourcecode value="self.pgView.setBackground(QtGui.QColor(127,127,127))&#xa;self.pgView.setCentralWidget(self.vb)&#xa;return self.pgView&#xa;" id="GozjZQrcFH6q"/>
+    <sourcecode value="if image is None:&#xa;  return&#xa;&#xa;im=pg.ImageItem()&#xa;im.setImage(image)&#xa;if self.__isIm:&#xa;  self.vb.removeItem(self.lastIm)&#xa;  self.clearROIs()&#xa;&#xa;self.vb.addItem(im)&#xa;self.vb.setAspectLocked(True)&#xa;self.vb.autoRange()&#xa;self.vb.invertY(b=True)&#xa;self.lastIm=im&#xa;self.image=image&#xa;self.__isIm=True&#xa;" id="Is53tsu9gtqF"/>
+    <sourcecode value="''';此处需要清空原始的ROI&#xa;''';if self.__isIm:&#xa;  self.clearROIs()&#xa;&#xa;if rlist is None:&#xa;  return&#xa;&#xa;if TAGs:&#xa;  length=len(rlist)&#xa;  if length==len(TAGs):&#xa;    for i in range(length):&#xa;      self.addROI(rlist[i],TAGs[i])&#xa;&#xa;&#xa;&#xa;else:&#xa;  for r in rlist:&#xa;    self.addROI(r)&#xa;&#xa;&#xa;" id="UW28OtOdYC8V"/>
+    <sourcecode value="posx=r[0]&#xa;posy=r[1]&#xa;w=r[2]&#xa;h=r[3]&#xa;if self.index&lt;10:&#xa;  numStr='0'+str(self.index)&#xa;&#xa;else:&#xa;  numStr=str(self.index)&#xa;&#xa;if TAG:&#xa;  tag=TAG&#xa;&#xa;else:&#xa;  tag=';&#xa;roi=TagROI((posx,posy),(w,h),tag,pen=0,&#xa;centered=False,sideScalers=True,removable=True)textItem=QtGui.QGraphicsSimpleTextItem(tag,roi)&#xa;s=textItem.boundingRect()&#xa;textItem.setPos(posx,posy-s.height())&#xa;tagBrush=QtGui.QBrush(QtGui.QColor(255,0,0))&#xa;QtGui.QAbstractGraphicsShapeItem.setBrush(textItem,tagBrush)&#xa;roi.setTextItem(textItem)&#xa;roi.sigRegionChanged.connect(self.posChanged)&#xa;roi.sigRemoveRequested.connect(self.removeROI)&#xa;self.vb.addItem(roi)&#xa;self.vb.addItem(textItem)&#xa;self.index+=1&#xa;self.posDict[tag]=[posx,posy,w,h]&#xa;self.ROIs[tag]=roi&#xa;" id="PDBSM2mhRh2Q"/>
+    <sourcecode value="for key in self.ROIs.keys():&#xa;  roi=self.ROIs[key]&#xa;  self.removeROI(roi)&#xa;&#xa;self.initROIs()&#xa;" id="Es8aYY3N9lkh"/>
+    <sourcecode value="tag=roi.getTAG()&#xa;posx,posy=roi.pos()&#xa;w,h=roi.size()&#xa;textItem=roi.getTextItemPointer()&#xa;if textItem is None:&#xa;  print('get NULL!')&#xa;  return&#xa;&#xa;s=textItem.boundingRect()&#xa;textItem.setPos(posx,posy-s.height())&#xa;if self.posDict.has_key(tag):&#xa;  self.posDict[tag]=[posx,posy,w,h]&#xa;&#xa;" id="EQk0DxMSpU0M"/>
+    <sourcecode value="if TAG in self.ROIs.keys():&#xa;  item=self.ROIs[TAG]&#xa;&#xa;else:&#xa;  print('Not Found!')&#xa;  return&#xa;&#xa;self.vb.locate(item,timeout=2.0)&#xa;" id="nfIb8Iv9JcH4"/>
+    <sourcecode value="tag=roi.getTAG()&#xa;textItem=roi.getTextItemPointer()&#xa;self.vb.removeItem(roi)&#xa;self.vb.removeItem(textItem)&#xa;if self.posDict.pop(tag):&#xa;  self.ROIs.pop(tag)&#xa;&#xa;" id="7MyOwESvLD1r"/>
+    <sourcecode value="if self.posDict is None:&#xa;  return&#xa;&#xa;return self.posDict&#xa;" id="OhUjuTY2UCWE"/>
+    <sourcecode value="return self.TAG&#xa;" id="3SiTOxHl7PuD"/>
+    <sourcecode value="''';item:the pointer to the text item&#xa;''';if self.TextItem is None:&#xa;  return&#xa;&#xa;return self.TextItem&#xa;" id="9Xm5K8HLbxox"/>
+    <sourcecode value="self.TextItem=item" id="UHv9zIl9pXC7"/>
+    <sourcecode value="QtCore.QObject.__init__(self)&#xa;''';initialize&#xa;''';self.tesseract=tesstool.get_tesseract(os.path.dirname(__file__))&#xa;if not self.tesseract:&#xa;  print('Tesseract initialization failed...')&#xa;  return&#xa;&#xa;self.api=self.tesseract.TessBaseAPICreate()&#xa;self.tessdata_prefix=tesstool.get_tessdata_prefix()&#xa;locale.setlocale(locale.LC_ALL,'C')&#xa;self.pixImage=None&#xa;self.VERSION=tesstool.VERSION&#xa;" id="K6EVoowMQ10z"/>
+    <sourcecode value="self.pixImage=pixImage&#xa;" id="koXIOsvgx9Cl"/>
+    <sourcecode value="''';ops,dictionary,Keys:Language,Oritention,PSM,RIL&#xa;it seems that Tesseract needn't Oritention;''';self.lang=ops['Language']&#xa;self.PSM=ops['PSM']&#xa;self.RIL=ops['RIL']&#xa;self.__isReady=False&#xa;isFailure=self.tesseract.TessBaseAPIInit3(self.api,self.tessdata_prefix,self.lang)&#xa;if isFailure:&#xa;  self.tesseract.TessBaseAPIDelete(self.api)&#xa;  print('&lt;span style=&quot;color:red&quot;>Could not initialize tesseract.&lt;/span>')&#xa;  return&#xa;&#xa;self.tesseract.TessBaseAPISetImage2(self.api,self.pixImage)&#xa;self.tesseract.TessBaseAPIReadConfigFile(self.api,&#xa;tesstool.turn2char('opitimize'))" id="xjKsqWcjbi4h"/>
+    <sourcecode value="self.tesseract.TessBaseAPIClear(self.api)&#xa;self.tesseract.TessBaseAPIEnd(self.api)&#xa;" id="mdsLJu25HiXi"/>
+    <sourcecode value="t=threading.Thread(target=self.getBoxa)&#xa;t.start()&#xa;" id="8vpUBobvRUGk"/>
+    <sourcecode value="t=threading.Thread(target=self.getOCRText,args=(rects,))&#xa;t.start()&#xa;" id="Ypo4LkkTgXvp"/>
+    <sourcecode value="return&#xa;" id="dhkHCf6YCoIB"/>
+    <sourcecode value="MainGUI.setObjectName(_fromUtf8(&quot;MainGUI&quot;))&#xa;MainGUI.setWindowModality(QtCore.Qt.ApplicationModal)&#xa;MainGUI.resize(616,455)&#xa;icon=QtGui.QIcon()&#xa;icon.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/app&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;MainGUI.setWindowIcon(icon)&#xa;self.centralwidget=QtGui.QWidget(MainGUI)&#xa;self.centralwidget.setObjectName(_fromUtf8(&quot;centralwidget&quot;))&#xa;self.gridLayout=QtGui.QGridLayout(self.centralwidget)&#xa;self.gridLayout.setObjectName(_fromUtf8(&quot;gridLayout&quot;))&#xa;self.centerLayout=QtGui.QHBoxLayout()&#xa;self.centerLayout.setObjectName(_fromUtf8(&quot;centerLayout&quot;))&#xa;self.gridLayout.addLayout(self.centerLayout,0,0,1,1)&#xa;MainGUI.setCentralWidget(self.centralwidget)&#xa;self.toolBar=QtGui.QToolBar(MainGUI)&#xa;self.toolBar.setObjectName(_fromUtf8(&quot;toolBar&quot;))&#xa;MainGUI.addToolBar(QtCore.Qt.TopToolBarArea,self.toolBar)&#xa;self.menuBar=QtGui.QMenuBar(MainGUI)&#xa;self.menuBar.setGeometry(QtCore.QRect(0,0,616,25))&#xa;self.menuBar.setObjectName(_fromUtf8(&quot;menuBar&quot;))&#xa;self.menuAbout=QtGui.QMenu(self.menuBar)&#xa;self.menuAbout.setObjectName(_fromUtf8(&quot;menuAbout&quot;))&#xa;self.menuFile=QtGui.QMenu(self.menuBar)&#xa;self.menuFile.setObjectName(_fromUtf8(&quot;menuFile&quot;))&#xa;self.menuTask=QtGui.QMenu(self.menuBar)&#xa;self.menuTask.setObjectName(_fromUtf8(&quot;menuTask&quot;))&#xa;MainGUI.setMenuBar(self.menuBar)&#xa;self.statusBar=QtGui.QStatusBar(MainGUI)&#xa;self.statusBar.setObjectName(_fromUtf8(&quot;statusBar&quot;))&#xa;MainGUI.setStatusBar(self.statusBar)&#xa;self.actionOpen=QtGui.QAction(MainGUI)&#xa;self.actionOpen.setEnabled(True)&#xa;icon1=QtGui.QIcon()&#xa;icon1.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/open&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionOpen.setIcon(icon1)&#xa;self.actionOpen.setObjectName(_fromUtf8(&quot;actionOpen&quot;))&#xa;self.actionAnalyze=QtGui.QAction(MainGUI)&#xa;self.actionAnalyze.setEnabled(False)&#xa;icon2=QtGui.QIcon()&#xa;icon2.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/analyze&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionAnalyze.setIcon(icon2)&#xa;self.actionAnalyze.setObjectName(_fromUtf8(&quot;actionAnalyze&quot;))&#xa;self.actionAddROI=QtGui.QAction(MainGUI)&#xa;self.actionAddROI.setEnabled(False)&#xa;icon3=QtGui.QIcon()&#xa;icon3.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/add&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionAddROI.setIcon(icon3)&#xa;self.actionAddROI.setObjectName(_fromUtf8(&quot;actionAddROI&quot;))&#xa;self.actionOCR=QtGui.QAction(MainGUI)&#xa;self.actionOCR.setEnabled(False)&#xa;icon4=QtGui.QIcon()&#xa;icon4.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/ocr&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionOCR.setIcon(icon4)&#xa;self.actionOCR.setObjectName(_fromUtf8(&quot;actionOCR&quot;))&#xa;self.actionHelp=QtGui.QAction(MainGUI)&#xa;self.actionHelp.setEnabled(True)&#xa;icon5=QtGui.QIcon()&#xa;icon5.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/help&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionHelp.setIcon(icon5)&#xa;self.actionHelp.setObjectName(_fromUtf8(&quot;actionHelp&quot;))&#xa;self.actionAbout=QtGui.QAction(MainGUI)&#xa;icon6=QtGui.QIcon()&#xa;icon6.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/about&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionAbout.setIcon(icon6)&#xa;self.actionAbout.setMenuRole(QtGui.QAction.AboutRole)&#xa;self.actionAbout.setObjectName(_fromUtf8(&quot;actionAbout&quot;))&#xa;self.actionSave=QtGui.QAction(MainGUI)&#xa;self.actionSave.setEnabled(False)&#xa;icon7=QtGui.QIcon()&#xa;icon7.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/save&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionSave.setIcon(icon7)&#xa;self.actionSave.setObjectName(_fromUtf8(&quot;actionSave&quot;))&#xa;self.actionExit=QtGui.QAction(MainGUI)&#xa;icon8=QtGui.QIcon()&#xa;icon8.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/exit&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionExit.setIcon(icon8)&#xa;self.actionExit.setMenuRole(QtGui.QAction.QuitRole)&#xa;self.actionExit.setObjectName(_fromUtf8(&quot;actionExit&quot;))&#xa;self.actionLog=QtGui.QAction(MainGUI)&#xa;self.actionLog.setEnabled(True)&#xa;icon9=QtGui.QIcon()&#xa;icon9.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/log&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionLog.setIcon(icon9)&#xa;self.actionLog.setObjectName(_fromUtf8(&quot;actionLog&quot;))&#xa;self.actionClear=QtGui.QAction(MainGUI)&#xa;self.actionClear.setEnabled(False)&#xa;icon10=QtGui.QIcon()&#xa;icon10.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/clear&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionClear.setIcon(icon10)&#xa;self.actionClear.setObjectName(_fromUtf8(&quot;actionClear&quot;))&#xa;self.actionRestore=QtGui.QAction(MainGUI)&#xa;icon11=QtGui.QIcon()&#xa;icon11.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:/icons/restore&quot;)),QtGui.QIcon.Normal,QtGui.QIcon.Off)&#xa;self.actionRestore.setIcon(icon11)&#xa;self.actionRestore.setObjectName(_fromUtf8(&quot;actionRestore&quot;))&#xa;self.toolBar.addAction(self.actionOpen)&#xa;self.toolBar.addAction(self.actionRestore)&#xa;self.toolBar.addAction(self.actionSave)&#xa;self.toolBar.addSeparator()&#xa;self.toolBar.addAction(self.actionAnalyze)&#xa;self.toolBar.addAction(self.actionAddROI)&#xa;self.toolBar.addSeparator()&#xa;self.toolBar.addAction(self.actionOCR)&#xa;self.toolBar.addAction(self.actionClear)&#xa;self.toolBar.addSeparator()&#xa;self.toolBar.addAction(self.actionLog)&#xa;self.toolBar.addAction(self.actionExit)&#xa;self.menuAbout.addAction(self.actionHelp)&#xa;self.menuAbout.addAction(self.actionLog)&#xa;self.menuAbout.addAction(self.actionAbout)&#xa;self.menuFile.addAction(self.actionOpen)&#xa;self.menuFile.addAction(self.actionRestore)&#xa;self.menuFile.addAction(self.actionSave)&#xa;self.menuFile.addSeparator()&#xa;self.menuFile.addAction(self.actionExit)&#xa;self.menuTask.addAction(self.actionAnalyze)&#xa;self.menuTask.addAction(self.actionAddROI)&#xa;self.menuTask.addSeparator()&#xa;self.menuTask.addAction(self.actionOCR)&#xa;self.menuTask.addAction(self.actionClear)&#xa;self.menuBar.addAction(self.menuFile.menuAction())&#xa;self.menuBar.addAction(self.menuTask.menuAction())&#xa;self.menuBar.addAction(self.menuAbout.menuAction())&#xa;self.retranslateUi(MainGUI)&#xa;QtCore.QMetaObject.connectSlotsByName(MainGUI)&#xa;" id="URL1hfic2wkE"/>
+    <sourcecode value="MainGUI.setWindowTitle(_translate(&quot;MainGUI&quot;,&quot;Michelangelo&quot;,None))&#xa;self.toolBar.setWindowTitle(_translate(&quot;MainGUI&quot;,&quot;zoomBar&quot;,None))&#xa;self.menuAbout.setTitle(_translate(&quot;MainGUI&quot;,&quot;Help&quot;,None))&#xa;self.menuFile.setTitle(_translate(&quot;MainGUI&quot;,&quot;File&quot;,None))&#xa;self.menuTask.setTitle(_translate(&quot;MainGUI&quot;,&quot;Task&quot;,None))&#xa;self.actionOpen.setText(_translate(&quot;MainGUI&quot;,&quot;Open...&quot;,None))&#xa;self.actionOpen.setToolTip(_translate(&quot;MainGUI&quot;,&quot;Open&quot;,None))&#xa;self.actionOpen.setStatusTip(_translate(&quot;MainGUI&quot;,&quot;Open image files&quot;,None))&#xa;self.actionAnalyze.setText(_translate(&quot;MainGUI&quot;,&quot;Analyze&quot;,None))&#xa;self.actionAnalyze.setToolTip(_translate(&quot;MainGUI&quot;,&quot;Analyze&quot;,None))&#xa;self.actionAnalyze.setStatusTip(_translate(&quot;MainGUI&quot;,&quot;Find the text areas&quot;,None))&#xa;self.actionAddROI.setText(_translate(&quot;MainGUI&quot;,&quot;AddROI&quot;,None))&#xa;self.actionAddROI.setStatusTip(_translate(&quot;MainGUI&quot;,&quot;Add the text area&quot;,None))&#xa;self.actionOCR.setText(_translate(&quot;MainGUI&quot;,&quot;OCR&quot;,None))&#xa;self.actionOCR.setToolTip(_translate(&quot;MainGUI&quot;,&quot;OCR&quot;,None))&#xa;self.actionOCR.setStatusTip(_translate(&quot;MainGUI&quot;,&quot;Start OCR&quot;,None))&#xa;self.actionHelp.setText(_translate(&quot;MainGUI&quot;,&quot;&amp;Help&quot;,None))&#xa;self.actionHelp.setStatusTip(_translate(&quot;MainGUI&quot;,&quot;Get the online help&quot;,None))&#xa;self.actionAbout.setText(_translate(&quot;MainGUI&quot;,&quot;&amp;About&quot;,None))&#xa;self.actionAbout.setStatusTip(_translate(&quot;MainGUI&quot;,&quot;About this application&quot;,None))&#xa;self.actionSave.setText(_translate(&quot;MainGUI&quot;,&quot;&amp;Save&quot;,None))&#xa;self.actionSave.setStatusTip(_translate(&quot;MainGUI&quot;,&quot;Save the results&quot;,None))&#xa;self.actionExit.setText(_translate(&quot;MainGUI&quot;,&quot;&amp;Exit&quot;,None))&#xa;self.actionExit.setStatusTip(_translate(&quot;MainGUI&quot;,&quot;Exit the application&quot;,None))&#xa;self.actionLog.setText(_translate(&quot;MainGUI&quot;,&quot;&amp;Log&quot;,None))&#xa;self.actionLog.setStatusTip(_translate(&quot;MainGUI&quot;,&quot;Check the logs&quot;,None))&#xa;self.actionClear.setText(_translate(&quot;MainGUI&quot;,&quot;&amp;Clear&quot;,None))&#xa;self.actionClear.setToolTip(_translate(&quot;MainGUI&quot;,&quot;Clear&quot;,None))&#xa;self.actionClear.setStatusTip(_translate(&quot;MainGUI&quot;,&quot;Clear and reset&quot;,None))&#xa;self.actionRestore.setText(_translate(&quot;MainGUI&quot;,&quot;&amp;Restore&quot;,None))&#xa;self.actionRestore.setStatusTip(_translate(&quot;MainGUI&quot;,&quot;Restore a json file&quot;,None))&#xa;" id="qEvs8e6YeIDM"/>
    </codegenerator>
   </codegeneration>
  </XMI.extensions>

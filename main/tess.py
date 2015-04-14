@@ -73,6 +73,7 @@ class TessMgr(QtCore.QObject):
         t.start()
     
     def startOCRThread(self,rects):
+        #t = threading.Thread(target=self.getOCRTextTEST, args=(rects,))
         t = threading.Thread(target=self.getOCRText, args=(rects,))
         t.start()
     
@@ -96,7 +97,43 @@ class TessMgr(QtCore.QObject):
         self.emit(QtCore.SIGNAL('UpdateROI'),boxa)
         #print('ROI done!')
     
+    
+    def getOCRTextTEST(self,rects):         
+        if rects is None:
+            return
         
+        ocr_psm = tesstool.PSM_SINGLE_BLOCK
+        ril = tesstool.RIL[self.RIL]
+        if ril == 'RIL_PARA':
+            ocr_psm = tesstool.PSM_SINGLE_BLOCK_VERT_TEXT
+        elif ril == 'RIL_TEXTLINE':
+            ocr_psm = tesstool.PSM_SINGLE_LINE
+        elif ril == 'RIL_WORD':
+            ocr_psm = tesstool.PSM_SINGLE_WORD
+        elif ril == 'RIL_SYMBOL':
+            ocr_psm = tesstool.PSM_SINGLE_CHAR
+         
+        self.tesseract.TessBaseAPISetPageSegMode(self.api, ocr_psm)
+        
+        boxas = []
+        for r in rects:
+                self.tesseract.TessBaseAPISetRectangle(self.api,
+                                                       tesstool.turn2Cint(r[0]),
+                                                       tesstool.turn2Cint(r[1]), 
+                                                       tesstool.turn2Cint(r[2]), 
+                                                       tesstool.turn2Cint(r[3]))
+                
+                # TessBaseAPI* handle, PIXA** pixa, int** blockids
+                boxa = self.tesseract.TessBaseAPIGetTextlines(self.api, None, None)
+                boxas.append(boxa)
+        
+        self.clearAPI()
+        
+        self.emit(QtCore.SIGNAL('OCRTEST'),boxas)
+        print('OCR TEST done!')
+        
+    
+       
     def getOCRText(self,rects):         
         if rects is None:
             return
@@ -133,8 +170,13 @@ class TessMgr(QtCore.QObject):
         #print('OCR done!')
         
     
-
-        
+    def test(self):
+        '''
+        must call after setRectangle
+        '''
+        # TessBaseAPI* handle, PIXA** pixa, int** blockids
+        boxa = self.tesseract.TessBaseAPIGetTextlines(self.api, None, None)
+        return boxa
         
     
 
