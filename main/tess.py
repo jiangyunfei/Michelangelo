@@ -13,7 +13,7 @@ from libs import tesstool
 
 
 class TessMgr(QtCore.QObject):
-    def __init__(self):
+    def __init__(self,parent = None):
         QtCore.QObject.__init__(self)
         '''
         initialize
@@ -32,6 +32,7 @@ class TessMgr(QtCore.QObject):
         self.pixImage = None
         self.VERSION = tesstool.VERSION
         
+        self.parent = parent
         
     def setOCRImageSource(self, pixImage):
         # Set PIX structure to tesseract api
@@ -73,7 +74,6 @@ class TessMgr(QtCore.QObject):
         t.start()
     
     def startOCRThread(self,rects):
-        #t = threading.Thread(target=self.getOCRTextTEST, args=(rects,))
         t = threading.Thread(target=self.getOCRText, args=(rects,))
         t.start()
     
@@ -83,10 +83,10 @@ class TessMgr(QtCore.QObject):
                                                  tesstool.turn2Cint(self.PSM))
         
         #API args: (TessBaseAPI* handle, TessPageIteratorLevel level, BOOL text_only, PIXA** pixa, int** blockids)
+        
         boxa = self.tesseract.TessBaseAPIGetComponentImages(self.api,
                                                             tesstool.turn2Cint(self.RIL),
                                                             True, None, None)
-        
         
         if not boxa:
             return
@@ -98,58 +98,30 @@ class TessMgr(QtCore.QObject):
         #print('ROI done!')
     
     
-    def getOCRTextTEST(self,rects):         
+    def getOCRText(self,rects):
         if rects is None:
             return
         
-        ocr_psm = tesstool.PSM_SINGLE_BLOCK
-        ril = tesstool.RIL[self.RIL]
-        if ril == 'RIL_PARA':
-            ocr_psm = tesstool.PSM_SINGLE_BLOCK_VERT_TEXT
-        elif ril == 'RIL_TEXTLINE':
-            ocr_psm = tesstool.PSM_SINGLE_LINE
-        elif ril == 'RIL_WORD':
-            ocr_psm = tesstool.PSM_SINGLE_WORD
-        elif ril == 'RIL_SYMBOL':
-            ocr_psm = tesstool.PSM_SINGLE_CHAR
-         
-        self.tesseract.TessBaseAPISetPageSegMode(self.api, ocr_psm)
-        
-        boxas = []
-        for r in rects:
-                self.tesseract.TessBaseAPISetRectangle(self.api,
-                                                       tesstool.turn2Cint(r[0]),
-                                                       tesstool.turn2Cint(r[1]), 
-                                                       tesstool.turn2Cint(r[2]), 
-                                                       tesstool.turn2Cint(r[3]))
+        '''
+        for every block:
+            get the block pos
+                restore the left-top point
                 
-                # TessBaseAPI* handle, PIXA** pixa, int** blockids
-                boxa = self.tesseract.TessBaseAPIGetTextlines(self.api, None, None)
-                boxas.append(boxa)
-        
-        self.clearAPI()
-        
-        self.emit(QtCore.SIGNAL('OCRTEST'),boxas)
-        print('OCR TEST done!')
-        
-    
-       
-    def getOCRText(self,rects):         
-        if rects is None:
-            return
-        
-        ocr_psm = tesstool.PSM_SINGLE_BLOCK
-        ril = tesstool.RIL[self.RIL]
-        if ril == 'RIL_PARA':
-            ocr_psm = tesstool.PSM_SINGLE_BLOCK
-        elif ril == 'RIL_TEXTLINE':
-            ocr_psm = tesstool.PSM_SINGLE_LINE
-        elif ril == 'RIL_WORD':
-            ocr_psm = tesstool.PSM_SINGLE_WORD
-        elif ril == 'RIL_SYMBOL':
-            ocr_psm = tesstool.PSM_SINGLE_CHAR
-         
-        self.tesseract.TessBaseAPISetPageSegMode(self.api, ocr_psm)
+            analyze with textline
+                get the boxa
+                (tesseract is smart which returns the results with right to left order)
+                
+            turn2rect
+                add the left-top point
+                return the correct rect
+            
+            use the nomoral ocr
+                return the results
+                exclude the \n
+                appand to a list 
+                return the result
+            
+        '''
         
         data = []
         for r in rects:
@@ -159,26 +131,68 @@ class TessMgr(QtCore.QObject):
                                                        tesstool.turn2Cint(r[2]), 
                                                        tesstool.turn2Cint(r[3]))
                 
-                ocr_result = self.tesseract.TessBaseAPIGetUTF8Text(self.api)
-                #text = ocr_result.strip().decode('utf-8')
-                result_text = ctypes.string_at(ocr_result).decode('utf-8').strip()
-                data.append(unicode(result_text))
+                # TessBaseAPI* handle, PIXA** pixa, int** blockids
+                #boxa = self.tesseract.TessBaseAPIGetTextlines(self.api, None, None)
+                
+                self.tesseract.TessBaseAPISetPageSegMode(self.api, 
+                                                         tesstool.turn2Cint(self.PSM))
         
+                #API args: (TessBaseAPI* handle, TessPageIteratorLevel level, BOOL text_only, PIXA** pixa, int** blockids)
+                mode = 2 #['RIL_BLOCK', 'RIL_PARA', 'RIL_TEXTLINE', 'RIL_WORD', 'RIL_SYMBOL']
+                boxa = self.tesseract.TessBaseAPIGetComponentImages(self.api,
+                                                                    tesstool.turn2Cint(mode),
+                                                                    True, None, None)
+                '''
+                boxa2rect
+                add the point
+                '''
+                areas = self.parent.boxa2rect(boxa)
+                
+                for rect in areas:
+                    rect[0] += r[0]
+                    rect[1] += r[1]
+                    
+                text = self.getBlockText(areas) #text is a string list
+                strTmp = ''.join(x for x in text) #convert a list to string                
+                data.append(strTmp)
+                
         self.clearAPI()
-        
         self.emit(QtCore.SIGNAL('UpdateOCR'),data)
-        #print('OCR done!')
-        
+        #print('OCR TEST done!')
     
-    def test(self):
-        '''
-        must call after setRectangle
-        '''
-        # TessBaseAPI* handle, PIXA** pixa, int** blockids
-        boxa = self.tesseract.TessBaseAPIGetTextlines(self.api, None, None)
-        return boxa
-        
     
+    def getBlockText(self,areas):
+        '''
+        import the vertical areas
+        export the horizontal text lines
+        '''
+        
+        ril = tesstool.RIL[self.RIL]
+        if ril == 'RIL_BLOCK':
+            ocr_psm = tesstool.PSM_SINGLE_BLOCK
+        else:
+            ocr_psm = tesstool.PSM_SINGLE_BLOCK_VERT_TEXT
+        
+        self.tesseract.TessBaseAPISetPageSegMode(self.api, ocr_psm)
+        
+        data = []
+        for r in areas:
+                self.tesseract.TessBaseAPISetRectangle(self.api,
+                                                       tesstool.turn2Cint(r[0]),
+                                                       tesstool.turn2Cint(r[1]), 
+                                                       tesstool.turn2Cint(r[2]), 
+                                                       tesstool.turn2Cint(r[3]))
+                
+                ocr_result = self.tesseract.TessBaseAPIGetUTF8Text(self.api)
+                
+                text = unicode(ctypes.string_at(ocr_result).decode('utf-8').strip())
+                textNew = text.replace('\n', '')
+                textNew += '\n'
+                data.append(unicode(textNew))
+        
+        return data
+        
+
 
         
             

@@ -5,7 +5,7 @@ THis is the Main Window file
 @author: jiang
 '''
 __author__ = 'Jiang Yunfei'
-__version__ = '0.3.3'
+__version__ = '0.4.0'
 __date__ = '2015.04'
 
 import sys
@@ -68,7 +68,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
     def initTools(self):
         self.log = LogMgr(self)
         self.file = FileMgr(self)
-        self.tess = TessMgr()
+        self.tess = TessMgr(self)
             
     def initConnection(self):
         self.actionOpen.triggered.connect(self.openFile)
@@ -93,10 +93,12 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         #MultiThread
         self.connect(self.tess, QtCore.SIGNAL('UpdateROI'), self.updateROI)
         self.connect(self.tess, QtCore.SIGNAL('UpdateROI'), self.info.hide)
+        
         self.connect(self.tess, QtCore.SIGNAL('UpdateOCR'), self.updateOCR)
         self.connect(self.tess, QtCore.SIGNAL('UpdateOCR'), self.info.hide)
         
         #self.connect(self.tess, QtCore.SIGNAL('OCRTEST'), self.updateOCRTEST)
+        self.connect(self.tess, QtCore.SIGNAL('OCRTEST'), self.info.hide)
         
         #RubberBand
         self.connect(self.roiview, QtCore.SIGNAL('RubberBand'), self.addROI)
@@ -173,6 +175,11 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.LOG('[ROI] Searching...')
         #show Dialog
         self.showInfo('Tesseract OCR is searching ...        ')
+        
+    def boxa2rect(self,boxa):
+        if boxa:
+            rect = self.file.boxa2rect(boxa)
+            return rect 
     
     def updateROI(self,boxa):
         if boxa:
@@ -201,7 +208,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         if area is None:
             area = [100,100,100,100]
         
-        print(area)    
+        #print(area)    
         self.roiview.addROI(area)
 
         self.__isROI = True
@@ -234,20 +241,6 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         #show Dialog
         self.showInfo('Tesseract OCR is working ...        ')
     
-    
-    def updateOCRTEST(self,boxas):
-        if boxas:
-            tmp = boxas[0]
-            rect = self.file.boxa2rect(tmp)
-            print(rect)
-            self.roiview.setROIs(rect)
-            
-            self.__isOCR = True
-            self.updateUi()
-            
-            self.LOG('[OCR] TEST')
-        else:
-            self.LOG('[OCR] ERROR ->NULL RETURN','red')
        
     def updateOCR(self,text):
         if text:
@@ -269,10 +262,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
                 'text':xxx
                 }
         [2] save data to file 
-        '''
-        if self.__isSaved:
-            return
-        
+        '''        
         #Get text data
         text = self.param.getOutputText()
         
@@ -337,18 +327,21 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
     def exit(self):
         '''
         关闭程序并保存
-        '''        
-        if self.questionMessage('Do you want to Exit ?        '):
-            if self.__isOCR and not self.__isSaved:
-                if self.questionMessage('Do you want to save before exiting ?        '):
-                    self.save()
+        ''' 
+        if self.__isOpen:      
+            if self.questionMessage('Do you want to Exit ?        '):
+                if self.__isOCR and not self.__isSaved:
+                    if self.questionMessage('Do you want to save before exiting ?        '):
+                        self.save()
+                
+                #save settings:
+                data = {}
+                data['DIR'] = self.file.lastDir
+                data['STATE'] = self.param.setting('SAVE')
+                self.file.setting('SAVE', data)
             
-            #save settings:
-            data = {}
-            data['DIR'] = self.file.lastDir
-            data['STATE'] = self.param.setting('SAVE')
-            self.file.setting('SAVE', data)
-            
+                self.close()
+        else:
             self.close()
             
     def restore(self):
