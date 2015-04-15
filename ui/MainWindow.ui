@@ -48,6 +48,8 @@
    <addaction name="actionClear"/>
    <addaction name="separator"/>
    <addaction name="actionLog"/>
+   <addaction name="actionShow"/>
+   <addaction name="separator"/>
    <addaction name="actionExit"/>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -86,6 +88,8 @@
     <addaction name="separator"/>
     <addaction name="actionOCR"/>
     <addaction name="actionClear"/>
+    <addaction name="separator"/>
+    <addaction name="actionShow"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuTask"/>
@@ -269,16 +273,19 @@
     <string>Restore a json file</string>
    </property>
   </action>
-  <action name="actionExitAddROI">
+  <action name="actionShow">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/eixtAdd</normaloff>:/icons/eixtAdd</iconset>
+     <normaloff>:/icons/app</normaloff>:/icons/app</iconset>
    </property>
    <property name="text">
-    <string>ExitAddROI</string>
+    <string>&amp;Show</string>
    </property>
-   <property name="statusTip">
-    <string>Exit ADD Mode</string>
+   <property name="toolTip">
+    <string>Show something</string>
    </property>
   </action>
  </widget>

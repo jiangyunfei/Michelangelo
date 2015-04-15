@@ -124,7 +124,10 @@ class TessMgr(QtCore.QObject):
         '''
         
         data = []
+        pos = []
+        rawText = []
         for r in rects:
+                
                 self.tesseract.TessBaseAPISetRectangle(self.api,
                                                        tesstool.turn2Cint(r[0]),
                                                        tesstool.turn2Cint(r[1]), 
@@ -148,16 +151,30 @@ class TessMgr(QtCore.QObject):
                 '''
                 areas = self.parent.boxa2rect(boxa)
                 
+                textPos= []
                 for rect in areas:
                     rect[0] += r[0]
                     rect[1] += r[1]
+
+                    textPos.append(rect)
                     
                 text = self.getBlockText(areas) #text is a string list
-                strTmp = ''.join(x for x in text) #convert a list to string                
+                rawText.append(text)
+                
+                newText = []
+                for t in text:
+                    tmp = t.replace('\n', '')
+                    tmp += '\n'
+                    newText.append(tmp)
+                
+                strTmp = ''.join(unicode(x) for x in newText) #convert a list to string                
                 data.append(strTmp)
+                
+                pos.append(textPos)
                 
         self.clearAPI()
         self.emit(QtCore.SIGNAL('UpdateOCR'),data)
+        self.emit(QtCore.SIGNAL('SETPARSE'),pos,rawText)
         #print('OCR TEST done!')
     
     
@@ -186,9 +203,7 @@ class TessMgr(QtCore.QObject):
                 ocr_result = self.tesseract.TessBaseAPIGetUTF8Text(self.api)
                 
                 text = unicode(ctypes.string_at(ocr_result).decode('utf-8').strip())
-                textNew = text.replace('\n', '')
-                textNew += '\n'
-                data.append(unicode(textNew))
+                data.append(text)
         
         return data
         

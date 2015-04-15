@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui/MainWindow.ui'
 #
-# Created: Tue Apr 14 16:12:48 2015
+# Created: Wed Apr 15 20:45:46 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -121,11 +121,10 @@ class Ui_MainGUI(object):
         icon11.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/restore")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionRestore.setIcon(icon11)
         self.actionRestore.setObjectName(_fromUtf8("actionRestore"))
-        self.actionExitAddROI = QtGui.QAction(MainGUI)
-        icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/eixtAdd")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.actionExitAddROI.setIcon(icon12)
-        self.actionExitAddROI.setObjectName(_fromUtf8("actionExitAddROI"))
+        self.actionShow = QtGui.QAction(MainGUI)
+        self.actionShow.setEnabled(False)
+        self.actionShow.setIcon(icon)
+        self.actionShow.setObjectName(_fromUtf8("actionShow"))
         self.toolBar.addAction(self.actionOpen)
         self.toolBar.addAction(self.actionRestore)
         self.toolBar.addAction(self.actionSave)
@@ -137,6 +136,8 @@ class Ui_MainGUI(object):
         self.toolBar.addAction(self.actionClear)
         self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionLog)
+        self.toolBar.addAction(self.actionShow)
+        self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionExit)
         self.menuAbout.addAction(self.actionHelp)
         self.menuAbout.addAction(self.actionLog)
@@ -151,6 +152,8 @@ class Ui_MainGUI(object):
         self.menuTask.addSeparator()
         self.menuTask.addAction(self.actionOCR)
         self.menuTask.addAction(self.actionClear)
+        self.menuTask.addSeparator()
+        self.menuTask.addAction(self.actionShow)
         self.menuBar.addAction(self.menuFile.menuAction())
         self.menuBar.addAction(self.menuTask.menuAction())
         self.menuBar.addAction(self.menuAbout.menuAction())
@@ -190,7 +193,7 @@ class Ui_MainGUI(object):
         self.actionClear.setStatusTip(_translate("MainGUI", "Clear and reset", None))
         self.actionRestore.setText(_translate("MainGUI", "&Restore", None))
         self.actionRestore.setStatusTip(_translate("MainGUI", "Restore a json file", None))
-        self.actionExitAddROI.setText(_translate("MainGUI", "ExitAddROI", None))
-        self.actionExitAddROI.setStatusTip(_translate("MainGUI", "Exit ADD Mode", None))
+        self.actionShow.setText(_translate("MainGUI", "&Show", None))
+        self.actionShow.setToolTip(_translate("MainGUI", "Show something", None))
 
 import resources_rc

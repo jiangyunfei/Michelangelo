@@ -80,11 +80,9 @@ class ROIView(QtCore.QObject):
                 self.addROI(r)
             
             
-    def addROI(self,r,TAG=None):
-        posx = r[0]
-        posy = r[1]
-        w= r[2]
-        h=r[3]
+    def addROI(self,pos,TAG=None):
+        posx,posy,w,h = pos
+
         
         if self.index < 10:
             numStr = '0'+ str(self.index)
@@ -123,6 +121,7 @@ class ROIView(QtCore.QObject):
         #ADD
         self.posDict[tag]=[posx,posy,w,h]
         self.ROIs[tag]=roi
+    
     
         
     def clearROIs(self):
@@ -174,7 +173,6 @@ class ROIView(QtCore.QObject):
             #print(tag +'-> is removed! ')
         
         
-       
     def getPosDict(self):
         if self.posDict is None:
             return

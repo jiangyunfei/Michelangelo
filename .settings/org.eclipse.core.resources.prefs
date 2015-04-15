@@ -1,11 +1,11 @@
 eclipse.preferences.version=1
 encoding//libs/lepttool.py=utf-8
-encoding//libs/settings.py=utf-8
 encoding//libs/tesstool.py=utf-8
 encoding//main/file.py=utf-8
 encoding//main/log.py=utf-8
 encoding//main/maingui.py=utf-8
 encoding//main/param.py=utf-8
+encoding//main/parse.py=utf-8
 encoding//main/roiview.py=utf-8
 encoding//main/tess.py=utf-8
 encoding//ui/resources_rc.py=utf-8

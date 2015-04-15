@@ -18,6 +18,7 @@ from main.file import FileMgr
 from main.log import LogMgr
 from main.roiview import ROIView
 from main.param import Param 
+from main.parse import ParseMgr
 
 
 class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
@@ -69,6 +70,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.log = LogMgr(self)
         self.file = FileMgr(self)
         self.tess = TessMgr(self)
+        self.parse = ParseMgr(self)
             
     def initConnection(self):
         self.actionOpen.triggered.connect(self.openFile)
@@ -85,6 +87,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.actionHelp.triggered.connect(self.help)
         self.actionRestore.triggered.connect(self.restore)
         self.actionLog.triggered.connect(self.log.showLogs)
+        self.actionShow.triggered.connect(self.parse.showResults)
         
         #self.connect(self.param, QtCore.SIGNAL('SaveClicked'),self.save)
         #请使用修正后的ViewBox.py, ParameterTree文件
@@ -102,6 +105,9 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         
         #RubberBand
         self.connect(self.roiview, QtCore.SIGNAL('RubberBand'), self.addROI)
+        
+        #Parse
+        self.connect(self.tess, QtCore.SIGNAL('SETPARSE'), self.parse.drawData)
 
         
     def updateUi(self):
@@ -112,6 +118,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             self.actionClear.setEnabled(False)
             self.actionOCR.setEnabled(False)
             self.actionSave.setEnabled(False)
+            self.actionShow.setEnabled(False)
         
         if self.__isOpen:
             self.actionAnalyze.setEnabled(True)
@@ -126,6 +133,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             self.actionAddROI.setEnabled(False)
             self.actionClear.setEnabled(True)
             self.actionSave.setEnabled(True)
+            self.actionShow.setEnabled(True)
             
     #Actions
     def openFile(self, restore=False):
@@ -143,6 +151,8 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             #set image            
             self.roiview.setIamge(roi_image)
             self.tess.setOCRImageSource(pix_image)
+            
+            self.parse.setImage(roi_image)
             
             self.setWindowTitle('Michelangelo - '+imgDir)
             self.outputData['IMG'] = str(imgDir)
@@ -232,6 +242,10 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             iRect = [int(float(x)+0.5) for x in value] #truncate the numbers:FLoat to Int
             rlist.append(iRect)
         
+        
+        #set blocks
+        self.parse.setBlocks(rlist, index)
+        
         self.index = index
         self.setupOCR()
         self.tess.startOCRThread(rlist)
@@ -240,6 +254,8 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         
         #show Dialog
         self.showInfo('Tesseract OCR is working ...        ')
+        
+        
     
        
     def updateOCR(self,text):
@@ -304,6 +320,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         if self.actionAddROI.isChecked():
             self.actionAddROI.setCheckable(False)
             self.addROIMode()
+
         
         self.__isClear = True
         self.updateUi()
@@ -318,7 +335,8 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         info = '''<h1>Michelangelo&trade;</h1>
                 <h4>Version: %s (%s)</h4>
                 <p>Copyright &copy;<a href="mailto:jiangyunfei93@bupt.edu.cn">%s</a>. All rights reserved.</p>
-                <p>Python %s - PyQt %s - on %s</p>''' \
+                <p>Python %s - PyQt %s - on %s</p>
+                <p><a href="https://github.com/jiangyunfei/Michelangelo/blob/master/LICENSE">Apache License, Version 2.0</a></p>''' \
                 % (__version__, __date__, __author__,platform.python_version(),
                 QtCore.PYQT_VERSION_STR, platform.system())
                 
@@ -394,6 +412,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
                 msg = '<span style="color:%s"> %s </span>'%(color, message)
             
             self.log.writeLog(msg)
+            
         
     #Dialogs:
     def showInfo(self,MESSAGE):
