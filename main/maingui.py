@@ -5,7 +5,7 @@ THis is the Main Window file
 @author: jiang
 '''
 __author__ = 'Jiang Yunfei'
-__version__ = '0.5.0'
+__version__ = '0.5.1'
 __date__ = '2015.04'
 
 import sys
@@ -47,7 +47,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             self.param.setting('LOAD', data['STATE'])
             
             
-        self.resize(1000, 650)
+        self.resize(980, 650)
         self.setWindowTitle('Michelangelo')
         
         if self.tess.VERSION: 
@@ -453,38 +453,11 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         text = self.param.getOutputText()
         innerPos = self.outputData['innerPos']
                 
-        #process the text to fill the FORMAT
-        
-        for i in range(len(text)):
-            tmp = text[i]
-            tmp = tmp.rstrip('\n') #here, there should be no '\n' in the end
-            innerList = tmp.splitlines(True)
-            
-            # if the oritention is vertical need add the '\n'
-            for j in range(len(innerList)):
-                line = innerList[j]
-                if ori == 'Vertical':
-                    line = line.replace('','\n')
-                    
-                line = line.strip('\n') #remove the \n in the end
-                innerList[j] = line
-            
-            text[i] = innerList
-  
 
         self.parse = ParseMgr(self)
-        self.parse.setImage(roi_image)
-        self.parse.setBlocks(posList, self.index)
-        self.parse.setText(text,innerPos)
-        
+        self.parse.initParse(roi_image, posList, self.index, innerPos, text, ori)
         self.parse.show()
         
-        '''
-        Remain：
-        [1] Oritention Option -DONE
-        [2] Image Process
-        '''
-
         
     #Dialogs:
     def showInfo(self,MESSAGE):

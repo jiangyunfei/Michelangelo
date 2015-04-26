@@ -22,13 +22,46 @@ class ParseMgr(QtGui.QDialog):
         self.pgView.setBackground(QtGui.QColor(127,127,127))      # Transparent background outside of the image
         self.pgView.setCentralWidget(self.vb)    # Autoscale the image when the window is rescaled
         
+        btn = QtGui.QPushButton('CLOSE')
+        btn.clicked.connect(self.close)
+        
         ly = QtGui.QVBoxLayout()
         ly.addWidget(self.pgView)
+        ly.addWidget(btn)
         self.setLayout(ly)
         
-        self.resize(600, 500)
+        self.resize(580, 600)
         self.setWindowTitle('Parse')
         self.image = None
+    
+    
+    def initParse(self, image, blockList, index, innerPos, text, ori):
+        self.setImage(image)
+        self.setBlocks(blockList, index)
+        formatText = self.formatText(text, ori)
+        self.setText(innerPos, formatText)
+    
+    
+    def formatText(self,text, ori):
+        #process the text to fill the FORMAT
+        fText = []
+        for i in range(len(text)):
+            tmp = text[i]
+            tmp = tmp.rstrip('\n') #here, there should be no '\n' in the end
+            innerList = tmp.splitlines(True)
+            
+            # if the oritention is vertical need add the '\n'
+            for j in range(len(innerList)):
+                line = innerList[j]
+                if ori == 'Vertical':
+                    line = line.replace('','\n')
+                    
+                line = line.strip('\n') #remove the \n in the end
+                innerList[j] = line
+            
+            fText.append(innerList)
+        
+        return fText
      
         
     def setImage(self, image):
@@ -77,10 +110,8 @@ class ParseMgr(QtGui.QDialog):
         self.vb.addItem(rectItem)
         self.vb.addItem(textItem)
     
-    def processIMG(self,img,pos):
-        pass
         
-    def setText(self,text,pos):
+    def setText(self,pos,text):
         '''
         text: list [[...],[...],...]
         pos:lsit[[...],[...],...]

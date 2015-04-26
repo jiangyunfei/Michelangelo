@@ -174,10 +174,7 @@ class ROIView(QtCore.QObject):
         
         
     def getPosDict(self):
-        if self.posDict is None:
-            return
-
-        return self.posDict 
+        return self.posDict.copy() 
         
     
     def setRubberBandMode(self, flag):
