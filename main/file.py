@@ -95,6 +95,9 @@ class FileMgr:
         if data is None:
             return
         
+        #pop the useless innerPos
+        data.pop('innerPos')
+        
         TYPE = 'json'
         if self.lastDir[TYPE] is None:
             self.lastDir[TYPE] = self.dafultDir[TYPE]

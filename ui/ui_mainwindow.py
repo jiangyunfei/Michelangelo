@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui/MainWindow.ui'
 #
-# Created: Wed Apr 15 20:45:46 2015
+# Created: Sun Apr 26 09:35:37 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -135,7 +135,6 @@ class Ui_MainGUI(object):
         self.toolBar.addAction(self.actionOCR)
         self.toolBar.addAction(self.actionClear)
         self.toolBar.addSeparator()
-        self.toolBar.addAction(self.actionLog)
         self.toolBar.addAction(self.actionShow)
         self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionExit)
@@ -193,7 +192,8 @@ class Ui_MainGUI(object):
         self.actionClear.setStatusTip(_translate("MainGUI", "Clear and reset", None))
         self.actionRestore.setText(_translate("MainGUI", "&Restore", None))
         self.actionRestore.setStatusTip(_translate("MainGUI", "Restore a json file", None))
-        self.actionShow.setText(_translate("MainGUI", "&Show", None))
-        self.actionShow.setToolTip(_translate("MainGUI", "Show something", None))
+        self.actionShow.setText(_translate("MainGUI", "&Parse", None))
+        self.actionShow.setToolTip(_translate("MainGUI", "Parse the position", None))
+        self.actionShow.setStatusTip(_translate("MainGUI", "Parse the position", None))
 
 import resources_rc

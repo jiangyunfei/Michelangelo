@@ -34,9 +34,11 @@ class TessMgr(QtCore.QObject):
         
         self.parent = parent
         
+        
     def setOCRImageSource(self, pixImage):
         # Set PIX structure to tesseract api
         self.pixImage = pixImage      
+        
         
     def initTess(self,ops):
         
@@ -61,7 +63,7 @@ class TessMgr(QtCore.QObject):
         
 
         #print('Tess Ready!')
-        
+        self.innerPos = None
         
     def clearAPI(self):
         #Clear
@@ -123,7 +125,7 @@ class TessMgr(QtCore.QObject):
             
         '''
         
-        data = []
+        text = []
         pos = []
         rawText = []
         for r in rects:
@@ -158,25 +160,25 @@ class TessMgr(QtCore.QObject):
 
                     textPos.append(rect)
                     
-                text = self.getBlockText(areas) #text is a string list
-                rawText.append(text)
+                blockText = self.getBlockText(areas) #blockText is a string list
+                rawText.append(blockText)
                 
                 newText = []
-                for t in text:
+                for t in blockText:
                     tmp = t.replace('\n', '')
                     tmp += '\n'
                     newText.append(tmp)
                 
                 strTmp = ''.join(unicode(x) for x in newText) #convert a list to string                
-                data.append(strTmp)
+                text.append(strTmp)
                 
                 pos.append(textPos)
                 
         self.clearAPI()
-        self.emit(QtCore.SIGNAL('UpdateOCR'),data)
-        self.emit(QtCore.SIGNAL('SETPARSE'),pos,rawText)
+        self.emit(QtCore.SIGNAL('UpdateOCR'),text,pos)
+        #self.emit(QtCore.SIGNAL('SETPARSE'),pos,rawText)
         #print('OCR TEST done!')
-    
+        self.innerPos = pos
     
     def getBlockText(self,areas):
         '''
@@ -207,7 +209,6 @@ class TessMgr(QtCore.QObject):
         
         return data
         
-
 
         
             

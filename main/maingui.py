@@ -5,7 +5,7 @@ THis is the Main Window file
 @author: jiang
 '''
 __author__ = 'Jiang Yunfei'
-__version__ = '0.4.0'
+__version__ = '0.5.0'
 __date__ = '2015.04'
 
 import sys
@@ -46,7 +46,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             self.file.setLastDir(data['DIR'])
             self.param.setting('LOAD', data['STATE'])
             
-        
+            
         self.resize(1000, 650)
         self.setWindowTitle('Michelangelo')
         
@@ -70,7 +70,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.log = LogMgr(self)
         self.file = FileMgr(self)
         self.tess = TessMgr(self)
-        self.parse = ParseMgr(self)
+        #self.parse = ParseMgr(self)
             
     def initConnection(self):
         self.actionOpen.triggered.connect(self.openFile)
@@ -87,7 +87,8 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.actionHelp.triggered.connect(self.help)
         self.actionRestore.triggered.connect(self.restore)
         self.actionLog.triggered.connect(self.log.showLogs)
-        self.actionShow.triggered.connect(self.parse.showResults)
+        #self.actionShow.triggered.connect(self.parse.show)
+        self.actionShow.triggered.connect(self.parseJSON)
         
         #self.connect(self.param, QtCore.SIGNAL('SaveClicked'),self.save)
         #请使用修正后的ViewBox.py, ParameterTree文件
@@ -101,13 +102,13 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.connect(self.tess, QtCore.SIGNAL('UpdateOCR'), self.info.hide)
         
         #self.connect(self.tess, QtCore.SIGNAL('OCRTEST'), self.updateOCRTEST)
-        self.connect(self.tess, QtCore.SIGNAL('OCRTEST'), self.info.hide)
+        #self.connect(self.tess, QtCore.SIGNAL('OCRTEST'), self.info.hide)
         
         #RubberBand
         self.connect(self.roiview, QtCore.SIGNAL('RubberBand'), self.addROI)
         
         #Parse
-        self.connect(self.tess, QtCore.SIGNAL('SETPARSE'), self.parse.drawData)
+        #self.connect(self.tess, QtCore.SIGNAL('SETPARSE'), self.parse.drawData)
 
         
     def updateUi(self):
@@ -152,7 +153,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             self.roiview.setIamge(roi_image)
             self.tess.setOCRImageSource(pix_image)
             
-            self.parse.setImage(roi_image)
+            #self.parse.setImage(roi_image)
             
             self.setWindowTitle('Michelangelo - '+imgDir)
             self.outputData['IMG'] = str(imgDir)
@@ -185,11 +186,13 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.LOG('[ROI] Searching...')
         #show Dialog
         self.showInfo('Tesseract OCR is searching ...        ')
+    
         
     def boxa2rect(self,boxa):
         if boxa:
             rect = self.file.boxa2rect(boxa)
             return rect 
+    
     
     def updateROI(self,boxa):
         if boxa:
@@ -210,11 +213,9 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         else:
             self.roiview.setRubberBandMode(False)
             self.updateUi()
-        
+            
+   
     def addROI(self,area = None):
-        '''
-        增加ROI区域
-        '''
         if area is None:
             area = [100,100,100,100]
         
@@ -222,6 +223,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.roiview.addROI(area)
 
         self.__isROI = True
+
         
     def ocr(self):
         '''
@@ -244,7 +246,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         
         
         #set blocks
-        self.parse.setBlocks(rlist, index)
+        #self.parse.setBlocks(rlist, index)
         
         self.index = index
         self.setupOCR()
@@ -256,18 +258,20 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         self.showInfo('Tesseract OCR is working ...        ')
         
         
-    
-       
-    def updateOCR(self,text):
+    def updateOCR(self,text,innerPos):
         if text:
             self.param.setResult(text, self.index)
                         
             self.__isOCR = True
             self.updateUi()
             
+            #store the pos:
+            self.outputData['innerPos'] = innerPos
+            
             self.LOG('[OCR] Set Results!')
         else:
             self.LOG('[OCR] ERROR ->NULL RETURN','red')
+            
             
     def save(self):
         '''
@@ -284,6 +288,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         
         #Get position data
         pos = self.roiview.getPosDict()
+        innerPos = self.outputData.get('innerPos')
         
         if not (len(self.index) == len(text) and len(text)==len(pos)):
             self.LOG('[ERROR] The length of Index and Data is not equal', 'red')
@@ -291,11 +296,12 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
 
         for i in range(len(self.index)):
             info={}
-            info['pos']=pos[self.index[i]]
+            info['pos']=pos[self.index[i]] #pos is a dict
+            info['innerPos']=innerPos[i]
             info['text']=text[i]
             self.outputData[self.index[i]] = info 
-
-        msg = self.file.saveFile(self.outputData, self.param.getFormat())
+        
+        msg = self.file.saveFile(self.outputData.copy(), self.param.getFormat())
         
         if msg:
             self.LOG('SAVE FILE -> '+ msg)
@@ -362,6 +368,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
         else:
             self.close()
             
+            
     def restore(self):
         '''
         Restore:
@@ -386,6 +393,7 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
             self.index = []
             text = []
             pos = []
+            innerPos = []
             for key in keys:
                 if key == 'IMG':
                     continue
@@ -393,13 +401,15 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
                 text.append(item['text'])
                 pos.append(item['pos'])
                 self.index.append(key)
+                
+                innerPos.append(item['innerPos'])
             
             self.roiview.setROIs(pos, self.index)
+
             self.__isROI = True
-            self.updateOCR(text)
+            self.updateOCR(text,innerPos)
             
             
-        
     def LOG(self,message,color=None):
         '''
         write logs and update the statusBar
@@ -412,7 +422,69 @@ class Michelangelo(QtGui.QMainWindow, Ui_MainGUI):
                 msg = '<span style="color:%s"> %s </span>'%(color, message)
             
             self.log.writeLog(msg)
+    
+    
+    def parseJSON(self):
+        
+        #pop the choose dialog:
+        clist = QtCore.QStringList()
+        clist <<'Horizontal'<<'Vertical'
+        ori, re = QtGui.QInputDialog.getItem(self, 'Confirm Arguments', 
+                                                'Select the Orientation of the text:        ', 
+                                                clist, 0, False)
+        if not re:
+            return
+                
+        '''
+        the img
+        the pos and index
+        the innerPos
+        the text
+        '''
+        #img
+        imgDir = self.outputData['IMG']
+        roi_image = self.file.getImage(imgDir,'ROI')
+        
+        #block
+        posDict = self.roiview.getPosDict()
+        posList = [posDict[i] for i in self.index] #transfer to list
+        
+        #text and pivot
+        text = self.param.getOutputText()
+        innerPos = self.outputData['innerPos']
+                
+        #process the text to fill the FORMAT
+        
+        for i in range(len(text)):
+            tmp = text[i]
+            tmp = tmp.rstrip('\n') #here, there should be no '\n' in the end
+            innerList = tmp.splitlines(True)
             
+            # if the oritention is vertical need add the '\n'
+            for j in range(len(innerList)):
+                line = innerList[j]
+                if ori == 'Vertical':
+                    line = line.replace('','\n')
+                    
+                line = line.strip('\n') #remove the \n in the end
+                innerList[j] = line
+            
+            text[i] = innerList
+  
+
+        self.parse = ParseMgr(self)
+        self.parse.setImage(roi_image)
+        self.parse.setBlocks(posList, self.index)
+        self.parse.setText(text,innerPos)
+        
+        self.parse.show()
+        
+        '''
+        Remain：
+        [1] Oritention Option -DONE
+        [2] Image Process
+        '''
+
         
     #Dialogs:
     def showInfo(self,MESSAGE):

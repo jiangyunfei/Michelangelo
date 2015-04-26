@@ -163,7 +163,8 @@ class Param(QtCore.QObject):
         return self.FORMAT[format.value()]
     
     def getOutputText(self):
-        return self.textList
+        textList = self.textList[:]
+        return textList
     
     def setting(self,action, data = None):
         if action == 'LOAD':

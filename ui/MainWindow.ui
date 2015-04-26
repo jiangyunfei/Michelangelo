@@ -47,7 +47,6 @@
    <addaction name="actionOCR"/>
    <addaction name="actionClear"/>
    <addaction name="separator"/>
-   <addaction name="actionLog"/>
    <addaction name="actionShow"/>
    <addaction name="separator"/>
    <addaction name="actionExit"/>
@@ -282,10 +281,13 @@
      <normaloff>:/icons/app</normaloff>:/icons/app</iconset>
    </property>
    <property name="text">
-    <string>&amp;Show</string>
+    <string>&amp;Parse</string>
    </property>
    <property name="toolTip">
-    <string>Show something</string>
+    <string>Parse the position</string>
+   </property>
+   <property name="statusTip">
+    <string>Parse the position</string>
    </property>
   </action>
  </widget>
